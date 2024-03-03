@@ -6,6 +6,7 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'selector',
   theme: {
     extend: {
       backgroundImage: {
@@ -14,7 +15,11 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        primary: '',
+        primary: '#C8EDFD',
+        white: '#FFF',
+        lightGary: '#F2F2F2',
+        black: '#161616',
+        darkGray: '#2C2C2C',
       },
     },
   },
