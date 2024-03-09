@@ -1,14 +1,14 @@
 'use client';
 import {useEffect, useState} from "react";
-import darkModeToggleStyle from "@/app/_component/darkModeToggle.style";
+import darkModeToggleStyle from "@/app/_component/header/darkModeToggle.style";
 
 export default function DarkModeToggle() {
-    const root = document.querySelector('html');
     const [darkMode, setDarkMode] = useState<boolean>(false);
     const {container, base, ball, input} = darkModeToggleStyle({mode: darkMode ? 'dark' : 'light'});
 
 
     useEffect(() => {
+        const root = document.querySelector('html');
         if (!root) {
             return;
         }
@@ -16,9 +16,10 @@ export default function DarkModeToggle() {
         if (root && !root.className.includes('dark') && localStorage.getItem("darkMode") === 'true') {
             toggleColorMode(false)
         }
-    }, [root]);
+    }, []);
 
     const toggleColorMode = (isDarkMode: boolean) => {
+        const root = document.querySelector('html');
         if (!root) {
             return;
         }

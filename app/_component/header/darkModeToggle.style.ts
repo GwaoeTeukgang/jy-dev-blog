@@ -9,9 +9,11 @@ export default tv({
         base: [
             'block',
             'w-8',
+            'max-sm:w-4',
             'h-4',
+            'max-sm:h-2',
             'rounded-full',
-            'bg-lightGary',
+            'bg-lightGray',
             'border-3 border-black',
             'relative'
         ],

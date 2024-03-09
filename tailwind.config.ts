@@ -17,8 +17,8 @@ const config: Config = {
             colors: {
                 primary: '#C8EDFD',
                 white: '#FFF',
-                lightGary: '#F2F2F2',
-                black: '#161616',
+                lightGray: '#D0D0D0',
+                black: '#030303',
                 darkGray: '#2C2C2C',
             },
             keyframes: {
@@ -29,10 +29,22 @@ const config: Config = {
                     '100%': {
                         width: '100%'
                     },
-                }
+                },
+                'draw-from-top': {
+                    '0%': {
+                        height: '0'
+                    },
+                    '100%': {
+                        height: '100%'
+                    },
+                },
             },
             animation: {
                 'draw-from-left': 'draw-from-left 0.1s ease-in-out',
+                'draw-from-top': 'draw-from-top 0.3s ease-in-out',
+            },
+            screens: {
+                sm: '700px'
             }
         },
     },

@@ -8,27 +8,27 @@
 
 }
 
-body {
-    font-family: LeferiPoint-WhiteObliqueA, sans-serif;
-    font-weight:200;
-}
+@layer base {
+    @font-face {
+        font-family: 'LeferiPoint-WhiteObliqueA';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
 
+    @font-face {
+        font-family: 'LeferiPoint-BlackObliqueA';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackObliqueA.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
 
-.header-text {
-    font-family: LeferiPoint-BlackObliqueA, sans-serif;
-    font-weight: 700;
-}
+    header {
+        font-family: LeferiPoint-BlackObliqueA, sans-serif;
+        font-weight: 700;
+    }
 
-@font-face {
-    font-family: 'LeferiPoint-WhiteObliqueA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'LeferiPoint-BlackObliqueA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackObliqueA.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+    body {
+        font-family: LeferiPoint-WhiteObliqueA, sans-serif;
+    }
 }
