@@ -1,40 +1,38 @@
-import {useEffect, useState} from 'react'
-
+import { useEffect, useState } from 'react';
 
 export function useMediaQuery(query: string): boolean {
-    const [matches, setMatches] = useState<boolean>(getMatches(query))
+  const [matches, setMatches] = useState<boolean>(getMatches(query));
 
+  function getMatches(query: string): boolean {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia(query).matches;
+    }
+    return false;
+  }
 
-    function getMatches(query: string): boolean {
-        if (typeof window !== 'undefined') {
-            return window.matchMedia(query).matches
-        }
-        return false
+  function handleChange() {
+    setMatches(getMatches(query));
+  }
+
+  useEffect(() => {
+    const matchMedia = window.matchMedia(query);
+
+    handleChange();
+
+    if (matchMedia.addListener) {
+      matchMedia.addListener(handleChange);
+    } else {
+      matchMedia.addEventListener('change', handleChange);
     }
 
-    function handleChange() {
-        setMatches(getMatches(query))
-    }
+    return () => {
+      if (matchMedia.removeListener) {
+        matchMedia.removeListener(handleChange);
+      } else {
+        matchMedia.removeEventListener('change', handleChange);
+      }
+    };
+  }, [query]);
 
-    useEffect(() => {
-        const matchMedia = window.matchMedia(query)
-
-        handleChange()
-
-        if (matchMedia.addListener) {
-            matchMedia.addListener(handleChange)
-        } else {
-            matchMedia.addEventListener('change', handleChange)
-        }
-
-        return () => {
-            if (matchMedia.removeListener) {
-                matchMedia.removeListener(handleChange)
-            } else {
-                matchMedia.removeEventListener('change', handleChange)
-            }
-        }
-    }, [query])
-
-    return matches
+  return matches;
 }
