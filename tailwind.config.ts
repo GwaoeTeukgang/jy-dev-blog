@@ -41,7 +41,7 @@ const config: Config = {
       },
       animation: {
         'draw-from-left': 'draw-from-left 0.1s ease-in-out',
-        'draw-from-top': 'draw-from-top 0.3s ease-in-out',
+        'draw-from-top': 'draw-from-top 0.3s ease-in',
       },
       screens: {
         sm: '700px',

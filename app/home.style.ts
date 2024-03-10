@@ -3,7 +3,6 @@ import { tv } from 'tailwind-variants';
 export const homeLayoutContainer = tv({
   base: [
     'w-dvw',
-    'h-dvh',
     'flex',
     'flex-col',
     'bg-white',
@@ -21,14 +20,13 @@ export const homeContainer = tv({
 export default tv({
   slots: {
     container: ['flex-1', 'mt-20'],
-    location: ['text-xl'],
     intro: ['mt-10', 'h-28', 'flex', 'gap-2', 'mb-6'],
     introLeft: ['h-full', 'text-2xl', 'font-black', 'basis-2/3'],
     introRight: ['mt-auto', 'text-xl', 'basis-1/3'],
     homeImage: [
       'object-cover',
       'w-full',
-      'h-[720px]',
+      'h-[55dvh]',
       'rounded-lg',
       'shadow-xl',
     ],
