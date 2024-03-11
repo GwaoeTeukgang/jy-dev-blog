@@ -5,7 +5,7 @@ export default tv({
         container: [
             'w-full',
             'mt-20',
-            'mb-10'
+            'mb-10',
         ],
         stackWrapper: [
             'w-full',
@@ -16,15 +16,30 @@ export default tv({
         skillStack: [
             'flex-1',
             'border',
-            'p-4'
+            'p-4',
+            'bg-white',
+            'dark:bg-black',
+            'shadow-white',
+            'rounded-xl'
         ],
         stackTitle: [
             'mb-5',
             'text-lg',
             'font-black'
         ],
-        skillItem: [
-
-        ]
+        skillItem: []
+    },
+    variants: {
+        level: {
+            experience: {
+                skillStack: [ 'drop-shadow-md', 'border-0']
+            },
+            knowledgeable: {
+                skillStack: ['drop-shadow-lg']
+            },
+            strong: {
+                skillStack: ['drop-shadow-xl', 'border-2']
+            },
+        }
     }
 })
