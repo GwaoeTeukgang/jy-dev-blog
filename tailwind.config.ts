@@ -15,7 +15,7 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        primary: '#C8EDFD',
+        primary: '#FFD6D9',
         white: '#FFF',
         lightGray: '#D0D0D0',
         black: '#030303',
@@ -41,7 +41,7 @@ const config: Config = {
       },
       animation: {
         'draw-from-left': 'draw-from-left 0.1s ease-in-out',
-        'draw-from-top': 'draw-from-top 0.3s ease-in',
+        'draw-from-top': 'draw-from-top 0.3s ease',
       },
       screens: {
         sm: '700px',

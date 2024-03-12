@@ -10,16 +10,18 @@ export default tv({
         stackWrapper: [
             'w-full',
             'flex',
+            'max-sm:flex-col',
             'gap-4',
             'mt-5'
         ],
         skillStack: [
             'flex-1',
             'border',
+            'border-primary',
             'p-4',
             'bg-white',
             'dark:bg-black',
-            'shadow-white',
+            'shadow-primary',
             'rounded-xl'
         ],
         stackTitle: [
@@ -27,18 +29,21 @@ export default tv({
             'text-lg',
             'font-black'
         ],
-        skillItem: []
+        skillItem: [
+            'flex',
+            'text-left'
+        ]
     },
     variants: {
         level: {
             experience: {
-                skillStack: [ 'drop-shadow-md', 'border-0']
+                skillStack: [ 'shadow-sm']
             },
             knowledgeable: {
-                skillStack: ['drop-shadow-lg']
+                skillStack: ['shadow-md']
             },
             strong: {
-                skillStack: ['drop-shadow-xl', 'border-2']
+                skillStack: ['shadow-lg', 'border-2']
             },
         }
     }
