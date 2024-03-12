@@ -1,41 +1,43 @@
 import expertiseStyle from "@/app/_component/expertise/expertise.style";
 import SkillStack from "@/app/_component/expertise/SkillStack";
+import graphql from "@/lib/graphql";
+import {gql} from "graphql-request";
+import {Skill} from "@/app/_model/expertise";
 
+export const getSkillStacks = async () => {
+    const {skillStacks} = await graphql.request<Skill>(
+        gql`
+            query MyQuery {
+              skillStacks {
+                level
+                skillName
+                skillIcon {
+                  fileName
+                  url
+                }
+              }
+            }
+        `
+    );
 
-const skill = {
-    strong: [
-        {
-            url: '',
-            skill: 'JavaScript'
-        },
-        {
-            url: '',
-            skill: 'TypeScript'
-        },
-        {
-            url: '',
-            skill: 'React'
-        },
-        {
-            url: '',
-            skill: 'Next'
-        },
-        {
-            url: '',
-            skill: 'Git'
-        },
-    ],
-    knowledgeable: [],
-    experience: [],
+    return skillStacks;
 }
-export default function Expertise() {
+export default async function Expertise() {
     const {container, stackWrapper} = expertiseStyle();
+    const skillStacks = await getSkillStacks();
+
+    console.log(skillStacks)
+
+    const strongSkills = skillStacks.filter(skill => skill.level === "STRONG");
+    const knowledgeableSkills = skillStacks.filter(skill => skill.level === "KNOWLEDGEABLE");
+    const experienceSkills = skillStacks.filter(skill => skill.level === "EXPERIENCE");
+
     return <section className={container()}>
         <strong className={'text-xl'}>{'// My expertise'}</strong>
         <div className={stackWrapper()}>
-            <SkillStack title={'strong'} skills={skill.strong}/>
-            <SkillStack title={'knowledgeable'} skills={skill.knowledgeable}/>
-            <SkillStack title={'experience'} skills={skill.experience}/>
+            <SkillStack title={'STRONG'} skills={strongSkills}/>
+            <SkillStack title={'KNOWLEDGEABLE'} skills={knowledgeableSkills}/>
+            <SkillStack title={'EXPERIENCE'} skills={experienceSkills}/>
         </div>
     </section>
 }

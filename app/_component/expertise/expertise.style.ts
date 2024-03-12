@@ -29,20 +29,27 @@ export default tv({
             'text-lg',
             'font-black'
         ],
+        stack: [
+            'flex',
+            'flex-col',
+            'gap-2',
+            'pt-4'
+        ],
         skillItem: [
             'flex',
-            'text-left'
+            'gap-2',
+            'items-center'
         ]
     },
     variants: {
         level: {
-            experience: {
+            EXPERIENCE: {
                 skillStack: [ 'shadow-sm']
             },
-            knowledgeable: {
+            KNOWLEDGEABLE: {
                 skillStack: ['shadow-md']
             },
-            strong: {
+            STRONG: {
                 skillStack: ['shadow-lg', 'border-2']
             },
         }
