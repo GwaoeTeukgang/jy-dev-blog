@@ -26,8 +26,6 @@ export default async function Expertise() {
     const {container, stackWrapper} = expertiseStyle();
     const skillStacks = await getSkillStacks();
 
-    console.log(skillStacks)
-
     const strongSkills = skillStacks.filter(skill => skill.level === "STRONG");
     const knowledgeableSkills = skillStacks.filter(skill => skill.level === "KNOWLEDGEABLE");
     const experienceSkills = skillStacks.filter(skill => skill.level === "EXPERIENCE");
