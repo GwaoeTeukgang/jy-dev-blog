@@ -27,7 +27,10 @@ export default function Home() {
                     connect with me
                 </p>
             </div>
-            <Image className={homeImage()} src={PinkDesk}
+            <Image className={homeImage()}
+                   src={PinkDesk.src}
+                   width={1360}
+                   height={510}
                    alt={'desktop image from https://pixabay.com/ko/users/lum3n-1066559/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2303851'}/>
             <Expertise/>
             <hr/>

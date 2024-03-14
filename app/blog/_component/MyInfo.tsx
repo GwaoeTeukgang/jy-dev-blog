@@ -8,12 +8,13 @@ export default function MyInfo() {
         <div className={backgroundImageWrapper()}>
             <Image src={backgroundImg.src}
                    alt={''}
-                   width={1000}
-                   height={100}
+                   width={1360}
+                   height={320}
                    className={backgroundImage()}
             />
         </div>
         <Image src={''} alt={''} className={userImage()}/>
         <h3>이지윤</h3>
+
     </div>
 }
