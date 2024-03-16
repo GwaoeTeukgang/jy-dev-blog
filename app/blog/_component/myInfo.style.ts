@@ -34,6 +34,12 @@ export default tv({
             'shadow-md',
             '-mt-12',
             'z-10'
+        ],
+        userName: [
+            'mt-4',
+            'text-lg',
+            'text-bold',
+            'font-[LeferiPoint-BlackObliqueA]'
         ]
     }
 })
