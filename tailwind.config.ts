@@ -41,10 +41,13 @@ const config: Config = {
       },
       animation: {
         'draw-from-left': 'draw-from-left 0.1s ease-in-out',
-        'draw-from-top': 'draw-from-top 0.3s ease',
+        'draw-from-top': 'draw-from-top 0.1s',
       },
       screens: {
         sm: '700px',
+      },
+      fontFamily: {
+        bold: ['LeferiPoint-BlackObliqueA', 'sans-serif'],
       },
     },
   },

@@ -1,4 +1,5 @@
 import { tv } from 'tailwind-variants';
+
 export const mobileNavStyle = tv({
   slots: {
     mobileNav: [
@@ -40,7 +41,7 @@ export const mobileNavStyle = tv({
 });
 export default tv({
   slots: {
-    base: [
+    headerContainer: [
       '-left-0',
       'flex',
       'text-black',
@@ -57,8 +58,8 @@ export default tv({
       'max-sm:text-sm',
       'max-sm:fixed',
       'max-sm:w-full',
-
       'max-sm:pr-4',
+      'z-50',
     ],
     navContainer: ['flex', 'gap-6', 'mr-10', 'max-md:gab-0', 'max-md:mr-0'],
     navItem: [

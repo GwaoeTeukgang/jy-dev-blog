@@ -1,10 +1,7 @@
-import {tv} from "tailwind-variants";
+import { tv } from 'tailwind-variants';
 
 export default tv({
-    slots: {
-        container: [
-            'w-full',
-            'my-10',
-        ],
-    }
-})
+  slots: {
+    container: ['w-full', 'my-10'],
+  },
+});

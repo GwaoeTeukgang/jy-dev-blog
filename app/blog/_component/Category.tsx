@@ -1,5 +1,3 @@
 export default function Category() {
-    return <nav>
-
-    </nav>
+  return <nav></nav>;
 }

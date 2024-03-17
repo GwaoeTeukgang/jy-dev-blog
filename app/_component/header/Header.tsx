@@ -37,13 +37,13 @@ export default function Header() {
   const isMobile = useMediaQuery('(max-width: 700px)');
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const segment = useSelectedLayoutSegment();
-  const { base, navContainer, navItem } = headerStyle();
+  const { headerContainer, navContainer, navItem } = headerStyle();
   const { mobileNav, menuIcon, mobileNavItem } = mobileNavStyle({
     state: navOpen ? 'open' : 'close',
   });
 
   return (
-    <header className={base()}>
+    <header className={headerContainer()}>
       <div style={{ marginLeft: '0.5rem' }}>
         <Link href={'/'}>Dev Story</Link>
       </div>
