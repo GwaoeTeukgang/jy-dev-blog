@@ -3,6 +3,7 @@ const nextConfig = {
   images: {
     domains: ['media.graphassets.com', 'placehold.co'],
   },
+  reactStrictMode: false,
 };
 
 export default nextConfig;

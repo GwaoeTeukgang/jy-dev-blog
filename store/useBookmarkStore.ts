@@ -9,11 +9,13 @@ interface BookMarkStore {
 
 const useBookmarkStore = create<BookMarkStore>()((set) => ({
   bookmarks: [],
-  initBookmarks: (id: string[]) => () => set({ bookmarks: id }),
-  addBookmark: (id: string) => (state: BookMarkStore) =>
-    set({ bookmarks: [...state.bookmarks, id] }),
-  removeBookmark: (id: string) => (state: BookMarkStore) =>
-    set({ bookmarks: state.bookmarks.filter((_id) => _id !== id) }),
+  initBookmarks: (id: string[]) => set({ bookmarks: id }),
+  addBookmark: (id: string) =>
+    set((state: BookMarkStore) => ({ bookmarks: [...state.bookmarks, id] })),
+  removeBookmark: (id: string) =>
+    set((state: BookMarkStore) => ({
+      bookmarks: state.bookmarks.filter((_id) => _id !== id),
+    })),
 }));
 
 export default useBookmarkStore;

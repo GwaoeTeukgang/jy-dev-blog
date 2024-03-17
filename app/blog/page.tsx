@@ -1,7 +1,6 @@
 import MyInfo from '@/app/blog/_component/MyInfo';
 import Category from '@/app/blog/_component/Category';
 import PostList from '@/app/blog/_component/PostList';
-import EnterMotion from '@/app/_component/EnterMotion';
 import blogStyle from '@/app/blog/blog.style';
 
 export default function Blog() {
