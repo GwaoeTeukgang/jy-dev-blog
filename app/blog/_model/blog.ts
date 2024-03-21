@@ -1,9 +1,12 @@
-import { ImageInfo } from '@/app/_model';
+import {ImageInfo} from '@/app/_model';
 
 export interface PostItemInfo {
-  id: string;
-  thumbnailImg?: ImageInfo;
-  title: string;
-  summary: string;
-  date: string;
+    id: string;
+    title: string;
+    summary?: string;
+    createdAt: string;
+    thumbnail?: ImageInfo;
+    tags: {
+      tagLabel: string
+    } []
 }

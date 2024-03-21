@@ -2,7 +2,6 @@ import type {Metadata} from 'next';
 import './globals.css';
 import Header from '@/app/_component/header/Header';
 import {homeLayoutContainer} from '@/app/home.style';
-import {ApolloWrapper} from "@/app/_provider/ApolloWrapper";
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -17,10 +16,8 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body className={homeLayoutContainer()}>
-        <ApolloWrapper>
             <Header/>
             {children}
-        </ApolloWrapper>
         </body>
         </html>
     );
