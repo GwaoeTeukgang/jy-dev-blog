@@ -1,40 +1,81 @@
 'use client';
+
 import PostItem from '@/app/blog/_component/PostItem';
-import { tv } from 'tailwind-variants';
-import { PostItemInfo } from '@/app/blog/_model/blog';
-import { useEffect } from 'react';
+import {tv} from 'tailwind-variants';
+import {PostItemInfo} from '@/app/blog/_model/blog';
+import {useEffect} from 'react';
 import useBookmarkStore from '@/store/useBookmarkStore';
+import {AnimatePresence, motion, stagger, useAnimate} from "framer-motion";
+
+
+function useMenuAnimation() {
+    const [scope, animate] = useAnimate();
+
+    useEffect(() => {
+        animate(
+            "li",
+            {opacity: 1, scale: 1, filter: "blur(0px)"},
+            {
+                duration: 0.2,
+                delay: stagger(0.1, {startDelay: 0.15}),
+            }
+        );
+    }, []);
+
+    return scope;
+}
 
 const postListContainer = tv({
-  base: [
-    'grid',
-    'grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]',
-    'gap-4',
-    'p-10',
-    'm-auto',
-  ],
-});
+    base: [
+        'grid',
+        'grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]',
+        'gap-4',
+        'p-10',
+        'mb-4',
+        'max-h-[1200px]',
+        'overflow-y-scroll'
+    ],
+})
 
-const data: PostItemInfo = {
-  id: 'id',
-  title: 'Title',
-  summary:
-    'CodeChronicles is a platform for developers to share their coding journey, insights, and expertise. Dive into the world of programming with our in-depth technical articles and stay updated with the latest trends in the tech industry.',
-  date: '2024.03.17',
-};
+export default function PostList({postList}: { postList: PostItemInfo[] }) {
+    const {initBookmarks} = useBookmarkStore();
 
-export default function PostList() {
-  const { initBookmarks } = useBookmarkStore();
-  useEffect(() => {
-    const bookmarks = (localStorage.getItem('bookmarks') ?? '').split(',');
-    initBookmarks(bookmarks ?? []);
-  }, [initBookmarks]);
-  return (
-    <div className={postListContainer()}>
-      <PostItem {...data} id={'1'} />
-      <PostItem {...data} id={'2'} />
-      <PostItem {...data} id={'3'} />
-      {/*<PostItem {...data} id={'4'}/>*/}
-    </div>
-  );
+    useEffect(() => {
+        const bookmarks = (localStorage.getItem('bookmarks') ?? '').split(',');
+        initBookmarks(bookmarks ?? []);
+
+    }, [initBookmarks]);
+
+
+    return (
+        <AnimatePresence mode={'wait'}>
+            <ul className={postListContainer()}>
+                {postList.map((item, index) =>
+                    <motion.li key={item.id}
+                               initial={{...animate(index).initial}}
+                               animate={animate(index).animate}>
+                        <PostItem {...item}/>
+                    </motion.li>)}
+            </ul>
+        </AnimatePresence>
+
+    );
 }
+
+const animate =(delay: number) => ({
+    initial: {
+        translateY: 50,
+        opacity: 0,
+        transition: {duration: 0.3},
+    },
+    animate: {
+        translateY: 0,
+        opacity: 1,
+        transition: {duration: 0.3, delay: 0.2 * delay},
+    },
+    exit: {
+        translateY: 50,
+        opacity: 0,
+        transition: {duration: 0.3},
+    },
+});

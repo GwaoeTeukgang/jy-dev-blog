@@ -1,18 +1,22 @@
 import MyInfo from '@/app/blog/_component/MyInfo';
-import Category from '@/app/blog/_component/Category';
 import PostList from '@/app/blog/_component/PostList';
 import blogStyle from '@/app/blog/blog.style';
-import client from "@/lib/client";
 import {PostItemInfo} from "@/app/blog/_model/blog";
-import {PaginationResponse} from "@/app/_model";
+import {PaginationReturnMap} from "@/app/_model";
+import {getPaginatedPost} from "@/lib/api/blog";
 
 
-const getPaginatedPost = async (): Promise<PaginationResponse<PostItemInfo[]>> => {
-    return client.get('/api/posts?sort[0]=createdAt&pagination[page]=1&pagination[pageSize]=10');
+const getPostList = async (): Promise<PaginationReturnMap<PostItemInfo[]>> => {
+    try {
+        const {data} = await getPaginatedPost(1, 10);
+        return data;
+    } catch (e) {
+        throw new Error("블로그 리스트 정보를 불러오는데 실패했습니다.");
+    }
 }
 export default async function Blog() {
     const {blogInfo, blogInfoItem} = blogStyle();
-    const {data} = await getPaginatedPost();
+    const {data, meta} = await getPostList();
     return (
         <div>
             <MyInfo/>
@@ -23,7 +27,7 @@ export default async function Blog() {
                 </div>
                 <div className={blogInfoItem()}>
                     <p>Post</p>
-                    <p>{data.meta.pagination.total}</p>
+                    <p>{meta.pagination.total ?? 0}</p>
                 </div>
                 <div className={blogInfoItem()}>
                     <p>Viewer</p>
@@ -31,8 +35,7 @@ export default async function Blog() {
                 </div>
             </div>
             <div>
-                <Category/>
-                <PostList/>
+                <PostList postList={data}/>
             </div>
         </div>
     );

@@ -7,6 +7,7 @@ export interface PostItemInfo {
     createdAt: string;
     thumbnail?: ImageInfo;
     tags: {
-      tagLabel: string
+        id: number;
+        tagLabel: string
     } []
 }
