@@ -37,12 +37,14 @@ export type ErrorResponse = AxiosError<ErrorMap>;
 
 export type PaginationResponse<T> = AxiosResponse<PaginationReturnMap<T>>;
 
+export interface Pagination {
+    page: number;
+    pageSize: number;
+    pageCount: number;
+    total: number
+}
+
 export interface MetaPagination {
-    pagination: {
-        page: number;
-        pageSize: number;
-        pageCount: number;
-        total: number
-    }
+    pagination: Pagination
 }
 

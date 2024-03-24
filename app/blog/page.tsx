@@ -35,7 +35,7 @@ export default async function Blog() {
                 </div>
             </div>
             <div>
-                <PostList postList={data}/>
+                <PostList postList={data} meta={meta}/>
             </div>
         </div>
     );
