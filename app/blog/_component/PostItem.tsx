@@ -39,6 +39,11 @@ export default function PostItem(item: PostItemInfo) {
             <div style={{padding: '12px'}}>
                 <p className={title()}>{item.title}</p>
                 <p className={summary()}>{item.summary}</p>
+                <div className={'flex flex-wrap p-2 gap-1'}>
+                    {(item.tags ?? []).map(it =>
+                        <TagItem label={it.tagLabel} key={it.tagLabel}/>
+                    )}
+                </div>
                 <div className={footer()}>
                     <p className={date()}>{item.createdAt}</p>
                     <button onClick={() => toggleBookmark()} className={bookmark()}>
@@ -58,11 +63,6 @@ export default function PostItem(item: PostItemInfo) {
                             />
                         )}
                     </button>
-                </div>
-                <div className={'flex flex-wrap'}>
-                    {(item.tags??[]).map(it =>
-                        <TagItem label={it.tagLabel} key={it.tagLabel}/>
-                    )}
                 </div>
             </div>
         </div>
