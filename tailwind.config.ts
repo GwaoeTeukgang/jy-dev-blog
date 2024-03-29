@@ -15,7 +15,8 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        primary: '#FFD6D9',
+        // primary: '#FFD6D9',
+        primary: '#fc5f6a',
         white: '#FFF',
         lightGray: '#D0D0D0',
         black: '#030303',
@@ -44,7 +45,7 @@ const config: Config = {
         'draw-from-top': 'draw-from-top 0.1s',
       },
       screens: {
-        sm: '700px',
+        sm: '768px',
       },
       fontFamily: {
         bold: ['LeferiPoint-BlackObliqueA', 'sans-serif'],

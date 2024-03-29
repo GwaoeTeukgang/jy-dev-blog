@@ -20,7 +20,7 @@ export interface ImageInfo {
     }
 }
 
-export interface Response<T> {
+export interface ReturnMap<T> {
     data: T
 }
 
@@ -36,6 +36,8 @@ export interface ErrorMap {
 export type ErrorResponse = AxiosError<ErrorMap>;
 
 export type PaginationResponse<T> = AxiosResponse<PaginationReturnMap<T>>;
+
+export type Response<T> = AxiosResponse<ReturnMap<T>>;
 
 export interface Pagination {
     page: number;

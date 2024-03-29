@@ -6,8 +6,13 @@ export interface PostItemInfo {
     summary?: string;
     createdAt: string;
     thumbnail?: ImageInfo;
+    slug: string;
     tags: {
         id: number;
         tagLabel: string
     } []
+}
+
+export interface PostDetail extends PostItemInfo {
+    content: string;
 }

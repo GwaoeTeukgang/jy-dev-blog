@@ -2,9 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   margin: 0;
   padding: 0;
+  /*font-size: 62.5%;*/
 }
 
 @layer base {
@@ -31,5 +33,6 @@
 
   body {
     font-family: LeferiPoint-WhiteObliqueA, sans-serif;
+    /*font-size: 1.6rem;*/
   }
 }

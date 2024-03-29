@@ -7,7 +7,7 @@ import headerStyle, {
 import { useSelectedLayoutSegment } from 'next/navigation';
 import DarkModeToggle from '@/app/_component/header/DarkModeToggle';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 
 interface Navigation {
   path: string;
@@ -34,7 +34,8 @@ const HEADER_NAVIGATION: Navigation[] = [
 ];
 
 export default function Header() {
-  const isMobile = useMediaQuery('(max-width: 700px)');
+  const [isClient, setIsClient] = useState(false)
+  const isMobile = useMediaQuery('(max-width: 768px)');
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const segment = useSelectedLayoutSegment();
   const { headerContainer, navContainer, navItem } = headerStyle();
@@ -42,12 +43,16 @@ export default function Header() {
     state: navOpen ? 'open' : 'close',
   });
 
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   return (
     <header className={headerContainer()}>
       <div style={{ marginLeft: '0.5rem' }}>
         <Link href={'/'}>Dev Story</Link>
       </div>
-      {isMobile ? (
+      {isClient && isMobile ? (
         <>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <DarkModeToggle />

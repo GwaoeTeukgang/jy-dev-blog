@@ -11,7 +11,7 @@ const getPostList = async (): Promise<PaginationReturnMap<PostItemInfo[]>> => {
         const {data} = await getPaginatedPost(1, 10);
         return data;
     } catch (e) {
-        throw new Error("블로그 리스트 정보를 불러오는데 실패했습니다.");
+        throw new Error("포스트 리스트 정보를 불러오는데 실패했습니다.");
     }
 }
 export default async function Blog() {
