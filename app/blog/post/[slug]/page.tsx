@@ -5,6 +5,12 @@ import Image from "next/image";
 import postItemStyle from "@/app/blog/_component/postItem.style";
 import sanitizeHtml from 'sanitize-html';
 import postStyle from "@/app/blog/post/[slug]/post.style";
+import type {Metadata} from "next";
+
+
+interface Props {
+    params: { slug: string }
+}
 
 const getPost = async (slug: string): Promise<PostDetail> => {
     try {
@@ -15,7 +21,23 @@ const getPost = async (slug: string): Promise<PostDetail> => {
     }
 
 }
-export default async function Post({params}: { params: { slug: string } }) {
+
+export async function generateMetadata(
+    {params}: Props,
+): Promise<Metadata> {
+    const postData = await getPost(params.slug);
+
+    return {
+        title: postData.title,
+        description: postData.summary,
+        keywords: postData.tags.map(it => it.tagLabel),
+        openGraph: {
+            images: [postData.thumbnail?.url ?? ''],
+        },
+    }
+}
+
+export default async function Post({params}: Props) {
     const {thumbnail} = postItemStyle();
     const postData = await getPost(params.slug);
 

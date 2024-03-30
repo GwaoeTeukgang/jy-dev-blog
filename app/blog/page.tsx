@@ -18,7 +18,7 @@ export default async function Blog() {
     const {blogInfo, blogInfoItem} = blogStyle();
     const {data, meta} = await getPostList();
     return (
-        <div>
+        <main>
             <MyInfo/>
             <div className={blogInfo()}>
                 <div className={blogInfoItem()}>
@@ -37,6 +37,6 @@ export default async function Blog() {
             <div>
                 <PostList postList={data} meta={meta}/>
             </div>
-        </div>
+        </main>
     );
 }
