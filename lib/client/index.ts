@@ -8,8 +8,6 @@ const client = axios.create({
 const MAX_RETRY_COUNT = 5;
 let retryCount = 0;
 client.interceptors.response.use((response) => {
-
-    console.log(retryCount)
     if (response.data.data) {
         retryCount = 0;
         return response;

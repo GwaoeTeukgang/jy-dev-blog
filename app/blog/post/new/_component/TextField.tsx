@@ -3,29 +3,26 @@
 import {FieldErrors, UseFormRegisterReturn} from "react-hook-form";
 import {PostDetail} from "@/app/blog/_model/blog";
 import * as style from '@/app/blog/post/new/_component/field.style';
+import {summaryInput} from "@/app/blog/post/new/_component/field.style";
 
-interface TextFieldProps extends UseFormRegisterReturn {
+interface TextFieldProps  {
     fieldName: keyof PostDetail;
     placeholder: string;
     errors: FieldErrors<PostDetail>;
+    inputProps: UseFormRegisterReturn
 }
 
 export default function TextField(props: TextFieldProps) {
-    const {fieldName, errors, ...rest} = props;
-    const inputProps = {
-        id: fieldName,
-        'aria-invalid': errors[fieldName] !== null,
-        ...rest
-    }
+    const {fieldName, errors, placeholder, inputProps} = props;
 
     return <div>
         {fieldName === 'title' ?
             <input
                 className={style.titleInput()}
-                {...inputProps}/> :
+                {...{...inputProps, placeholder}}/> :
             <textarea
                 className={style.summaryInput()}
-                {...inputProps}/>
+                {...{...inputProps, placeholder}}/>
         }
         {errors[fieldName]?.type === "required" && (
             <span role="alert">This is required</span>

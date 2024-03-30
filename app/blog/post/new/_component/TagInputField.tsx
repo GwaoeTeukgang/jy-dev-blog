@@ -5,6 +5,7 @@ import {Tag} from "@/app/blog/_model/blog";
 import {getTags} from "@/lib/api/blog";
 import {UseFormRegisterReturn} from "react-hook-form";
 import TagItem from "@/app/blog/_component/TagItem";
+import {tagInputBox} from "@/app/blog/post/new/_component/field.style";
 
 export default function TagInputField(props: UseFormRegisterReturn) {
     const [tags, setTags] = useState<Tag[]>([]);
@@ -21,8 +22,8 @@ export default function TagInputField(props: UseFormRegisterReturn) {
     }
 
 
-    return <div className={'flex mt-14 items-center'}>
-        <div>
+    return <div className={'mb-4'}>
+        <div className={tagInputBox()}>
             <ul>
                 {selectedTags.map((it) =>
                     <TagItem key={it.id} label={it.tagLabel}/>)}

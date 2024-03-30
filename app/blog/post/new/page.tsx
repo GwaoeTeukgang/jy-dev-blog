@@ -1,27 +1,35 @@
 'use client'
 
-import {useForm} from "react-hook-form";
+import {SubmitHandler, useForm} from "react-hook-form";
 import TextField from "@/app/blog/post/new/_component/TextField";
 import {PostDetail} from "@/app/blog/_model/blog";
 import TagInputField from "@/app/blog/post/new/_component/TagInputField";
+import {useState} from "react";
+import PostEditor from "@/app/blog/post/new/_component/PostEditor";
 
 export default function NewPost() {
-    const {control, handleSubmit, register, formState: {errors}} = useForm<PostDetail>()
-    const onSubmit = () => {
-    };
+    const [disabled, setDisabled] = useState(true);
+    const {handleSubmit, register, formState: {errors}} = useForm<PostDetail>({disabled})
+    const onSubmit: SubmitHandler<PostDetail> = (data) => console.log(data)
 
-    return <div className={'p-14'}>
-        <form action={onSubmit}>
+    return <div className={'p-14 m-4 max-sm:p-0 max-sm:m-0 max-sm:mt-20'}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <TextField fieldName={'title'}
                        placeholder={'제목'}
                        errors={errors}
-                       {...register("title", {required: true, maxLength: 30})}/>
+                       inputProps={register("title", {required: true, maxLength: 30})}/>
             <TextField fieldName={'summary'}
                        placeholder={'요약'}
                        errors={errors}
-                       {...register("summary", {required: false, maxLength: 100})}/>
-            <TagInputField  {...register("tags", {required: false, maxLength: 100})} />
-        </form>
+                       inputProps={register("summary", {maxLength: 30})}/>
+            <TagInputField  {...register("tags", {maxLength: 100})} />
+            <PostEditor {...register("content", {required: true})} disabled={disabled}/>
 
+            <div>
+                <label htmlFor={'submit-input'}> 게시 </label>
+                <input id={'submit-input'} type={'submit'} className={'none'}/>
+            </div>
+
+        </form>
     </div>
 }
