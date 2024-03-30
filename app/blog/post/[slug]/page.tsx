@@ -1,27 +1,26 @@
-import {headers} from 'next/headers';
 import {getPostDetail} from "@/lib/api/blog";
 import {PostDetail} from "@/app/blog/_model/blog";
 import TagItem from "@/app/blog/_component/TagItem";
 import Image from "next/image";
 import postItemStyle from "@/app/blog/_component/postItem.style";
 import sanitizeHtml from 'sanitize-html';
-import postStyle from "@/app/blog/post/[id]/post.style";
+import postStyle from "@/app/blog/post/[slug]/post.style";
 
-const getPost = async (): Promise<PostDetail> => {
+const getPost = async (slug: string): Promise<PostDetail> => {
     try {
-        const slug = headers().get('referer')?.split('/').pop()!;
         const {data} = await getPostDetail(slug);
         return data.data;
     } catch (e) {
-        throw new Error("포스트 정보를 불러오는데 실패했습니다.");
+        throw new Error("포스트 정보를 불러오는데 실패했습니다." + slug);
     }
 
 }
-export default async function Post() {
+export default async function Post({params}: { params: { slug: string } }) {
     const {thumbnail} = postItemStyle();
-    const postData = await getPost();
+    const postData = await getPost(params.slug);
 
     return <div>
+        <div className={'w-full mb-24'}></div>
         {postData.thumbnail
             ? <Image src={`${process.env.NEXT_PUBLIC_STRAPI_END_POINT}${postData.thumbnail.url}`}
                      alt={'thumbnail'}

@@ -39,9 +39,7 @@ export default function Header() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const segment = useSelectedLayoutSegment();
   const { headerContainer, navContainer, navItem } = headerStyle();
-  const { mobileNav, menuIcon, mobileNavItem } = mobileNavStyle({
-    state: navOpen ? 'open' : 'close',
-  });
+  const { mobileNav, menuIcon, mobileNavItem } = mobileNavStyle();
 
   useEffect(() => {
     setIsClient(true)
@@ -62,33 +60,34 @@ export default function Header() {
               </svg>
             </button>
           </div>
-          <nav className={mobileNav()}>
-            <ul>
-              {HEADER_NAVIGATION.map(({ path, name }) => (
-                <li key={name} style={{ marginBottom: '4px' }}>
-                  <Link
-                    className={mobileNavItem()}
-                    data-active={segment === path}
-                    href={`/${path}`}
-                  >
-                    {name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            <nav className={mobileNav()}>
+                {navOpen
+                    && <ul>
+                        {HEADER_NAVIGATION.map(({path, name}) => (
+                            <li key={name} style={{marginBottom: '4px'}}>
+                                <Link
+                                    className={mobileNavItem()}
+                                    data-active={segment === path}
+                                    href={`/${path}`}
+                                >
+                                    {name}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>}
+            </nav>
         </>
       ) : (
-        <div style={{ display: 'flex' }}>
-          <nav>
-            <ul className={navContainer()}>
-              {HEADER_NAVIGATION.map(({ path, name }) => (
-                <li
-                  key={name}
-                  className={navItem()}
-                  data-active={segment === path}
-                >
-                  <Link href={`/${path}`}>{name}</Link>
+          <div style={{display: 'flex'}}>
+              <nav>
+                  <ul className={navContainer()}>
+                      {HEADER_NAVIGATION.map(({path, name}) => (
+                          <li
+                              key={name}
+                              className={navItem()}
+                              data-active={segment === path}
+                          >
+                              <Link href={`/${path}`}>{name}</Link>
                 </li>
               ))}
             </ul>

@@ -1,5 +1,5 @@
 import {PaginationResponse, Response} from "@/app/_model";
-import {PostDetail, PostItemInfo} from "@/app/blog/_model/blog";
+import {PostDetail, PostItemInfo, Tag} from "@/app/blog/_model/blog";
 import client from "@/lib/client";
 
 export const getPaginatedPost = (page: number, pageSize: number): Promise<PaginationResponse<PostItemInfo[]>> => {
@@ -9,3 +9,7 @@ export const getPaginatedPost = (page: number, pageSize: number): Promise<Pagina
 export const getPostDetail = (slug: string): Promise<Response<PostDetail>> => {
     return client.get(`/api/posts/${slug}?populate[0]=thumbnail&populate[1]=tags`);
 }
+
+export const getTags = (): Promise<PaginationResponse<Tag[]>> => {
+    return client.get('/api/tags');
+};
