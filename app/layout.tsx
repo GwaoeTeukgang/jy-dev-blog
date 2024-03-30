@@ -16,8 +16,9 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body className={homeLayoutContainer()}>
-            <Header/>
-            {children}
+        <Header/>
+        {children}
+        <div id={'portal-container'}></div>
         </body>
         </html>
     );
