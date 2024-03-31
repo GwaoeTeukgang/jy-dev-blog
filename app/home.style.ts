@@ -9,7 +9,7 @@ export const homeLayoutContainer = tv({
     'dark:bg-black',
     'text-black',
     'dark:text-white',
-    'px-64',
+    'px-[20%]',
     'max-md:px-2',
   ],
 });

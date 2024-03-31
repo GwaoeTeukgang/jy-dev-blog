@@ -6,6 +6,8 @@ import postItemStyle from "@/app/blog/_component/postItem.style";
 import sanitizeHtml from 'sanitize-html';
 import postStyle from "@/app/blog/post/[slug]/post.style";
 import type {Metadata} from "next";
+import {PostIndex} from "@/app/blog/post/[slug]/_model";
+import IndexNav from "@/app/blog/post/[slug]/_component/IndexNav";
 
 
 interface Props {
@@ -37,12 +39,34 @@ export async function generateMetadata(
     }
 }
 
+
 export default async function Post({params}: Props) {
     const {thumbnail} = postItemStyle();
     const postData = await getPost(params.slug);
 
-    return <div>
-        <div className={'w-full mb-24'}></div>
+    const getIndex = () => {
+        const headingRegex = new RegExp(/<h[0-9]{1,3}>|<\/h[0-9]{1,3}>/);
+        const index: PostIndex[] = [];
+        let cnt = [0, 0, 0];
+
+
+        postData.content.split('\n')
+            .filter(it => headingRegex.test(it))
+            .map(it => {
+                const level = Number(it.slice(2, 3));
+                const text = it.replace(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, '');
+
+                index.push({
+                    text,
+                    level,
+                    id: cnt[level - 1]++
+                });
+            });
+        return index;
+    }
+
+    return <div id={'blog-container'}>
+        <div className={'w-full mb-12'}></div>
         {postData.thumbnail
             ? <Image src={`${process.env.NEXT_PUBLIC_STRAPI_END_POINT}${postData.thumbnail.url}`}
                      alt={'thumbnail'}
@@ -58,12 +82,14 @@ export default async function Post({params}: Props) {
         <div className={postStyle().tagContainer()}>
             {(postData.tags ?? []).map(tag => <TagItem label={tag.tagLabel} key={tag.id}/>)}
         </div>
-        <div className={postStyle().content()}
+        <div id={'content-container'}
+             className={postStyle().content()}
              dangerouslySetInnerHTML={{
                  __html: sanitizeHtml(postData.content, {
                      allowedTags: false,
                      allowedAttributes: false,
                  })
              }}/>
+        <IndexNav indexList={getIndex()}/>
     </div>
 }
