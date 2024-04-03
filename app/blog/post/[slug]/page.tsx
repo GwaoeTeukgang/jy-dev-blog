@@ -45,7 +45,7 @@ export default async function Post({params}: Props) {
     const postData = await getPost(params.slug);
 
     const getIndex = () => {
-        const headingRegex = new RegExp(/<h[0-9]{1,3}>|<\/h[0-9]{1,3}>/);
+        const headingRegex = new RegExp(/<h[1-3]>|<\/h[1-3]>/);
         const index: PostIndex[] = [];
         let cnt = [0, 0, 0];
 
