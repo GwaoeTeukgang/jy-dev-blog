@@ -68,7 +68,7 @@ export default async function Post({params}: Props) {
     return <div id={'blog-container'}>
         <div className={'w-full mb-12'}></div>
         {postData.thumbnail
-            ? <Image src={`${process.env.NEXT_PUBLIC_STRAPI_END_POINT}${postData.thumbnail.url}`}
+            ? <Image src={`${postData.thumbnail.url}`}
                      alt={'thumbnail'}
                      className={`mt-12 ${thumbnail()}`}
                      width={postData.thumbnail.formats.medium.width}

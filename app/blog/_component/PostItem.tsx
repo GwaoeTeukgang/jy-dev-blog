@@ -32,7 +32,7 @@ export default function PostItem(item: PostItemInfo) {
             {
                 item.thumbnail
                     ? <Image
-                        src={`${process.env.NEXT_PUBLIC_STRAPI_END_POINT}${item.thumbnail.url}`}
+                        src={`${item.thumbnail.url}`}
                         className={thumbnail()}
                         alt={''}
                         width={300}
