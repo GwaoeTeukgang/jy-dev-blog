@@ -1,6 +1,7 @@
 import ProjectItem from '@/app/project/_component/ProjectItem';
 import { getProjects } from '@/lib/api/project';
 import { ProjectItemInfo } from '@/model/projectItemInfo';
+import * as style from '@/app/project/project.style';
 
 const getProjectList = async () => {
   try {
@@ -14,10 +15,13 @@ export default async function Project() {
   const projectList = await getProjectList();
 
   return (
-    <div className={'flex'}>
-      {projectList.map((it: ProjectItemInfo) => (
-        <ProjectItem {...it} key={it.id} />
-      ))}
+    <div className={style.projectContainer()}>
+      <h2 className={style.projectTitle()}>{'</>'} Project List</h2>
+      <div className={style.itemContainer()}>
+        {projectList.map((it: ProjectItemInfo) => (
+          <ProjectItem {...it} key={it.id} />
+        ))}
+      </div>
     </div>
   );
 }
