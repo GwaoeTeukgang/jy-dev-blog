@@ -1,5 +1,5 @@
-import {PaginationResponse, Response} from "@/app/_model";
-import {PostDetail, PostItemInfo, Tag} from "@/app/blog/_model/blog";
+import {PaginationResponse, Response} from "@/model";
+import {PostDetail, PostItemInfo, Tag} from "@/model/blog";
 import client from "@/lib/client";
 
 export const getPaginatedPost = (page: number, pageSize: number): Promise<PaginationResponse<PostItemInfo[]>> => {

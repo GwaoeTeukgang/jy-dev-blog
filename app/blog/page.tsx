@@ -1,8 +1,8 @@
 import MyInfo from '@/app/blog/_component/MyInfo';
 import PostList from '@/app/blog/_component/PostList';
 import blogStyle from '@/app/blog/blog.style';
-import {PostItemInfo} from "@/app/blog/_model/blog";
-import {PaginationReturnMap} from "@/app/_model";
+import {PostItemInfo} from "@/model/blog";
+import {PaginationReturnMap} from "@/model";
 import {getPaginatedPost} from "@/lib/api/blog";
 
 

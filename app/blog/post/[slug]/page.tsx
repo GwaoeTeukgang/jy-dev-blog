@@ -1,5 +1,5 @@
 import {getPostDetail} from "@/lib/api/blog";
-import {PostDetail} from "@/app/blog/_model/blog";
+import {PostDetail} from "@/model/blog";
 import TagItem from "@/app/blog/_component/TagItem";
 import Image from "next/image";
 import postItemStyle from "@/app/blog/_component/postItem.style";
@@ -19,7 +19,7 @@ const getPost = async (slug: string): Promise<PostDetail> => {
         const {data} = await getPostDetail(slug);
         return data.data;
     } catch (e) {
-        throw new Error("포스트 정보를 불러오는데 실패했습니다." + slug);
+        throw new Error("포스트 정보를 불러오는데 실패했습니다.\n" + e);
     }
 
 }

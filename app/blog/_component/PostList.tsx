@@ -2,11 +2,11 @@
 
 import PostItem from '@/app/blog/_component/PostItem';
 import {tv} from 'tailwind-variants';
-import {PostItemInfo} from '@/app/blog/_model/blog';
+import {PostItemInfo} from '@/model/blog';
 import {useEffect, useRef, useState} from 'react';
 import useBookmarkStore from '@/store/useBookmarkStore';
 import {AnimatePresence, motion} from "framer-motion";
-import {MetaPagination} from "@/app/_model";
+import {MetaPagination} from "@/model";
 import usePaginationInfo from "@/hooks/usePaginationInfo";
 import {getPaginatedPost} from "@/lib/api/blog";
 
@@ -16,6 +16,7 @@ const postListContainer = tv({
         'grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]',
         'gap-4',
         'p-10',
+        'max-sm:p-2',
         'mb-4',
         'max-h-[1200px]',
         'overflow-y-scroll'

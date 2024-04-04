@@ -1,7 +1,7 @@
 'use client'
 
 import {FieldErrors, UseFormRegisterReturn} from "react-hook-form";
-import {PostDetail} from "@/app/blog/_model/blog";
+import {PostDetail} from "@/model/blog";
 import * as style from '@/app/blog/post/new/_component/field.style';
 import {summaryInput} from "@/app/blog/post/new/_component/field.style";
 

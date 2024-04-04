@@ -1,4 +1,4 @@
-import {MetaPagination, Pagination} from "@/app/_model";
+import {MetaPagination, Pagination} from "@/model";
 import {useEffect, useState} from "react";
 
 export default function usePaginationInfo<T>(data: T[], meta: MetaPagination) {

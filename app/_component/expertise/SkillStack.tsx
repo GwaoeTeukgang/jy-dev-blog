@@ -1,5 +1,5 @@
 import expertiseStyle from '@/app/_component/expertise/expertise.style';
-import {ExpertiseLevel,} from '@/app/_model/expertise';
+import {ExpertiseLevel,} from '@/model/expertise';
 
 interface StackProps {
     title: ExpertiseLevel;

@@ -1,7 +1,7 @@
 'use client'
 
 import {useEffect, useState} from "react";
-import {Tag} from "@/app/blog/_model/blog";
+import {Tag} from "@/model/blog";
 import {getTags} from "@/lib/api/blog";
 import {UseFormRegisterReturn} from "react-hook-form";
 import TagItem from "@/app/blog/_component/TagItem";

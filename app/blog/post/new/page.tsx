@@ -2,7 +2,7 @@
 
 import {SubmitHandler, useForm} from "react-hook-form";
 import TextField from "@/app/blog/post/new/_component/TextField";
-import {PostDetail} from "@/app/blog/_model/blog";
+import {PostDetail} from "@/model/blog";
 import TagInputField from "@/app/blog/post/new/_component/TagInputField";
 import {useState} from "react";
 import PostEditor from "@/app/blog/post/new/_component/PostEditor";

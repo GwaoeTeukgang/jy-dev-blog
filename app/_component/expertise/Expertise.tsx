@@ -1,5 +1,5 @@
 import expertiseStyle from '@/app/_component/expertise/expertise.style';
-import {Skill} from "@/app/_model/expertise";
+import {Skill} from "@/model/expertise";
 import SkillStack from "@/app/_component/expertise/SkillStack";
 
 const skillStacks: Skill[] = [];

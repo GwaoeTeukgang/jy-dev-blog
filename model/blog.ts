@@ -1,4 +1,4 @@
-import {ImageInfo} from '@/app/_model';
+import {ImageInfo} from '@/model/index';
 
 
 export interface Tag {

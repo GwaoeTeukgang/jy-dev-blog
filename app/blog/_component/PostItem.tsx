@@ -4,7 +4,7 @@ import Image from 'next/image';
 import BookmarkOn from '@/public/icon/bookmark_on.png';
 import BookmarkOff from '@/public/icon/bookmark_off.png';
 import postItemStyle from '@/app/blog/_component/postItem.style';
-import {PostItemInfo} from '@/app/blog/_model/blog';
+import {PostItemInfo} from '@/model/blog';
 import useBookmarkStore from '@/store/useBookmarkStore';
 import React, {useMemo} from 'react';
 import TagItem from "@/app/blog/_component/TagItem";
