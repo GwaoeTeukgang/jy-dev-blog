@@ -1,8 +1,11 @@
+'use client';
+
 import * as style from '@/app/project/_component/projectItem.style';
 import Image from 'next/image';
-import { ProjectItemInfo } from '@/model/projectItemInfo';
+import { ProjectItemInfo } from '@/model/project';
 import Link from 'next/link';
 import TagItem from '@/app/blog/_component/TagItem';
+import { useRouter } from 'next/navigation';
 
 export default function ProjectItem({
   projectName,
@@ -11,13 +14,18 @@ export default function ProjectItem({
   demoLink,
   image,
   skill,
+  slug,
   startDate,
   endDate,
 }: ProjectItemInfo) {
   const thumbnail = image[0].url;
+  const router = useRouter();
 
   return (
-    <div className={style.imageContainer()}>
+    <div
+      className={style.imageContainer()}
+      onClick={() => router.push(`/project/detail/${slug}`)}
+    >
       <Image
         src={thumbnail}
         alt={''}

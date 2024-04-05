@@ -12,7 +12,10 @@ export interface ImageFormat {
 }
 
 export interface ImageInfo {
+  id?: string;
+  name: string;
   url: string;
+  mime: string;
   formats: {
     large: ImageFormat;
     medium: ImageFormat;
@@ -46,4 +49,8 @@ export interface Pagination {
 
 export interface MetaPagination {
   pagination: Pagination;
+}
+
+export interface Props {
+  params: { slug: string };
 }

@@ -8,10 +8,7 @@ import postStyle from '@/app/blog/post/[slug]/post.style';
 import type { Metadata } from 'next';
 import { PostIndex } from '@/app/blog/post/[slug]/_model';
 import IndexNav from '@/app/blog/post/[slug]/_component/IndexNav';
-
-interface Props {
-  params: { slug: string };
-}
+import { Props } from '@/model';
 
 const getPost = async (slug: string): Promise<PostDetail> => {
   try {

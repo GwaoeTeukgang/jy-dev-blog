@@ -1,8 +1,11 @@
 import ProjectItem from '@/app/project/_component/ProjectItem';
 import { getProjects } from '@/lib/api/project';
-import { ProjectItemInfo } from '@/model/projectItemInfo';
+import { ProjectItemInfo } from '@/model/project';
 import * as style from '@/app/project/project.style';
 
+interface Props {
+  params: { slug: string };
+}
 const getProjectList = async () => {
   try {
     const { data } = await getProjects();

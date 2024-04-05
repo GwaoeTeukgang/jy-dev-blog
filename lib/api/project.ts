@@ -1,12 +1,19 @@
-import { PaginationResponse } from '@/model';
-import { PostItemInfo } from '@/model/blog';
+import { PaginationResponse, Response } from '@/model';
 import client from '@/lib/client';
-import { ProjectItemInfo } from '@/model/projectItemInfo';
+import { ProjectItemInfo } from '@/model/project';
 
 export const getProjects = (): Promise<
   PaginationResponse<ProjectItemInfo[]>
 > => {
   return client.get(
     `/api/projects?sort[0]=createdAt:desc&populate[0]=image&populate[1]=skill`,
+  );
+};
+
+export const getProject = (
+  slug: string,
+): Promise<Response<ProjectItemInfo>> => {
+  return client.get(
+    `/api/projects/${slug}?populate[0]=image&populate[1]=skill`,
   );
 };

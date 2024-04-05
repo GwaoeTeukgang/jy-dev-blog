@@ -1,5 +1,16 @@
 import { ReactNode } from 'react';
 
-export default function ProjectLayout({ children }: { children: ReactNode }) {
-  return <div>{children}</div>;
+export default function ProjectLayout({
+  children,
+  modal,
+}: {
+  children: ReactNode;
+  modal: ReactNode;
+}) {
+  return (
+    <div>
+      {children}
+      {modal}
+    </div>
+  );
 }

@@ -10,6 +10,7 @@ export interface ProjectItemInfo {
   endDate: string;
   githubLink: string;
   demoLink: string;
+  slug: string;
   image: ImageInfo[];
   skill: Tag[];
 }
