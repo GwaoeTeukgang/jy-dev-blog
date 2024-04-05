@@ -18,9 +18,7 @@ const config: Config = {
         // primary: '#FFD6D9',
         primary: '#fc5f6a',
         white: '#FFF',
-        lightGray: '#D0D0D0',
         black: '#030303',
-        darkGray: '#2C2C2C',
       },
       keyframes: {
         'draw-from-left': {

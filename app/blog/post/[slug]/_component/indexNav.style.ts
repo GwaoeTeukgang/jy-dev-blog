@@ -14,7 +14,7 @@ export const indexNavBox = tv({
 });
 
 export const indexItem = tv({
-  base: ['text-lightGray', 'select-none', 'cursor-pointer', 'mb'],
+  base: ['text-gary-300', 'select-none', 'cursor-pointer', 'mb'],
   variants: {
     level: {
       1: ['font-bold', 'text-xl'],

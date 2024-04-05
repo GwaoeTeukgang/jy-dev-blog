@@ -6,7 +6,7 @@ export const imageContainer = tv({
     'h-56',
     'max-sm:h-[calc(100dvh-6rem)]',
     'shadow-lg',
-    'dark:shadow-darkGray',
+    'dark:shadow-gary-600',
     'relative',
     'rounded-lg',
     'overflow-hidden',

@@ -20,7 +20,7 @@ export default async function ProjectModal({ slug }: {slug: string}) {
         <div className={style.container()}>
             <CloseButton/>
             <ImageSlider images={data.image}/>
-            <div className={'md:p-14 text-lightGray'}>
+            <div className={'md:p-14 text-gary-300'}>
                 <ProjectModalTitle title={data.projectName}
                                    members={data.memberNum}
                                    period={`${data.startDate} ~ ${data.endDate}`}/>

@@ -30,6 +30,6 @@ export default tv({
       'rounded-lg',
       'shadow-xl',
     ],
-    source: ['text-xs', 'text-lightGray'],
+    source: ['text-xs', 'text-gary-300'],
   },
 });

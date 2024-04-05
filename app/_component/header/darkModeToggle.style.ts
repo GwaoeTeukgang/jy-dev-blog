@@ -10,7 +10,7 @@ export default tv({
       'h-4',
       'max-sm:h-2',
       'rounded-full',
-      'bg-lightGray',
+      'bg-gray-300',
       'border-3 border-black',
       'relative',
     ],
