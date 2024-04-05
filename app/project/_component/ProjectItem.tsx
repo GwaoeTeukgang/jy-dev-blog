@@ -12,13 +12,14 @@ export default function ProjectItem({
   projectSummary,
   githubLink,
   demoLink,
+  projectIcon,
   image,
   skill,
   slug,
   startDate,
   endDate,
 }: ProjectItemInfo) {
-  const thumbnail = image[0].url;
+  const thumbnail = projectIcon?.url ?? image[0].url;
   const router = useRouter();
 
   return (

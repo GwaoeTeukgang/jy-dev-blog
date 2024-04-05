@@ -1,31 +1,56 @@
 import * as style from '@/app/project/_component/projectModal.style';
-import {getProject} from "@/lib/api/project";
-import ImageSlider from "@/app/project/_component/ImageSlider";
-import CloseButton from "@/app/project/_component/Closebutton";
-import ProjectModalTitle from "@/app/project/_component/ProjectModalTitle";
-
+import { getProject } from '@/lib/api/project';
+import ImageSlider from '@/app/project/_component/ImageSlider';
+import CloseButton from '@/app/project/_component/Closebutton';
+import ProjectModalTitle from '@/app/project/_component/ProjectModalTitle';
 
 const getProjectDetail = async (slug: string) => {
-    try {
-        const { data } = await getProject(slug);
-        return data.data;
-    } catch (e) {
-        throw new Error('프로젝트 정보를 불러오는데 실패했습니다.\n' + e);
-    }
+  try {
+    const { data } = await getProject(slug);
+    return data.data;
+  } catch (e) {
+    throw new Error('프로젝트 정보를 불러오는데 실패했습니다.\n' + e);
+  }
 };
-export default async function ProjectModal({ slug }: {slug: string}) {
-    const data = await getProjectDetail(slug);
+export default async function ProjectModal({ slug }: { slug: string }) {
+  const data = await getProjectDetail(slug);
 
-    return <div className={style.overlay()}>
-        <div className={style.container()}>
-            <CloseButton/>
-            <ImageSlider images={data.image}/>
-            <div className={'md:p-14 text-gary-300'}>
-                <ProjectModalTitle title={data.projectName}
-                                   members={data.memberNum}
-                                   period={`${data.startDate} ~ ${data.endDate}`}/>
-                <p>{data.projectSummary}</p>
+  return (
+    <div className={style.overlay()}>
+      <div className={style.container()}>
+        <CloseButton />
+        <div className={'flex max-sm:flex-col'}>
+          <ImageSlider images={data.image} />
+          <div className={style.detailInfoContainer()}>
+            <ProjectModalTitle
+              title={data.projectName}
+              members={data.memberNum}
+              iconUrl={data.projectIcon?.url}
+              contribution={data.contribution}
+              period={`${data.startDate} ~ ${data.endDate}`}
+            />
+            <p className={'max-h-20 overflow-y-scroll text-gray-400'}>
+              {data.projectSummary}
+            </p>
+            <div className={'flex-1 overflow-y-scroll mt-4 p-4'}>
+              <p> {data.detail}</p>
+              <p className={'mt-4'}>
+                <strong>주요 기능</strong>
+                <ul className={'mt-2 pl-4'}>
+                  {data.features.map(({ id, featuresLabel }) => (
+                    <li
+                      key={id}
+                      className={'mb-1 marker:content-["❇"] marker:font-bold'}
+                    >
+                      {featuresLabel}
+                    </li>
+                  ))}
+                </ul>
+              </p>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-};
+  );
+}

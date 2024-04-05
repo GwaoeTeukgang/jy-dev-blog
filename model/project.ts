@@ -5,6 +5,9 @@ export interface ProjectItemInfo {
   id: string;
   projectName: string;
   projectSummary: string;
+  detail: string;
+  contribution: string;
+  features: { id: string; featuresLabel: string }[];
   memberNum: number;
   startDate: string;
   endDate: string;
@@ -12,5 +15,6 @@ export interface ProjectItemInfo {
   demoLink: string;
   slug: string;
   image: ImageInfo[];
+  projectIcon: ImageInfo | null;
   skill: Tag[];
 }

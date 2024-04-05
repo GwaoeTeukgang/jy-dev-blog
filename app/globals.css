@@ -3,63 +3,67 @@
 @tailwind utilities;
 
 :root {
-    margin: 0;
-    padding: 0;
-    /*font-size: 62.5%;*/
+  margin: 0;
+  padding: 0;
+  /*font-size: 62.5%;*/
 }
 
 img,
 video {
-    max-width: initial !important;
-    height: auto;
+  max-width: initial !important;
+  height: auto;
 }
 
 .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 @layer base {
-    @font-face {
-        font-family: 'LeferiPoint-WhiteObliqueA';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
+  @font-face {
+    font-family: 'LeferiPoint-WhiteObliqueA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff')
+      format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
 
-    @font-face {
-        font-family: 'LeferiPoint-BlackObliqueA';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackObliqueA.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
+  @font-face {
+    font-family: 'LeferiPoint-BlackObliqueA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackObliqueA.woff')
+      format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
 
-    @font-face {
-        font-family: 'SUIT-Regular';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-        font-weight: normal;
-        font-style: normal;
-    }
+  @font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
+      format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
 
-    @font-face {
-        font-family: 'PartialSansKR-Regular';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
-        font-weight: normal;
-        font-style: normal;
-    }
+  @font-face {
+    font-family: 'PartialSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2')
+      format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
 
-    header {
-        font-family: PartialSansKR-Regular, sans-serif;
-        font-weight: 700;
-    }
+  header {
+    font-family: PartialSansKR-Regular, sans-serif;
+    font-weight: 700;
+  }
 
-    body {
-        font-family: SUIT-Regular, sans-serif;
-        /*font-size: 1.6rem;*/
-    }
+  body {
+    font-family: SUIT-Regular, sans-serif;
+    /*font-size: 1.6rem;*/
+  }
 }
