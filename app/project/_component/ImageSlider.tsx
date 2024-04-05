@@ -22,14 +22,8 @@ export default function ImageSlider({images}: { images: ImageInfo[] }) {
 
     useEffect(() => {
         setSlideImages([...images, ...images].map((it, index) => ({...it, id: index.toString()})));
-        setPos(images.length);
     }, []);
 
-    useEffect(() => {
-        const firstElement = sliderContainer.current?.querySelector(`#img-${pos}`);
-        if (!firstElement) return;
-        firstElement.scrollIntoView(true);
-    }, [slideImages])
     const onMove = (dir: 1 | -1) => {
         if (!sliderContainer.current) return;
         const len = slideImages.length - 1;
@@ -49,7 +43,7 @@ export default function ImageSlider({images}: { images: ImageInfo[] }) {
 
         const targetImg = sliderContainer.current.querySelector(`#img-${targetPos}`);
         if (targetImg) {
-            targetImg?.scrollIntoView({behavior: 'smooth'})
+            targetImg?.scrollIntoView({behavior: 'smooth', block: 'center'})
         }
 
         setPos(targetPos);
