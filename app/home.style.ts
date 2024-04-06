@@ -9,8 +9,8 @@ export const homeLayoutContainer = tv({
     'dark:bg-black',
     'text-black',
     'dark:text-white',
-    'px-[20%]',
-    'max-md:px-2',
+    'lg:[&_main]:px-[20%]',
+    'lg:[&_header]:px-[20%]',
   ],
 });
 export const homeContainer = tv({

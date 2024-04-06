@@ -6,6 +6,18 @@ import {Chart as ChartJS, LinearScale, PointElement, Tooltip,} from 'chart.js';
 
 ChartJS.register(LinearScale, PointElement, Tooltip);
 
+const customCanvasBackgroundColor = {
+    id: 'customCanvasBackgroundColor',
+    beforeDraw: (chart: any) => {
+        const {ctx} = chart;
+        ctx.save();
+        ctx.globalCompositeOperation = 'destination-over';
+        ctx.fillStyle = '#ffffff'
+        ctx.fillRect(0, 0, chart.width, chart.height);
+        ctx.restore();
+    }
+};
+
 const options = {
     scales: {
         y: {
@@ -65,8 +77,8 @@ const options = {
             borderColor: '#fc5f6a',
             borderWidth: 1,
             displayColors: false
-        }
-    }
+        },
+    },
 } as any;
 
 export default function SkillChart() {
@@ -118,9 +130,11 @@ export default function SkillChart() {
         ],
     };
 
-    return <Bubble
-        options={options}
-        // plugins={[afterUpdate]}
-        data={data}
-    />
+    return <div className={'p-1 m-10 bg-white rounded-lg'}>
+        <Bubble
+            options={options}
+            plugins={[customCanvasBackgroundColor]}
+            data={data}
+        />
+    </div>
 }

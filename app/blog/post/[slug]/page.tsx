@@ -59,7 +59,7 @@ export default async function Post({ params }: Props) {
   };
 
   return (
-    <div id={'blog-container'}>
+    <main id={'blog-container'}>
       <div className={'w-full mb-12'}></div>
         <PostThumbnail img={postData.thumbnail} title={postData.title} className={`mt-12 h-40 ${thumbnail()}`}/>
       <h1 className={postStyle().title()}>{postData.title}</h1>
@@ -80,6 +80,6 @@ export default async function Post({ params }: Props) {
         }}
       />
       <IndexNav indexList={getIndex()} />
-    </div>
+    </main>
   );
 }
