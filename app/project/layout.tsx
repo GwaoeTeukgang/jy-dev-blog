@@ -8,9 +8,9 @@ export default function ProjectLayout({
   modal: ReactNode;
 }) {
   return (
-    <div>
+    <main>
       {children}
       {modal}
-    </div>
+    </main>
   );
 }

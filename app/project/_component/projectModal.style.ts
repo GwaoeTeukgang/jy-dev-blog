@@ -57,7 +57,7 @@ export const titleIcon = tv({
 });
 
 export const detailInfoContainer = tv({
-    base: ['text-gary-300', 'flex-1', 'flex', 'flex-col'],
+    base: ['text-gray-300', 'flex-1', 'flex', 'flex-col'],
 });
 
 
@@ -70,5 +70,5 @@ export const footer = tv({
 });
 
 export const footerButton = tv({
-    base: ['flex', 'gap-2', 'dark:invert','text-black', 'border', 'border-black-400','dark:border-2', 'rounded-lg', 'p-3', 'hover:shadow-lg', 'dark:shadow-gary-500']
+    base: ['flex', 'gap-2', 'dark:invert','text-black', 'border', 'border-black-400','dark:border-2', 'rounded-lg', 'p-3', 'hover:shadow-lg', 'dark:shadow-gray-500']
 })

@@ -18,7 +18,7 @@ export default tv({
       'bg-white',
     ],
     backgroundImage: ['w-full', 'h-full', 'object-cover', 'blur-sm'],
-    userImage: ['h-28', 'w-28', 'rounded-lg', 'shadow-md', '-mt-12', 'z-10'],
+    userImage: ['size-28', 'rounded-lg', 'shadow-md', '-mt-12', 'z-10', 'bg-cover'],
     userName: ['mt-4', 'text-lg', 'text-bold', 'font-bold'],
   },
 });

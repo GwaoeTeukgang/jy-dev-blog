@@ -33,13 +33,13 @@ const Model = () => {
 export default function Scene() {
     const isMobile = useMediaQuery('(max-width: 768px)');
     const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-    const [height, setHeight] = useState<number>(40);
+    const [height, setHeight] = useState<string>('40rem');
     const [cameraPos, setCameraPos] = useState<Vector3>(new Vector3(-1, 1.5, -2));
 
     useEffect(() => {
         if (isMobile) {
-            setHeight(10);
-            setCameraPos(new Vector3(-1, 1.5, -2))
+            setHeight('90dvh');
+            setCameraPos(new Vector3(-2, 9, -2));
         }
         const targetNode = document.querySelector('html');
         if (!targetNode) {
@@ -61,7 +61,7 @@ export default function Scene() {
     }, []);
 
     return (
-        <Canvas style={{width: '100%', height: `${height}rem`, marginBottom:'10rem'}}
+        <Canvas style={{width: '100%', height, marginBottom:'10rem'}}
                 camera={{position: cameraPos}}>
             <Model/>
             <OrbitControls/>

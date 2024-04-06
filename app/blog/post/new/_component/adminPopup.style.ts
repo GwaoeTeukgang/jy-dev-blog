@@ -23,7 +23,7 @@ export const modalContainer = tv({
     'mt-[-20%]',
     'rounded-lg',
     'shadow',
-    'dark:shadow-gary-300',
+    'dark:shadow-gray-300',
     'p-10',
     'flex',
     'flex-col',

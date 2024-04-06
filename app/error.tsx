@@ -16,7 +16,7 @@ export default function BlogError({
       <button
         onClick={reset}
         className={
-          'mt-12 shadow-lg py-2 px-4 rounded text-white bg-gary-600 dark:bg-gary-300 dark:text-black'
+          'mt-12 shadow-lg py-2 px-4 rounded text-white bg-gray-600 dark:bg-gray-300 dark:text-black'
         }
       >
         재시도

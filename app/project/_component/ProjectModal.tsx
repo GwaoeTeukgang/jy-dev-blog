@@ -38,7 +38,7 @@ export default async function ProjectModal({slug}: { slug: string }) {
                         <p className={'max-h-20 overflow-y-scroll text-gray-400'}>
                             {data.projectSummary}
                         </p>
-                        <div className={'flex-1 overflow-y-scroll mt-4 p-4'}>
+                        <div className={'flex-1 overflow-y-scroll mt-4 p-4 text-gray-950 dark:text-gray-300'}>
                             <p> {data.detail}</p>
                             <p className={'mt-4'}>
                                 <strong>주요 기능</strong>

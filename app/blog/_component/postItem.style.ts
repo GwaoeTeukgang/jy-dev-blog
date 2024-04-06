@@ -8,7 +8,7 @@ export default tv({
       'overflow-hidden',
       'w-full',
       'h-full',
-      'dark:shadow-gary-600',
+      'dark:shadow-gray-600',
       'hover:scale-105',
       'hover:-translate-y-4',
       'transition-all',

@@ -16,8 +16,8 @@ interface Navigation {
 
 const HEADER_NAVIGATION: Navigation[] = [
   {
-    path: 'profile',
-    name: 'Profile',
+    path: 'about',
+    name: 'About',
   },
   {
     path: 'project',
@@ -27,10 +27,6 @@ const HEADER_NAVIGATION: Navigation[] = [
     path: 'blog',
     name: 'Blog',
   },
-  // {
-  //   path: 'article',
-  //   name: 'Article',
-  // },
 ];
 
 export default function Header() {

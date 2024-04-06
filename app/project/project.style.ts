@@ -5,7 +5,7 @@ export const projectContainer = tv({
 });
 
 export const projectTitle = tv({
-  base: ['font-bold', 'text-3xl', 'mt-14', 'max-sm:text-xl'],
+  base: ['font-bold', 'text-2xl', 'mt-14', 'max-sm:text-xl'],
 });
 
 export const itemContainer = tv({
