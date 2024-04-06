@@ -1,6 +1,6 @@
 import { tv } from 'tailwind-variants';
 
-export const titleInput = tv({
+export const textInput = tv({
   base: [
     'w-full',
     'font-bold',
@@ -13,7 +13,7 @@ export const titleInput = tv({
 });
 
 export const summaryInput = tv({
-  extend: titleInput,
+  extend: textInput,
   base: ['font-normal', 'resize-none', 'text-xl'],
 });
 

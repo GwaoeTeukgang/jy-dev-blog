@@ -20,6 +20,7 @@ export default function RootLayout({
         <Header/>
         {children}
         <Footer/>
+        <div className={'portal-container'}></div>
         </body>
         </html>
     );

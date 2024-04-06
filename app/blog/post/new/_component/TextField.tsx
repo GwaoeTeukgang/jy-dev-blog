@@ -19,7 +19,7 @@ export default function TextField(props: TextFieldProps) {
     <div>
       {fieldName === 'title' ? (
         <input
-          className={style.titleInput()}
+          className={style.textInput()}
           {...{ ...inputProps, placeholder }}
         />
       ) : (

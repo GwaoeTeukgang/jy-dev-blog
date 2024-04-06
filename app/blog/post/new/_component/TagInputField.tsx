@@ -1,42 +1,35 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Tag } from '@/model/blog';
-import { getTags } from '@/lib/api/blog';
-import { UseFormRegisterReturn } from 'react-hook-form';
-import TagItem from '@/app/blog/_component/TagItem';
-import { tagInputBox } from '@/app/blog/post/new/_component/field.style';
+import {useEffect, useState} from 'react';
 
-export default function TagInputField(props: UseFormRegisterReturn) {
-  const [tags, setTags] = useState<Tag[]>([]);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
+interface TextInputProps {
+    onChange: (e: string[]) => void;
+    disabled: boolean;
+}
 
-  useEffect(() => {
-    requestTags();
-  }, []);
+export default function TagInputField(props: TextInputProps) {
+    const [tags, setTags] = useState<string>('');
 
-  const requestTags = async () => {
-    const { data } = await getTags();
-    setTags(data.data);
-  };
+    useEffect(() => {
+        requestTags();
+    }, []);
 
-  return (
-    <div className={'mb-4'}>
-      <div className={tagInputBox()}>
-        <ul>
-          {selectedTags.map((it) => (
-            <TagItem key={it.id} label={it.tagLabel} />
-          ))}
-        </ul>
-      </div>
-      <ul>
-        {tags.map(({ id, tagLabel }) => (
-          <li key={id} value={id}>
-            {tagLabel}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+    const requestTags = async () => {
+        // const { data } = await getTags();
+        // setTags(data.data);
+    };
+
+    const onBlur = () => {
+        props.onChange(tags.split(', ').map(it => it.trim()));
+    }
+
+    return (
+        <div className={'mb-4'}>
+            <input value={tags}
+                   onChange={e => setTags(e.target.value)}
+                   onBlur={onBlur}
+                   disabled={props.disabled}
+                   className={`border-2 rounded-lg text-sm p-1 w-full`}/>
+        </div>
+    );
 }
