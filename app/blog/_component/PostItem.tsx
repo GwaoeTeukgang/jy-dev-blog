@@ -9,7 +9,7 @@ import useBookmarkStore from '@/store/useBookmarkStore';
 import React, { useMemo } from 'react';
 import TagItem from '@/app/blog/_component/TagItem';
 import { useRouter } from 'next/navigation';
-import PostThumbnail from "@/app/_component/PostThumbnail";
+import PostThumbnail from '@/app/_component/PostThumbnail';
 
 export default function PostItem(item: PostItemInfo) {
   const { container, title, summary, footer, bookmark, thumbnail, date } =
@@ -33,7 +33,11 @@ export default function PostItem(item: PostItemInfo) {
 
   return (
     <div className={container()} onClick={moveDetail}>
-      <PostThumbnail img={item.thumbnail} title={item.title} className={thumbnail()}/>
+      <PostThumbnail
+        img={item.thumbnail}
+        title={item.title}
+        className={thumbnail()}
+      />
       <div style={{ padding: '12px' }}>
         <p className={title()}>{item.title}</p>
         <p className={summary()}>{item.summary}</p>

@@ -9,6 +9,9 @@ export const textInput = tv({
     'flex-1',
     'outline-none',
     'p',
+    'my-4',
+    'dark:bg-black',
+    'dark:text-white',
   ],
 });
 

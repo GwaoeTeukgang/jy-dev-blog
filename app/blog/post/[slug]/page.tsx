@@ -9,7 +9,7 @@ import type { Metadata } from 'next';
 import { PostIndex } from '@/app/blog/post/[slug]/_model';
 import IndexNav from '@/app/blog/post/[slug]/_component/IndexNav';
 import { Props } from '@/model';
-import PostThumbnail from "@/app/_component/PostThumbnail";
+import PostThumbnail from '@/app/_component/PostThumbnail';
 
 const getPost = async (slug: string): Promise<PostDetail> => {
   try {
@@ -61,7 +61,11 @@ export default async function Post({ params }: Props) {
   return (
     <main id={'blog-container'}>
       <div className={'w-full mb-12'}></div>
-        <PostThumbnail img={postData.thumbnail} title={postData.title} className={`mt-12 h-40 ${thumbnail()}`}/>
+      <PostThumbnail
+        img={postData.thumbnail}
+        title={postData.title}
+        className={`mt-12 h-40 ${thumbnail()}`}
+      />
       <h1 className={postStyle().title()}>{postData.title}</h1>
       <h3 className={postStyle().summary()}>{postData.summary}</h3>
       <div className={postStyle().tagContainer()}>

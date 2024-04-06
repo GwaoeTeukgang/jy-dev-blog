@@ -24,7 +24,13 @@ export default function MyInfo() {
       </div>
       <div style={{ zIndex: 10 }}>
         <EnterMotion>
-          <Image src={'/me.png'} alt={''} width={500} height={500} className={userImage()} />
+          <Image
+            src={'/me.png'}
+            alt={''}
+            width={500}
+            height={500}
+            className={userImage()}
+          />
         </EnterMotion>
       </div>
       <h3 className={userName()}>이지윤</h3>

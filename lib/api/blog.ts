@@ -5,13 +5,12 @@ import client from '@/lib/client';
 export const getPaginatedPost = (
   page: number,
   pageSize: number,
-  sort: string = 'createdAt'
+  sort: string = 'createdAt',
 ): Promise<PaginationResponse<PostItemInfo[]>> => {
   return client.get(
     `/api/posts?sort[0]=${sort}:desc&populate[0]=thumbnail&populate[1]=tags&pagination[1]=${page}&pagination[0]=${pageSize}`,
   );
 };
-
 
 export const getPostDetail = (slug: string): Promise<Response<PostDetail>> => {
   return client.get(
