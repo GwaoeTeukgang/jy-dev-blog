@@ -1,27 +1,27 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/app/_component/header/Header';
-import {homeLayoutContainer} from '@/app/home.style';
+import { homeLayoutContainer } from '@/app/home.style';
 import Footer from '@/app/_component/Footer';
 
 export const metadata: Metadata = {
-    title: 'JYIOON',
-    description: 'Jiyoon\'s dev blog & portfolio',
+  title: 'JYIOON',
+  description: "Jiyoon's dev blog & portfolio",
 };
 
 export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
-    children: React.ReactNode;
+  children,
+}: Readonly<{
+  children: React.ReactNode;
 }>) {
-    return (
-        <html lang="en">
-        <body className={homeLayoutContainer()}>
-        <Header/>
+  return (
+    <html lang="en">
+      <body className={homeLayoutContainer()}>
+        <Header />
         {children}
-        <Footer/>
+        <Footer />
         <div id={'portal-container'}></div>
-        </body>
-        </html>
-    );
+      </body>
+    </html>
+  );
 }

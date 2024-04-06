@@ -1,11 +1,10 @@
 import ProjectModal from '@/app/project/_component/ProjectModal';
 import { Props } from '@/model';
-import type {Metadata} from "next";
-import {getProject} from "@/lib/api/project";
-
+import type { Metadata } from 'next';
+import { getProject } from '@/lib/api/project';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const {data} = await getProject(params.slug);
+  const { data } = await getProject(params.slug);
 
   return {
     title: data.data.projectName,
