@@ -68,7 +68,8 @@ export default function ProjectItem({
         </div>
         <div className={'right'}>
           <ul className={style.skillTag()}>
-            {skill?.map((it) => <TagItem key={it.id} label={it.tagLabel} />)}
+            {skill.slice(0,5)?.map((it) => <TagItem key={it.id} label={it.tagLabel} />)}
+            {skill.length > 5 && <TagItem label={'...'} />}
           </ul>
         </div>
       </div>
