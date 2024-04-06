@@ -81,9 +81,9 @@ const Scene = () => {
     <Canvas style={{ width: '100%', height }} camera={{ position: cameraPos }}>
       <color attach="background" args={['blue']} />
       {/*<Model />*/}
-      {/*<OrbitControls />*/}
-      {/*<ambientLight intensity={1} />*/}
-      {/*<directionalLight position={[0, 10, 0]} intensity={1.5} />*/}
+      <OrbitControls />
+      <ambientLight intensity={1} />
+      <directionalLight position={[0, 10, 0]} intensity={1.5} />
       {/*<Text*/}
       {/*  position={[8, 1, 2]}*/}
       {/*  rotation={[0.3, 10, 0.1]}*/}
