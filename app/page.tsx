@@ -8,8 +8,9 @@ export default async function Home() {
     return (
         <main className={container()}>
             <ModelCanvas/>
-            <strong className={'text-2xl font-bold'}>{'</> Recent Post'}</strong>
+            <div className={'lg:mt-32 text-2xl font-bold'}>{'</> Recent Post'}</div>
             <HomeBlog/>
+            <div className={'lg:mt-5 text-2xl font-bold'}>{'</> Popular Post'}</div>
         </main>
     );
 }

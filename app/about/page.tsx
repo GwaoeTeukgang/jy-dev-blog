@@ -39,7 +39,7 @@ export default function Profile() {
                 width={500}
                 height={700}/>
         </div>
-        <div className={'text-2xl font-bold mt-16'}>{'</> Skills'}</div>
+        <div className={'text-2xl font-bold mt-20 mb-10'}>{'</> Skills'}</div>
         <SkillChart/>
     </main>;
 }
