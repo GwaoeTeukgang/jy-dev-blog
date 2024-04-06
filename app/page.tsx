@@ -1,7 +1,14 @@
 import homeStyle from '@/app/home.style';
-import ModelCanvas from '@/app/_component/scene/Scene';
 import HomeBlog from '@/app/_component/blog/HomeBlog';
+import dynamic from "next/dynamic";
 
+
+const ModelCanvas = dynamic(
+    () => {
+        return import('@/app/_component/scene/Scene');
+    },
+    { ssr: false }
+);
 export default async function Home() {
   const { container } = homeStyle();
 
