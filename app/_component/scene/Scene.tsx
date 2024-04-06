@@ -7,7 +7,6 @@ import { OrbitControls, Text } from '@react-three/drei';
 import { AnimationMixer, Group } from 'three';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { Vector3 } from 'three/src/math/Vector3.js';
-
 const Model = () => {
   const group = useRef<Group>();
   const mixer = useRef<AnimationMixer>();
@@ -15,7 +14,7 @@ const Model = () => {
 
   useEffect(() => {
     const gltfLoader = new GLTFLoader();
-    gltfLoader.load('/3d/desktop_me.glb', (gltf) => {
+    gltfLoader.load('/3d/desktop.gltf', (gltf) => {
       setModel(gltf.scene);
       mixer.current = new AnimationMixer(gltf.scene);
       gltf.animations.forEach((clip) => {
@@ -55,7 +54,6 @@ const Scene = () => {
   return (
     <>
       <Canvas style={{ width: '100%', height }} camera={{ position: cameraPos }}>
-        <color attach="background" args={['blue']} />
         <Model />
         <OrbitControls />
         <ambientLight intensity={1} />
