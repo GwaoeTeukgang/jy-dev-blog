@@ -80,39 +80,39 @@ const Scene = () => {
   return (
     <Canvas style={{ width: '100%', height }} camera={{ position: cameraPos }}>
       <color attach="background" args={['blue']} />
-      {/*<Model />*/}
+      <Model />
       <OrbitControls />
       <ambientLight intensity={1} />
       <directionalLight position={[0, 10, 0]} intensity={1.5} />
-      <Text
-        position={[8, 1, 2]}
-        rotation={[0.3, 10, 0.1]}
-        fontSize={0.8}
-        color={isDarkMode ? 'white' : 'black'}
-        anchorX="left"
-        anchorY="middle"
-        maxWidth={10}
-        font={
-          'https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackObliqueA.woff'
-        }
-      >
-        Hello World!
-      </Text>
-      <Text
-        position={[8.2, -0.1, 2]}
-        rotation={[0.3, 10, 0.1]}
-        fontSize={0.4}
-        color={isDarkMode ? 'white' : 'black'}
-        anchorX="left"
-        anchorY="middle"
-        maxWidth={10}
-        font={
-          'https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff'
-        }
-      >
-        Welcome to my developer blog and portfolio, where I share insights and
-        projects.
-      </Text>
+      {/*<Text*/}
+      {/*  position={[8, 1, 2]}*/}
+      {/*  rotation={[0.3, 10, 0.1]}*/}
+      {/*  fontSize={0.8}*/}
+      {/*  color={isDarkMode ? 'white' : 'black'}*/}
+      {/*  anchorX="left"*/}
+      {/*  anchorY="middle"*/}
+      {/*  maxWidth={10}*/}
+      {/*  font={*/}
+      {/*    'https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackObliqueA.woff'*/}
+      {/*  }*/}
+      {/*>*/}
+      {/*  Hello World!*/}
+      {/*</Text>*/}
+      {/*<Text*/}
+      {/*  position={[8.2, -0.1, 2]}*/}
+      {/*  rotation={[0.3, 10, 0.1]}*/}
+      {/*  fontSize={0.4}*/}
+      {/*  color={isDarkMode ? 'white' : 'black'}*/}
+      {/*  anchorX="left"*/}
+      {/*  anchorY="middle"*/}
+      {/*  maxWidth={10}*/}
+      {/*  font={*/}
+      {/*    'https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff'*/}
+      {/*  }*/}
+      {/*>*/}
+      {/*  Welcome to my developer blog and portfolio, where I share insights and*/}
+      {/*  projects.*/}
+      {/*</Text>*/}
     </Canvas>
   );
 };
