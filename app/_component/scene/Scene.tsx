@@ -61,7 +61,7 @@ export default function Scene() {
     }, []);
 
     return (
-        <Canvas style={{width: '100%', height: `${height}rem`}}
+        <Canvas style={{width: '100%', height: `${height}rem`, marginBottom:'10rem'}}
                 camera={{position: cameraPos}}>
             <Model/>
             <OrbitControls/>

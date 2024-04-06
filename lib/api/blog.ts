@@ -11,6 +11,7 @@ export const getPaginatedPost = (
   );
 };
 
+
 export const getPostDetail = (slug: string): Promise<Response<PostDetail>> => {
   return client.get(
     `/api/posts/${slug}?populate[0]=thumbnail&populate[1]=tags`,
