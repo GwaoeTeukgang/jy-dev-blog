@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls, Text } from '@react-three/drei';
+import {Environment, OrbitControls, Text} from '@react-three/drei';
 import { AnimationMixer, Group } from 'three';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { Vector3 } from 'three/src/math/Vector3.js';
@@ -15,7 +15,6 @@ const Model = () => {
   useEffect(() => {
     const gltfLoader = new GLTFLoader();
     gltfLoader.load('/3d/desktop.gltf', (gltf) => {
-      console.log(gltf)
       setModel(gltf.scene);
       mixer.current = new AnimationMixer(gltf.scene);
       gltf.animations.forEach((clip) => {
@@ -59,6 +58,7 @@ const Scene = () => {
         <OrbitControls />
         <ambientLight intensity={1} />
         <directionalLight position={[0, 10, 0]} intensity={1.5} />
+        <Environment preset="sunset" background />
         {/*{typeof window !== 'undefined' && (*/}
         {/*  <>*/}
         {/*    <Text*/}
