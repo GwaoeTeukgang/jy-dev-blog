@@ -26,7 +26,7 @@ export default function ImageSlider({ images }: { images: ImageInfo[] }) {
         id: index.toString(),
       })),
     );
-  }, []);
+  }, [images]);
 
   const onMove = (dir: 1 | -1) => {
     if (!sliderContainer.current) return;

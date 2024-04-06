@@ -40,6 +40,18 @@ export default function PostList({
     initBookmarks(bookmarks ?? []);
   }, [initBookmarks]);
 
+  const callMorePost = async () => {
+    if (!hasMorePost) {
+      return;
+    }
+    try {
+      const { data } = await getPaginatedPost(pageInfo.page + 1, 10);
+      setPagination(data.data, data.meta);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   useEffect(() => {
     const observeCallBack = (
       entries: IntersectionObserverEntry[],
@@ -56,28 +68,18 @@ export default function PostList({
       threshold: 0.1,
     });
 
-    if (targetElement.current) {
-      observer.observe(targetElement.current);
+    const target = targetElement.current;
+
+    if (target) {
+      observer.observe(target);
     }
 
     return () => {
-      if (targetElement.current) {
-        observer.unobserve(targetElement.current);
+      if (target) {
+        observer.unobserve(target);
       }
     };
-  }, [list, pageInfo, setPagination, hasMorePost]);
-
-  const callMorePost = async () => {
-    if (!hasMorePost) {
-      return;
-    }
-    try {
-      const { data } = await getPaginatedPost(pageInfo.page + 1, 10);
-      setPagination(data.data, data.meta);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+  }, [list, pageInfo, setPagination, hasMorePost, callMorePost]);
 
   return (
     <AnimatePresence mode={'wait'}>

@@ -17,7 +17,7 @@ export default function PostItem(item: PostItemInfo) {
   const { bookmarks, addBookmark, removeBookmark } = useBookmarkStore();
   const isMarked = useMemo(
     () => bookmarks.includes(item.id.toString()),
-    [bookmarks],
+    [bookmarks, item],
   );
   const router = useRouter();
 

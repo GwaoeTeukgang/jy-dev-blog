@@ -8,12 +8,12 @@ import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { Vector3 } from 'three/src/math/Vector3.js';
 
 const Model = () => {
-  const gltfLoader = new GLTFLoader();
   const group = useRef<Group>();
   const mixer = useRef<AnimationMixer>();
   // Load the .glb file
   const [model, setModel] = React.useState<Group | null>(null);
   useEffect(() => {
+    const gltfLoader = new GLTFLoader();
     gltfLoader.load('/3d/desktop_me.glb', (gltf) => {
       setModel(gltf.scene);
       mixer.current = new AnimationMixer(gltf.scene);
@@ -72,7 +72,7 @@ export default function Scene() {
       attributeFilter: ['class'],
     });
     return () => observer.disconnect();
-  }, []);
+  }, [isMobile]);
 
   return (
     <Canvas style={{ width: '100%', height }} camera={{ position: cameraPos }}>

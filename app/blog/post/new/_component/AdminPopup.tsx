@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 import { useEffect, useState } from 'react';
 import * as style from '@/app/blog/post/new/_component/adminPopup.style';
 
-const AdminPopup = ({ onClear }: { onClear: (key: string) => boolean }) => {
+const Popup = ({ onClear }: { onClear: (key: string) => boolean }) => {
   const [key, setKey] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
 
@@ -37,7 +37,7 @@ const AdminPopup = ({ onClear }: { onClear: (key: string) => boolean }) => {
   );
 };
 
-export default function ({
+export default function AdminPopup({
   setDisabled,
 }: {
   setDisabled: (e: boolean) => void;
@@ -54,7 +54,7 @@ export default function ({
       setOpen(true);
       setDisabled(true);
     }
-  }, []);
+  }, [setDisabled]);
 
   const onClear = (key: string) => {
     if (key === process.env.NEXT_PUBLIC_ADMIN_KEY) {
@@ -72,7 +72,7 @@ export default function ({
       {open &&
         container &&
         adminKey !== process.env.NEXT_PUBLIC_ADMIN_KEY &&
-        createPortal(<AdminPopup onClear={onClear} />, container)}
+        createPortal(<Popup onClear={onClear} />, container)}
     </>
   );
 }
