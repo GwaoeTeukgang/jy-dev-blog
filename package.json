@@ -10,10 +10,15 @@
     "formatting": "prettier --write ."
   },
   "dependencies": {
+    "@react-three/drei": "^9.105.1",
+    "@react-three/fiber": "^8.16.1",
     "@tinymce/tinymce-react": "^4.3.2",
+    "@types/three": "^0.163.0",
     "axios": "^1.6.8",
     "framer-motion": "^11.0.14",
+    "install": "^0.13.0",
     "next": "14.1.0",
+    "npm": "^10.5.1",
     "prettier": "^3.2.5",
     "react": "^18",
     "react-dom": "^18",
@@ -21,6 +26,7 @@
     "react-native": "^0.73.6",
     "sanitize-html": "^2.13.0",
     "tailwind-variants": "^0.2.0",
+    "three": "^0.163.0",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
