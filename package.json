@@ -27,6 +27,7 @@
     "react-hook-form": "^7.51.2",
     "react-native": "^0.73.6",
     "sanitize-html": "^2.13.0",
+    "sharp": "^0.33.3",
     "tailwind-variants": "^0.2.0",
     "three": "^0.163.0",
     "zustand": "^4.5.2"
