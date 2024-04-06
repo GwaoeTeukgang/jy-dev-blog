@@ -7,7 +7,7 @@ import SkillChart from '@/app/about/_component/SkillChart';
 const EMAIL = 'ljy10499@gmail.com';
 export default function Profile() {
   return (
-    <main>
+    <main className={'p-2'}>
       <div className={'text-2xl font-bold mt-14 max-sm:text-xl'}>
         {'</> About Me'}
       </div>
@@ -15,7 +15,8 @@ export default function Profile() {
         <div className={'flex flex-col justify-between'}>
           <div>
             <h2 className={'text-2xl font-bold'}>이지윤</h2>
-            <p className={'mt-1 text-lg text-gray-400'}>웹 개발자</p>
+            <h2 className={'text-2xl font-bold'}>Lee Ji yoon</h2>
+            <p className={'mt-1 text-lg text-gray-400'}>Web Developer</p>
             <div className={'my-4'}>
               <Link
                 href={`mailto:${EMAIL}`}

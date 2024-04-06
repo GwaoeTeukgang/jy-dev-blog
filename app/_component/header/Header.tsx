@@ -44,7 +44,7 @@ export default function Header() {
   return (
     <header className={headerContainer()}>
       <div style={{ marginLeft: '0.5rem' }}>
-        <Link href={'/'}>Dev Story</Link>
+        <Link href={'/'}>JIYOON</Link>
       </div>
       {isClient && isMobile ? (
         <>

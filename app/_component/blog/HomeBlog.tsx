@@ -18,21 +18,34 @@ export default async function HomeBlog() {
   const data = await getMostRecentPost();
 
   return (
-    <Link href={`/blog/post/${data.slug}`} className={style.container()}>
-      <PostThumbnail img={data.thumbnail} title={data.title} className={''} />
-      <div className={style.postInfo()}>
-        <div>
-          <h3 className={'font-bold text-xl'}>{data.title}</h3>
-          <p className={'text-gray-400 mb-2'}>{data.createdAt}</p>
-          <p>{data.summary}</p>
+    <>
+      {data ? (
+        <Link href={`/blog/post/${data.slug}`} className={style.container()}>
+          <PostThumbnail
+            img={data.thumbnail}
+            title={data.title}
+            className={''}
+          />
+          <div className={style.postInfo()}>
+            <div>
+              <h3 className={'font-bold text-xl'}>{data.title}</h3>
+              <p className={'text-gray-400 mb-2'}>{data.createdAt}</p>
+              <p>{data.summary}</p>
+            </div>
+            <div className={'flex flex-wrap p-2 gap-1'}>
+              {data.tags
+                .slice(0, 5)
+                ?.map((it) => <TagItem key={it.id} label={it.tagLabel} />)}
+              {data.tags.length > 5 && <TagItem label={'...'} />}
+            </div>
+          </div>
+        </Link>
+      ) : (
+        <div className={`h-80 flex justify-center items-center`}>
+          {' '}
+          No Content
         </div>
-        <div className={'flex flex-wrap p-2 gap-1'}>
-          {data.tags
-            .slice(0, 5)
-            ?.map((it) => <TagItem key={it.id} label={it.tagLabel} />)}
-          {data.tags.length > 5 && <TagItem label={'...'} />}
-        </div>
-      </div>
-    </Link>
+      )}
+    </>
   );
 }

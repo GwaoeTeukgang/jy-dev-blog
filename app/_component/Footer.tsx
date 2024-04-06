@@ -47,7 +47,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <p className="text-right">&copy; 2024 JIYOON LEE. All Rights Reserved.</p>
+      <p className="text-right text-sm">
+        &copy; 2024 JIYOON LEE. All Rights Reserved.
+      </p>
     </footer>
   );
 }
