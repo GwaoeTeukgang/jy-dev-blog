@@ -5,7 +5,7 @@ import { homeLayoutContainer } from '@/app/home.style';
 import Footer from '@/app/_component/Footer';
 
 export const metadata: Metadata = {
-  title: 'JYIOON',
+  title: 'JIYOON',
   description: "Jiyoon's dev blog & portfolio",
 };
 

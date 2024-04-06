@@ -14,16 +14,14 @@ const Model = () => {
   const [model, setModel] = useState<Group | null>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const gltfLoader = new GLTFLoader();
-      gltfLoader.load('/3d/desktop_me.glb', (gltf) => {
-        setModel(gltf.scene);
-        mixer.current = new AnimationMixer(gltf.scene);
-        gltf.animations.forEach((clip) => {
-          mixer.current?.clipAction(clip).play();
-        });
+    const gltfLoader = new GLTFLoader();
+    gltfLoader.load('/3d/desktop_me.glb', (gltf) => {
+      setModel(gltf.scene);
+      mixer.current = new AnimationMixer(gltf.scene);
+      gltf.animations.forEach((clip) => {
+        mixer.current?.clipAction(clip).play();
       });
-    }
+    });
   }, []);
 
   useFrame((_, delta) => {
@@ -49,7 +47,6 @@ const Scene = () => {
   const [cameraPos, setCameraPos] = useState<Vector3>(new Vector3(-1, 1.5, -2));
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
       if (isMobile) {
         setHeight('90vh');
         setCameraPos(new Vector3(-2, 9, -2));
@@ -78,15 +75,15 @@ const Scene = () => {
         attributeFilter: ['class'],
       });
       return () => observer.disconnect();
-    }
   }, [isMobile]);
 
   return (
     <Canvas style={{ width: '100%', height }} camera={{ position: cameraPos }}>
-      {/*<Model />*/}
-      {/*<OrbitControls />*/}
+      <color attach="background" args={['blue']} />
+      <Model />
+      <OrbitControls />
       <ambientLight intensity={1} />
-      {/*<directionalLight position={[0, 10, 0]} intensity={1.5} />*/}
+      <directionalLight position={[0, 10, 0]} intensity={1.5} />
       {/*<Text*/}
       {/*  position={[8, 1, 2]}*/}
       {/*  rotation={[0.3, 10, 0.1]}*/}
