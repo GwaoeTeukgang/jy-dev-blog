@@ -15,6 +15,7 @@ const Model = () => {
   useEffect(() => {
     const gltfLoader = new GLTFLoader();
     gltfLoader.load('/3d/desktop.gltf', (gltf) => {
+      console.log(gltf)
       setModel(gltf.scene);
       mixer.current = new AnimationMixer(gltf.scene);
       gltf.animations.forEach((clip) => {
