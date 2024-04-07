@@ -34,8 +34,8 @@ export default function PostThumbnail({
           src={`${img.url}`}
           alt={'thumbnail'}
           className={className}
-          width={img.formats.medium.width}
-          height={img.formats.medium.height}
+          width={img.formats?.medium?.width ?? 300}
+          height={img.formats?.medium?.height ?? 500}
         />
       ) : (
         <div className={`${textStyle()} ${className}`}>{title}</div>

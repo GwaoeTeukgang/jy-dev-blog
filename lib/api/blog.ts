@@ -21,3 +21,7 @@ export const getPostDetail = (slug: string): Promise<Response<PostDetail>> => {
 export const getTags = (): Promise<PaginationResponse<Tag[]>> => {
   return client.get('/api/tags');
 };
+
+export const createNewPost = (data: PostDetail) : Promise<any> => {
+  return client.post('/api/posts', data);
+}

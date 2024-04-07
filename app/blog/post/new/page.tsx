@@ -7,6 +7,7 @@ import TagInputField from '@/app/blog/post/new/_component/TagInputField';
 import { useState } from 'react';
 import PostEditor from '@/app/blog/post/new/_component/PostEditor';
 import AdminPopup from '@/app/blog/post/new/_component/AdminPopup';
+import {createNewPost} from "@/lib/api/blog";
 
 export default function NewPost() {
   const [disabled, setDisabled] = useState<boolean>(false);
@@ -16,8 +17,13 @@ export default function NewPost() {
     control,
     formState: { errors },
   } = useForm<PostDetail>({ disabled });
-  const onSubmit: SubmitHandler<PostDetail> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<PostDetail> = async (data) => {
+    try {
+      const res = createNewPost(data);
+      console.log(res)
+    } catch (e) {
+      console.error(e)
+    }
   };
 
   return (
@@ -28,9 +34,7 @@ export default function NewPost() {
         }
       >
         <form
-          onSubmit={handleSubmit((data) => {
-            alert(JSON.stringify(data));
-          })}
+          onSubmit={handleSubmit((data) => onSubmit(data))}
         >
           <TextField
             fieldName={'title'}

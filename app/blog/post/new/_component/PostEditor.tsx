@@ -16,9 +16,9 @@ export default function PostEditor({
   disabled,
   errors,
 }: PostEditorProps) {
-  const plugins = 'code';
+  const plugins = 'code lists';
   const toolbar =
-    'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | outdent indent';
+    'undo redo | styles | bold italic  |  numlist bullist | alignleft aligncenter alignright alignjustify | outdent indent';
 
   return (
     <>
