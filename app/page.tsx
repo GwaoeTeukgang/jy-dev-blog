@@ -10,7 +10,7 @@ export default async function Home() {
       <div className={'relative'}>
           <ModelCanvas />
       </div>
-      <div className={'lg:mt-28 flex justify-around max-sm:flex-col p-2'}>
+      <div className={'lg:mt-28 flex justify-around max-sm:flex-col p-2 gap-4'}>
         <div>
           <div className={'text-2xl font-bold'}>{'</> Recent Post'}</div>
           <HomeBlog />

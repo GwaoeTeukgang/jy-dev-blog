@@ -24,7 +24,7 @@ export default async function HomeBlog() {
           <PostThumbnail
             img={data.thumbnail}
             title={data.title}
-            className={''}
+            className={'max-sm:w-full'}
           />
           <div className={style.postInfo()}>
             <div>

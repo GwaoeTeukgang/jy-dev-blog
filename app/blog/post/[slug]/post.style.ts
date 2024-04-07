@@ -6,6 +6,7 @@ export default tv({
     summary: ['text-2xl', 'mt-4', 'mb-2', 'text-center'],
     tagContainer: ['m-4', 'flex', 'justify-center', 'flex-wrap', 'gap-2'],
     content: [
+        'p-2',
       'my-32',
       '[&_ul]:my-6',
       '[&_ol]:my-6',
