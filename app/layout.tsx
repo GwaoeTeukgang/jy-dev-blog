@@ -7,6 +7,9 @@ import Footer from '@/app/_component/Footer';
 export const metadata: Metadata = {
   title: 'JIYOON',
   description: "Jiyoon's dev blog & portfolio",
+  icons: {
+    icon: '/jy-logo.png',
+  }
 };
 
 export default function RootLayout({
@@ -16,8 +19,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={homeLayoutContainer()}>
-        <Header />
+    <body className={homeLayoutContainer()}>
+    <Header />
         {children}
         <Footer />
         <div id={'portal-container'}></div>

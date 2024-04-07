@@ -2,10 +2,12 @@ import ProjectItem from '@/app/project/_component/ProjectItem';
 import { getProjects } from '@/lib/api/project';
 import { ProjectItemInfo } from '@/model/project';
 import * as style from '@/app/project/project.style';
+import type {Metadata} from "next";
 
-interface Props {
-  params: { slug: string };
-}
+export const metadata: Metadata = {
+    title: 'JIYOON - Project',
+    description: "Jiyoon's Project",
+};
 const getProjectList = async () => {
   try {
     const { data } = await getProjects();

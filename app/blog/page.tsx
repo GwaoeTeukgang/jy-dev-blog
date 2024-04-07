@@ -4,7 +4,13 @@ import blogStyle from '@/app/blog/blog.style';
 import { PostItemInfo } from '@/model/blog';
 import { PaginationReturnMap } from '@/model';
 import { getPaginatedPost } from '@/lib/api/blog';
+import type {Metadata} from "next";
 
+
+export const metadata: Metadata = {
+    title: 'JIYOON - Blog',
+    description: "Jiyoon's Blog",
+};
 const getPostList = async (): Promise<PaginationReturnMap<PostItemInfo[]>> => {
   try {
     const { data } = await getPaginatedPost(1, 10);

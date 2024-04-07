@@ -3,6 +3,12 @@ import * as style from './profile.style';
 import Link from 'next/link';
 import React from 'react';
 import SkillChart from '@/app/about/_component/SkillChart';
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: 'JIYOON - About',
+  description: "Jiyoon's Profile",
+};
 
 const EMAIL = 'ljy10499@gmail.com';
 export default function Profile() {

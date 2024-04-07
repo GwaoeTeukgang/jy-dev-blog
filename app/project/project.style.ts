@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const projectContainer = tv({
-  base: ['mt-8'],
+  base: ['mt-8', 'lg:mb-20'],
 });
 
 export const projectTitle = tv({
@@ -12,7 +12,7 @@ export const itemContainer = tv({
   base: [
     'snap-mandatory',
     'snap-y',
-    'overflow-scroll',
+    'max-sm:overflow-scroll',
     'w-full',
     'h-[calc(100vh-6rem)]',
   ],

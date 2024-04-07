@@ -7,11 +7,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { data } = await getProject(params.slug);
 
   return {
-    title: data.data.projectName,
+    title: `JIYOON - Project: ${data.data.projectName}`,
     description: data.data.projectSummary,
     keywords: data.data.skill.map((it) => it.tagLabel),
     openGraph: {
-      images: [data.data.projectIcon?.url ?? ''],
+      images: [data.data.projectIcon?.url ?? data.data.image[0].url],
     },
   };
 }
