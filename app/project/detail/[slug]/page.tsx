@@ -16,5 +16,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 export default function Page({ params }: Props) {
-  return <ProjectModal slug={params.slug} />;
+  return <ProjectModal slug={params.slug} isInterceptor={false} />;
 }

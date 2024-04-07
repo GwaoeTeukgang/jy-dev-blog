@@ -15,13 +15,13 @@ const getProjectDetail = async (slug: string) => {
     throw new Error('프로젝트 정보를 불러오는데 실패했습니다.\n' + e);
   }
 };
-export default async function ProjectModal({ slug }: { slug: string }) {
+export default async function ProjectModal({ slug, isInterceptor = true }: { slug: string, isInterceptor?: boolean }) {
   const data = await getProjectDetail(slug);
 
   return (
     <div className={style.overlay()}>
       <div className={style.container()}>
-        <CloseButton />
+        <CloseButton isInterceptor={isInterceptor} />
         <div className={'flex max-sm:flex-col'}>
           <ImageSlider images={data.image} />
           <div className={style.detailInfoContainer()}>
@@ -46,7 +46,7 @@ export default async function ProjectModal({ slug }: { slug: string }) {
               }
             >
               <p> {data.detail}</p>
-              <p className={'mt-4'}>
+              <div className={'mt-4'}>
                 <strong>주요 기능</strong>
                 <ul className={'mt-2 pl-4'}>
                   {data.features.map(({ id, featuresLabel }) => (
@@ -58,7 +58,7 @@ export default async function ProjectModal({ slug }: { slug: string }) {
                     </li>
                   ))}
                 </ul>
-              </p>
+              </div>
             </div>
           </div>
         </div>

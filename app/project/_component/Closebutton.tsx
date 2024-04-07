@@ -2,12 +2,12 @@
 
 import { useRouter } from 'next/navigation';
 
-export default function CloseButton() {
+export default function CloseButton({isInterceptor}: {isInterceptor: boolean}) {
   const router = useRouter();
 
-  const onClose = () => {
-    router.back();
-  };
+    const onClose = () => {
+        isInterceptor ? router.back(): router.push('/project');
+    };
 
   return (
     <div className={'size-6 ml-auto sticky top-0 right-0'} onClick={onClose}>
