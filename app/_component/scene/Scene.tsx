@@ -7,6 +7,7 @@ import {Environment, OrbitControls, Text} from '@react-three/drei';
 import { AnimationMixer, Group } from 'three';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { Vector3 } from 'three/src/math/Vector3.js';
+import {number} from "prop-types";
 const Model = () => {
   const group = useRef<Group>();
   const mixer = useRef<AnimationMixer>();
@@ -42,12 +43,12 @@ const Model = () => {
 const Scene = () => {
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [height, setHeight] = useState<string>('40rem');
-  const [cameraPos, setCameraPos] = useState<Vector3>(new Vector3(-1, 1.5, -2));
+  const [cameraPos, setCameraPos] = useState<[number, number, number]>([-1, 1.5, -2]);
 
   useEffect(() => {
     if (isMobile) {
       setHeight('90vh');
-      setCameraPos(new Vector3(-2, 9, -2));
+      setCameraPos([-2, 9, -2]);
     }
   }, [isMobile]);
 
@@ -58,7 +59,6 @@ const Scene = () => {
         <OrbitControls />
         <ambientLight intensity={1} />
         <directionalLight position={[0, 10, 0]} intensity={1.5} />
-        <Environment preset="sunset" background />
         {/*{typeof window !== 'undefined' && (*/}
         {/*  <>*/}
         {/*    <Text*/}

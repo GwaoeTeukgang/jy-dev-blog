@@ -32,6 +32,7 @@ const postListContainer = tv({
     'mb-4',
     'max-h-[1200px]',
     'overflow-y-scroll',
+    'min-h-10',
   ],
 });
 

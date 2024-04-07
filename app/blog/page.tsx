@@ -28,10 +28,10 @@ export default async function Blog() {
           <p>Post</p>
           <p>{meta.pagination.total ?? 0}</p>
         </div>
-        <div className={blogInfoItem()}>
-          <p>Viewer</p>
-          <p>0</p>
-        </div>
+        {/*<div className={blogInfoItem()}>*/}
+        {/*  <p>Viewer</p>*/}
+        {/*  <p>0</p>*/}
+        {/*</div>*/}
       </div>
       <div>
         <PostList postList={data} meta={meta} />

@@ -9,6 +9,7 @@ const nextConfig = {
       'splendid-luck-b586c4eedf.media.strapiapp.com',
     ],
   },
+  transpilePackages: ["three"],
   reactStrictMode: false,
 };
 
