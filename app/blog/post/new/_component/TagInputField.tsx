@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import {getTags} from "@/lib/api/blog";
 
 interface TextInputProps {
   onChange: (e: string[]) => void;
@@ -15,7 +16,7 @@ export default function TagInputField(props: TextInputProps) {
   }, []);
 
   const requestTags = async () => {
-    // const { data } = await getTags();
+    const { data } = await getTags();
     // setTags(data.data);
   };
 

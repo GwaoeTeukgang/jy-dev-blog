@@ -1,4 +1,4 @@
-import { PaginationResponse, Response } from '@/model';
+import {PaginationResponse, Response, ReturnMap} from '@/model';
 import { PostDetail, PostItemInfo, Tag } from '@/model/blog';
 import client from '@/lib/client';
 
@@ -19,9 +19,14 @@ export const getPostDetail = (slug: string): Promise<Response<PostDetail>> => {
 };
 
 export const getTags = (): Promise<PaginationResponse<Tag[]>> => {
-  return client.get('/api/tags');
+  return client.get('/api/tags')
 };
 
-export const createNewPost = (data: PostDetail) : Promise<any> => {
-  return client.post('/api/posts', data);
+export const createNewPost = (data: ReturnMap<PostDetail>) : Promise<any> => {
+  return client.post('/api/posts', data, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${ process.env.NEXT_PUBLIC_ADMIN_KEY}`
+    }
+  });
 }

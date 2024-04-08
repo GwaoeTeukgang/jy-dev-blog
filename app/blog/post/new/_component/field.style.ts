@@ -3,7 +3,7 @@ import { tv } from 'tailwind-variants';
 export const textInput = tv({
   base: [
     'w-full',
-    'font-bold',
+    'font-medium',
     'text-3xl',
     'border-b-2',
     'flex-1',

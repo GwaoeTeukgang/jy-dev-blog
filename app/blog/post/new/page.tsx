@@ -19,7 +19,7 @@ export default function NewPost() {
   } = useForm<PostDetail>({ disabled });
   const onSubmit: SubmitHandler<PostDetail> = async (data) => {
     try {
-      const res = createNewPost(data);
+      const res = createNewPost({data});
       console.log(res)
     } catch (e) {
       console.error(e)
@@ -40,15 +40,14 @@ export default function NewPost() {
             fieldName={'title'}
             placeholder={'제목'}
             errors={errors}
-            inputProps={register('title', { required: true, maxLength: 30 })}
+            inputProps={register('title', { required: true, maxLength: 80 })}
           />
           <TextField
             fieldName={'summary'}
             placeholder={'요약'}
             errors={errors}
-            inputProps={register('summary', { maxLength: 30 })}
+            inputProps={register('summary', { maxLength: 250 })}
           />
-
           <Controller
             name="tags"
             control={control}
