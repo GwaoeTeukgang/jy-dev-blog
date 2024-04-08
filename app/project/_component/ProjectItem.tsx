@@ -14,7 +14,7 @@ export default function ProjectItem({
   demoLink,
   projectIcon,
   image,
-  skill,
+  skills,
   slug,
   startDate,
   endDate,
@@ -67,13 +67,13 @@ export default function ProjectItem({
           </div>
         </div>
         <div className={'right'}>
-          {skill
+          {skills
               &&
               <ul className={style.skillTag()}>
-                {skill
+                {skills
                     .slice(0, 5)
                     ?.map((it) => <TagItem key={it.id} label={it.tagLabel}/>)}
-                {skill.length > 5 && <TagItem label={'...'}/>}
+                {skills.length > 5 && <TagItem label={'...'}/>}
               </ul>
           }
         </div>

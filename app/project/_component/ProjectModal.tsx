@@ -33,7 +33,7 @@ export default async function ProjectModal({ slug, isInterceptor = true }: { slu
               period={`${data.startDate} ~ ${data.endDate}`}
             />
             <ul className={style.skillTags()}>
-              {data.skill && data.skill.map((it) => (
+              {data.skills && data.skills.map((it) => (
                 <TagItem key={it.id} label={it.tagLabel} />
               ))}
             </ul>

@@ -16,5 +16,5 @@ export interface ProjectItemInfo {
   slug: string;
   image: ImageInfo[];
   projectIcon: ImageInfo | null;
-  skill: Tag[];
+  skills: Tag[];
 }
