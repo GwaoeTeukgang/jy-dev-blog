@@ -49,7 +49,8 @@ export default async function ProjectModal({ slug, isInterceptor = true }: { slu
               <div className={'mt-4'}>
                 <strong>주요 기능</strong>
                 <ul className={'mt-2 pl-4'}>
-                  {data.features.map(({ id, featuresLabel }) => (
+                  {data.features &&
+                      data.features.map(({ id, featuresLabel }) => (
                     <li
                       key={id}
                       className={'mb-1 marker:content-["❇"] marker:font-bold'}
