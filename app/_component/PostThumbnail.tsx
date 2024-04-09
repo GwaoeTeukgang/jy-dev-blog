@@ -28,18 +28,18 @@ export default function PostThumbnail({
   className,
 }: PostThumbnailProps) {
   return (
-    <>
+    <div className={className}>
       {img ? (
         <Image
           src={`${img.url}`}
+          className={'w-full h-full object-cover'}
           alt={'thumbnail'}
-          className={className}
           width={img.formats?.medium?.width ?? 300}
           height={img.formats?.medium?.height ?? 500}
         />
       ) : (
         <div className={`${textStyle()} ${className}`}>{title}</div>
       )}
-    </>
+    </div>
   );
 }

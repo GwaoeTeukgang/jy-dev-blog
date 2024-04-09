@@ -17,7 +17,7 @@ export default function PostEditor({
                                        disabled,
                                        errors,
                                    }: PostEditorProps) {
-    const plugins = 'code image lists ';
+    const plugins = 'code image lists';
     const toolbar =
         'undo redo | styles | bold italic | numlist bullist | alignleft aligncenter alignright alignjustify | outdent indent | code | image';
 

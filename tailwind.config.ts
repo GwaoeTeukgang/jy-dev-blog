@@ -46,7 +46,7 @@ const config: Config = {
         sm: '768px',
       },
       fontFamily: {
-        bold: ['LeferiPoint-BlackObliqueA', 'sans-serif'],
+        bold: ['SUIT-Regular', 'sans-serif'],
       },
     },
   },
