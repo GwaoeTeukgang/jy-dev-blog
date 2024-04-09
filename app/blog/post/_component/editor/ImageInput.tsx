@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {PostDetail} from "@/model/blog";
+import Image from "next/image";
 interface ImageInputProps {
     fieldName: keyof PostDetail;
     disabled:boolean;
@@ -23,7 +24,7 @@ export default function ImageInput(props: ImageInputProps) {
     return <>
 
         <label htmlFor="imageInput" className={''}>
-            <img src={imageUrl ?? undefined} alt={''} className={'w-full h-60 object-cover bg-gray-400'}/>
+            <Image src={imageUrl ?? ''} alt={''} className={'w-full h-60 object-cover bg-gray-400'}/>
         </label>
         <input id={'imageInput'}
                className={'hidden'}

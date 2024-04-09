@@ -23,7 +23,7 @@ export default function ImageSlider({ images }: { images: ImageInfo[] }) {
     setSlideImages(
       [...images, ...images].map((it, index) => ({
         ...it,
-        id: index.toString(),
+        id: index,
       })),
     );
   }, [images]);

@@ -32,7 +32,7 @@ export default function TagInputField({onChange, disabled, selectedTags}: TextIn
 
     useEffect(() => {
         onChange(selectedTag);
-    }, [selectedTag]);
+    }, [onChange, selectedTag]);
 
 
   const requestTags = async () => {
