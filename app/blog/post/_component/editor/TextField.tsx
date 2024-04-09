@@ -2,10 +2,12 @@
 
 import { FieldErrors, UseFormRegisterReturn } from 'react-hook-form';
 import { PostDetail } from '@/model/blog';
-import * as style from '@/app/blog/post/new/_component/field.style';
-import { summaryInput } from '@/app/blog/post/new/_component/field.style';
+import * as style from '@/app/blog/post/_component/editor/field.style';
+import { summaryInput } from '@/app/blog/post/_component/editor/field.style';
 
 interface TextFieldProps {
+  isText: boolean;
+  className?: string;
   fieldName: keyof PostDetail;
   placeholder: string;
   errors: FieldErrors<PostDetail>;
@@ -17,14 +19,14 @@ export default function TextField(props: TextFieldProps) {
 
   return (
     <div>
-      {fieldName === 'title' ? (
+      {props.isText ? (
         <input
-          className={style.textInput()}
+          className={`${style.textInput()} ${props.className}`}
           {...{ ...inputProps, placeholder }}
         />
       ) : (
         <textarea
-          className={style.summaryInput()}
+          className={`${style.textInput()} ${props.className}`}
           {...{ ...inputProps, placeholder }}
         />
       )}

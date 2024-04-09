@@ -12,7 +12,7 @@ export interface ImageFormat {
 }
 
 export interface ImageInfo {
-  id?: string;
+  id: number;
   name: string;
   url: string;
   mime: string;

@@ -19,7 +19,3 @@ export const summaryInput = tv({
   extend: textInput,
   base: ['font-normal', 'resize-none', 'text-xl'],
 });
-
-export const tagInputBox = tv({
-  base: ['w-full', 'border-b-2', 'flex-1'],
-});
