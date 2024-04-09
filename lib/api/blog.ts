@@ -1,6 +1,7 @@
-import {PaginationResponse, Response, ReturnMap} from '@/model';
-import { PostDetail, PostItemInfo, Tag } from '@/model/blog';
-import client from '@/lib/client';
+import {ImageInfo, PaginationResponse, Response, ReturnMap} from '@/model';
+import {PostDetail, PostItemInfo, PostItemRequest, Tag} from '@/model/blog';
+import client, {adminClient} from '@/lib/client';
+import {AxiosResponse} from "axios";
 
 export const getPaginatedPost = (
   page: number,
@@ -19,14 +20,29 @@ export const getPostDetail = (slug: string): Promise<Response<PostDetail>> => {
 };
 
 export const getTags = (): Promise<PaginationResponse<Tag[]>> => {
-  return client.get('/api/tags')
+  return client.get('/api/tags');
 };
 
-export const createNewPost = (data: ReturnMap<PostDetail>) : Promise<any> => {
-  return client.post('/api/posts', data, {
+export const createTag = (data: ReturnMap<{tagLabel: string}>): Promise<PaginationResponse<Tag>> => {
+  return adminClient.post('/api/tags', data, {
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${ process.env.NEXT_PUBLIC_ADMIN_KEY}`
+    }
+  });
+};
+
+export const uploadImage = (formData: FormData):Promise<AxiosResponse<ImageInfo[]>> => {
+  return adminClient.post('/api/upload/', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    }
+  });
+}
+
+export const createNewPost = (data: ReturnMap<PostItemRequest>) : Promise<PostDetail> => {
+  return adminClient.post('/api/posts?populate[0]=thumbnail&populate[1]=tags', data, {
+    headers: {
+      'Content-Type': 'application/json',
     }
   });
 }

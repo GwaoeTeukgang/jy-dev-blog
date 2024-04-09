@@ -2,7 +2,7 @@
 
 import { createPortal } from 'react-dom';
 import { useEffect, useState } from 'react';
-import * as style from '@/app/blog/post/new/_component/adminPopup.style';
+import * as style from '@/app/blog/post/_component/editor/adminPopup.style';
 
 const Popup = ({ onClear }: { onClear: (key: string) => boolean }) => {
   const [key, setKey] = useState<string>('');
