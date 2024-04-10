@@ -57,6 +57,7 @@ export default tv({
       '[&_h2]:max-sm:text-xl',
       '[&_h2]:font-black',
       '[&_h2]:my-3',
+      '[&_h3]:text-xl',
       '[&_h3]:max-sm:text-lg',
       '[&_h3]:font-black',
       '[&_h3]:my-3',

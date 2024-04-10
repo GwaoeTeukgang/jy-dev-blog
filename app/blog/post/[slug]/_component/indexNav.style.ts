@@ -4,7 +4,7 @@ export const indexNavBox = tv({
   base: [
     'fixed',
     'max-h-dvh',
-    'max-w-[20%]',
+    'w-60',
     'right-11',
     'max-xl:right-0',
     'top-[30%]',
@@ -16,12 +16,12 @@ export const indexNavBox = tv({
 });
 
 export const indexItem = tv({
-  base: ['text-gray-300', 'select-none', 'cursor-pointer', 'mb'],
+  base: ['text-gray-300', 'select-none', 'cursor-pointer', 'mb', 'text-balance', 'my-2'],
   variants: {
     level: {
-      1: ['font-bold', 'text-2xl'],
-      2: ['font-bold', 'text-lg'],
-      3: ['font-bold', 'text-md'],
+      1: ['font-black', 'text-2xl'],
+      2: ['font-extrabold', 'text-lg'],
+      3: ['font-bold'],
     },
     selected: {
       true: [
