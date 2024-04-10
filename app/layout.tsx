@@ -18,11 +18,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+  <html lang="ko">
+  <head>
+    <title>Juniverse Dev</title>
+    <meta name="naver-site-verification" content={process.env.NEXT_PUBLIC_NAVER_CONTENT}/>
+      <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_CONTENT}/>
+    </head>
     <body className={homeLayoutContainer()}>
-    <Header />
-        {children}
-        <Footer />
+    <Header/>
+    {children}
+    <Footer />
         <div id={'portal-container'}></div>
       </body>
     </html>
