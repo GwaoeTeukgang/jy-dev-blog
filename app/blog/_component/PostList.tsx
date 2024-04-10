@@ -83,20 +83,21 @@ export default function PostList({
   }, [list, pageInfo, setPagination, hasMorePost]);
 
   return (
-    <AnimatePresence mode={'wait'}>
-      <ul className={postListContainer()}>
-        {list.map((item, index) => (
-          <motion.li
-            key={item.id}
-            initial={{ ...animate(index).initial }}
-            animate={animate(index).animate}
-          >
-            <PostItem {...item} />
-          </motion.li>
-        ))}
-      </ul>
-      <div className={'w-full h-2 bg-transparent'} ref={targetElement} />
-    </AnimatePresence>
+      <>
+        <ul className={postListContainer()}>
+          {list.map((item, index) => (
+              <AnimatePresence mode={'wait'} key={item.id}>
+                <motion.li
+                    initial={{...animate(index).initial}}
+                    animate={animate(index).animate}
+                >
+                  <PostItem {...item} />
+                </motion.li>
+              </AnimatePresence>
+          ))}
+        </ul>
+        <div className={'w-full h-2 bg-transparent'} ref={targetElement}/>
+      </>
   );
 }
 
