@@ -5,7 +5,7 @@ import * as style from '@/app/project/project.style';
 import type {Metadata} from "next";
 
 export const metadata: Metadata = {
-    title: 'JIYOON - Project',
+    title: 'Juniverse Dev - Project',
     description: "Jiyoon's Project",
 };
 const getProjectList = async () => {

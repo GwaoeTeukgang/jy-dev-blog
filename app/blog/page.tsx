@@ -8,7 +8,7 @@ import type {Metadata} from "next";
 
 
 export const metadata: Metadata = {
-    title: 'JIYOON - Blog',
+    title: 'Juniverse Dev - Blog',
     description: "Jiyoon's Blog",
 };
 const getPostList = async (): Promise<PaginationReturnMap<PostItemInfo[]>> => {

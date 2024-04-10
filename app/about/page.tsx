@@ -6,7 +6,7 @@ import SkillChart from '@/app/about/_component/SkillChart';
 import type {Metadata} from "next";
 
 export const metadata: Metadata = {
-  title: 'JIYOON - About',
+  title: 'Juniverse Dev - About',
   description: "Jiyoon's Profile",
 };
 
