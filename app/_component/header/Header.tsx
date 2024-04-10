@@ -47,7 +47,7 @@ export default function Header() {
       <div style={{ marginLeft: '0.5rem' }}>
         <Link href={'/'} className={'flex justify-center gap-4 cursor-pointer select-none'}>
           <Image src={'/jy-logo.png'} alt={'logo'} width={30} height={30}/>
-          <p className={'mt-2'}>JIYOON</p>
+          <p className={'mt-2'}>Juniverse Dev</p>
         </Link>
       </div>
       {isClient && isMobile ? (
