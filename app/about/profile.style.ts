@@ -1,5 +1,9 @@
 import { tv } from 'tailwind-variants';
 
+
+export const title = tv({
+  base: ['text-2xl', 'font-bold', 'mt-14', 'max-sm:text-xl']
+})
 export const container = tv({
   base: [
     'mt-8',
