@@ -33,10 +33,10 @@ export default async function HomeBlog() {
               <p>{data.summary}</p>
             </div>
             <div className={'flex flex-wrap p-2 gap-1'}>
-              {data.tags
-                  && data.tags
-                .slice(0, 5)
-                ?.map((it) => <TagItem key={it.id} label={it.tagLabel} />)}
+              {data.tags &&
+                data.tags
+                  .slice(0, 5)
+                  ?.map((it) => <TagItem key={it.id} label={it.tagLabel} />)}
               {data.tags?.length > 5 && <TagItem label={'...'} />}
             </div>
           </div>

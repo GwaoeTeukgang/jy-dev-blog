@@ -15,7 +15,13 @@ const getProjectDetail = async (slug: string) => {
     throw new Error('프로젝트 정보를 불러오는데 실패했습니다.\n' + e);
   }
 };
-export default async function ProjectModal({ slug, isInterceptor = true }: { slug: string, isInterceptor?: boolean }) {
+export default async function ProjectModal({
+  slug,
+  isInterceptor = true,
+}: {
+  slug: string;
+  isInterceptor?: boolean;
+}) {
   const data = await getProjectDetail(slug);
 
   return (
@@ -33,9 +39,10 @@ export default async function ProjectModal({ slug, isInterceptor = true }: { slu
               period={`${data.startDate} ~ ${data.endDate}`}
             />
             <ul className={style.skillTags()}>
-              {data.skills && data.skills.map((it) => (
-                <TagItem key={it.id} label={it.tagLabel} />
-              ))}
+              {data.skills &&
+                data.skills.map((it) => (
+                  <TagItem key={it.id} label={it.tagLabel} />
+                ))}
             </ul>
             <p className={'max-h-20 overflow-y-scroll text-gray-400'}>
               {data.projectSummary}
@@ -50,14 +57,16 @@ export default async function ProjectModal({ slug, isInterceptor = true }: { slu
                 <strong>주요 기능</strong>
                 <ul className={'mt-2 pl-4'}>
                   {data.features &&
-                      data.features.map(({ id, featuresLabel }) => (
-                    <li
-                      key={id}
-                      className={'mb-1 marker:content-["❇"] marker:font-bold'}
-                    >
-                      {featuresLabel}
-                    </li>
-                  ))}
+                    data.features.map(({ id, featuresLabel }) => (
+                      <li
+                        key={id}
+                        className={
+                          'mb-1 marker:content-["❇"] marker:font-bold'
+                        }
+                      >
+                        {featuresLabel}
+                      </li>
+                    ))}
                 </ul>
               </div>
             </div>

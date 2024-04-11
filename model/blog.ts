@@ -15,13 +15,12 @@ export interface PostItemInfo {
   tags: Tag[];
 }
 
-
 export interface PostItemRequest {
   id: string;
   title: string;
   summary: string;
   createdAt: string;
-  thumbnail: {id: number} | null;
+  thumbnail: { id: number } | null;
   slug: string;
   tags: Tag[];
   content: string;

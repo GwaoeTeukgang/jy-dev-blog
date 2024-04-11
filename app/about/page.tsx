@@ -3,8 +3,8 @@ import * as style from './profile.style';
 import Link from 'next/link';
 import React from 'react';
 import SkillChart from '@/app/about/_component/SkillChart';
-import type {Metadata} from "next";
-import Career from "@/app/about/_component/Career";
+import type { Metadata } from 'next';
+import Career from '@/app/about/_component/Career';
 
 export const metadata: Metadata = {
   title: 'Juniverse Dev - About',
@@ -16,9 +16,7 @@ const GITHUB = 'https://github.com/jiyoon0605';
 export default function Profile() {
   return (
     <main className={'p-2'}>
-      <div className={`${style.title()} mt-14`}>
-        {'</> About Me'}
-      </div>
+      <div className={`${style.title()} mt-14`}>{'</> About Me'}</div>
       <div className={style.container()}>
         <div className={'flex flex-col justify-between'}>
           <div>
@@ -28,26 +26,23 @@ export default function Profile() {
             <div className={'my-4 text-gray-400'}>
               <div>2003.06.05</div>
               <Link
-                  href={`mailto:${EMAIL}`}
-                  className={'flex gap-2 my-2 text-sm'}
+                href={`mailto:${EMAIL}`}
+                className={'flex gap-2 my-2 text-sm'}
               >
                 <Image
-                    src={'/icon/email-icon.svg'}
-                    alt={EMAIL}
-                    width={15}
-                    height={15}
+                  src={'/icon/email-icon.svg'}
+                  alt={EMAIL}
+                  width={15}
+                  height={15}
                 />
                 {EMAIL}
               </Link>
-              <Link
-                  href={GITHUB}
-                  className={'flex gap-2 my-2 text-sm'}
-              >
+              <Link href={GITHUB} className={'flex gap-2 my-2 text-sm'}>
                 <Image
-                    src={'/icon/github-icon.svg'}
-                    alt={GITHUB}
-                    width={15}
-                    height={15}
+                  src={'/icon/github-icon.svg'}
+                  alt={GITHUB}
+                  width={15}
+                  height={15}
                 />
                 {GITHUB}
               </Link>
@@ -73,7 +68,7 @@ export default function Profile() {
       <div className={`${style.title()} mt-40`}>{'</> Skills'}</div>
       <SkillChart />
       <div className={`${style.title()} mt-40`}>{'</> Career'}</div>
-      <Career/>
+      <Career />
     </main>
   );
 }

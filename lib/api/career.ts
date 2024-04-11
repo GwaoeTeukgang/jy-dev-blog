@@ -1,6 +1,6 @@
-import {PaginationResponse} from "@/model";
-import client from "@/lib/client";
+import { PaginationResponse } from '@/model';
+import client from '@/lib/client';
 
 export const getCareers = (): Promise<PaginationResponse<CareerInfo[]>> => {
-    return client.get('/api/careers');
+  return client.get('/api/careers');
 };
