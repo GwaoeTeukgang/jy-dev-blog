@@ -47,7 +47,7 @@ export default function ProjectItem({
             {githubLink && (
               <Link href={githubLink}>
                 <Image
-                  src={'/icon/github_icon.png'}
+                  src={'/icon/github-icon.png'}
                   alt={githubLink}
                   width={25}
                   height={25}

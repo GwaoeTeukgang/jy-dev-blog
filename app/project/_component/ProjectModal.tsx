@@ -67,7 +67,7 @@ export default async function ProjectModal({ slug, isInterceptor = true }: { slu
           {data.githubLink && (
             <Link href={data.githubLink} className={style.footerButton()}>
               <Image
-                src={'/icon/github_icon.png'}
+                src={'/icon/github-icon.png'}
                 alt={data.githubLink}
                 width={25}
                 height={25}
