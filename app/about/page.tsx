@@ -3,7 +3,8 @@ import * as style from './profile.style';
 import Link from 'next/link';
 import React from 'react';
 import SkillChart from '@/app/about/_component/SkillChart';
-import type {Metadata} from "next";
+import type { Metadata } from 'next';
+import Career from '@/app/about/_component/Career';
 
 export const metadata: Metadata = {
   title: 'Juniverse Dev - About',
@@ -11,34 +12,41 @@ export const metadata: Metadata = {
 };
 
 const EMAIL = 'ljy10499@gmail.com';
+const GITHUB = 'https://github.com/jiyoon0605';
 export default function Profile() {
   return (
     <main className={'p-2'}>
-      <div className={'text-2xl font-bold mt-14 max-sm:text-xl'}>
-        {'</> About Me'}
-      </div>
+      <div className={`${style.title()} mt-14`}>{'</> About Me'}</div>
       <div className={style.container()}>
         <div className={'flex flex-col justify-between'}>
           <div>
             <h2 className={'text-2xl font-bold'}>이지윤</h2>
             <h2 className={'text-2xl font-bold'}>Lee Ji yoon</h2>
             <p className={'mt-1 text-lg text-gray-400'}>Web Developer</p>
-            <div className={'my-4'}>
+            <div className={'my-4 text-gray-400'}>
+              <div>2003.06.05</div>
               <Link
                 href={`mailto:${EMAIL}`}
-                className={'flex gap-2 my-2 text-sm text-gray-400'}
+                className={'flex gap-2 my-2 text-sm'}
               >
                 <Image
                   src={'/icon/email-icon.svg'}
-                  className={'fill-gray-400'}
                   alt={EMAIL}
                   width={15}
                   height={15}
                 />
                 {EMAIL}
               </Link>
+              <Link href={GITHUB} className={'flex gap-2 my-2 text-sm'}>
+                <Image
+                  src={'/icon/github-icon.svg'}
+                  alt={GITHUB}
+                  width={15}
+                  height={15}
+                />
+                {GITHUB}
+              </Link>
             </div>
-            <div></div>
             <p className={'mt-4'}>
               3년차 웹 풀스택 개발자 이지윤입니다.
               <br /> 현재는 웹 프론트엔드에 더 많은 관심을 가지고 있습니다.
@@ -57,8 +65,10 @@ export default function Profile() {
           height={700}
         />
       </div>
-      <div className={'text-2xl font-bold mt-20 mb-10'}>{'</> Skills'}</div>
+      <div className={`${style.title()} mt-40`}>{'</> Skills'}</div>
       <SkillChart />
+      <div className={`${style.title()} mt-40`}>{'</> Career'}</div>
+      <Career />
     </main>
   );
 }

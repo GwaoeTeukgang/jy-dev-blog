@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <main className={container()}>
       <div className={'relative'}>
-          <ModelCanvas />
+        <ModelCanvas />
       </div>
       <div className={'lg:mt-28 flex justify-around max-sm:flex-col p-2 gap-4'}>
         <div>
