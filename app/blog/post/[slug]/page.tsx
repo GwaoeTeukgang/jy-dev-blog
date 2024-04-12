@@ -10,6 +10,7 @@ import { PostIndex } from '@/app/blog/post/[slug]/_model';
 import IndexNav from '@/app/blog/post/[slug]/_component/IndexNav';
 import { Props } from '@/model';
 import PostThumbnail from '@/app/_component/PostThumbnail';
+import Comment from "@/app/blog/post/[slug]/_component/Comment";
 
 const getPost = async (slug: string): Promise<PostDetail> => {
   try {
@@ -83,6 +84,7 @@ export default async function Post({ params }: Props) {
           }),
         }}
       />
+      <Comment slug={postData.slug} title={postData.title}/>
       <IndexNav indexList={getIndex()} />
     </main>
   );
