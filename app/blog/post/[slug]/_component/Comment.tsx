@@ -1,6 +1,8 @@
 'use client';
-import {hostname} from "node:os";
+
 import {DiscussionEmbed} from "disqus-react";
+import {usePathname} from "next/navigation";
+import {useEffect, useState} from "react";
 
 interface CommentProps {
     slug: string;
@@ -8,16 +10,23 @@ interface CommentProps {
 }
 
 export default function Comment({slug, title}: CommentProps) {
-    const disqusConfig = {
-        url: window.location.href,
-        identifier: slug,
-        title: title
-    }
+    const [currentUrl, setCurrentUrl] = useState('');
+
+    useEffect(() => {
+        if (process) {
+            setCurrentUrl(window.location.href);
+        }
+    }, []);
+
     return (
         <div className={'dark:text-white my-14'}>
             <DiscussionEmbed
                 shortname={process.env.NEXT_PUBLIC_DISQUS_NAME ?? ''}
-                config={disqusConfig}
+                config={{
+                    url: currentUrl,
+                    identifier: slug,
+                    title: title
+                }}
             />
         </div>
     )
