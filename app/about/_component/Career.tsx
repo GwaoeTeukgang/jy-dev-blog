@@ -18,7 +18,7 @@ export default async function Career() {
         {data.map((it, idx) => (
           <li
             key={idx}
-            className={style.itemContainer({ inOffice: it.inOffice })}
+            className={style.itemContainer()}
           >
             <CareerItem {...it} />
           </li>

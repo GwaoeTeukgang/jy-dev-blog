@@ -17,10 +17,4 @@ export const itemContainer = tv({
     'flex',
     'dark:shadow-gray-700',
   ],
-  variants: {
-    inOffice: {
-      true: ['border', 'border-primary'],
-      false: [],
-    },
-  },
 });
