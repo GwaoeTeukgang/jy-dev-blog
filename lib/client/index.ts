@@ -1,4 +1,4 @@
-import axios, {AxiosRequestConfig} from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 
 const client = axios.create({
   baseURL: process.env.NEXT_PUBLIC_STRAPI_END_POINT,
@@ -32,11 +32,15 @@ const adminClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_STRAPI_END_POINT,
 });
 
-adminClient.interceptors.request.use((config) => {
-  config.headers['Authorization'] = `Bearer ${process.env.NEXT_PUBLIC_ADMIN_KEY}`;
-  return config;
-}, (error) => {
-  return Promise.reject(error);
-});
+adminClient.interceptors.request.use(
+  (config) => {
+    config.headers['Authorization'] =
+      `Bearer ${process.env.NEXT_PUBLIC_ADMIN_KEY}`;
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
-export {adminClient};
+export { adminClient };

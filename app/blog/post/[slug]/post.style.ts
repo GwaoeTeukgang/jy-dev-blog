@@ -3,8 +3,22 @@ import { tv } from 'tailwind-variants';
 export default tv({
   slots: {
     title: ['text-4xl', 'mt-12', 'font-black', 'text-center', 'px-2'],
-    summary: ['text-lg', 'mt-4', 'mb-2', 'text-center', 'text-gray-500', 'px-2'],
-    tagContainer: ['m-4', 'flex', 'justify-center', 'flex-wrap', 'gap-2', 'px-2'],
+    summary: [
+      'text-lg',
+      'mt-4',
+      'mb-2',
+      'text-center',
+      'text-gray-500',
+      'px-2',
+    ],
+    tagContainer: [
+      'm-4',
+      'flex',
+      'justify-center',
+      'flex-wrap',
+      'gap-2',
+      'px-2',
+    ],
     content: [
       'p-4',
       'my-32',

@@ -63,7 +63,7 @@ export default function SkillChart() {
 
       getData('Oracle DB', 0.3, '/icon/oracle-icon.svg', 40),
       getData('Git', 2.3, '/icon/git-icon.svg', 55),
-      getData('GitHib', 2, '/icon/github-icon.svg', 55),
+      getData('GitHib', 2, '/icon/github-icon.png', 55),
       getData('GitLab', 2.5, '/icon/gitlab-icon.svg', 55),
       getData('maira DB', 1, '/icon/mariadb-icon.svg', 60),
       getData('vue.js', 1.7, '/icon/vue-icon.svg', 70),

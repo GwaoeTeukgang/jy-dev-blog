@@ -3,11 +3,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import {Environment, OrbitControls, Text} from '@react-three/drei';
+import { Environment, OrbitControls, Text } from '@react-three/drei';
 import { AnimationMixer, Group } from 'three';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { Vector3 } from 'three/src/math/Vector3.js';
-import {number} from "prop-types";
+import { number } from 'prop-types';
 const Model = () => {
   const group = useRef<Group>();
   const mixer = useRef<AnimationMixer>();
@@ -43,7 +43,9 @@ const Model = () => {
 const Scene = () => {
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [height, setHeight] = useState<string>('40rem');
-  const [cameraPos, setCameraPos] = useState<[number, number, number]>([-1, 1.5, -2]);
+  const [cameraPos, setCameraPos] = useState<[number, number, number]>([
+    -1, 1.5, -2,
+  ]);
 
   useEffect(() => {
     if (isMobile) {
@@ -54,7 +56,10 @@ const Scene = () => {
 
   return (
     <>
-      <Canvas style={{ width: '100%', height }} camera={{ position: cameraPos }}>
+      <Canvas
+        style={{ width: '100%', height }}
+        camera={{ position: cameraPos }}
+      >
         <Model />
         <OrbitControls />
         <ambientLight intensity={1} />
@@ -95,7 +100,10 @@ const Scene = () => {
       </Canvas>
       <div className={'absolute top-9 left-10'}>
         <strong className={'text-4xl font-bold'}>Hello World!</strong>
-        <p className={'text-xl'}>Welcome to my developer blog and portfolio,<br/> where I share insights and projects.</p>
+        <p className={'text-xl'}>
+          Welcome to my developer blog and portfolio,
+          <br /> where I share insights and projects.
+        </p>
       </div>
     </>
   );

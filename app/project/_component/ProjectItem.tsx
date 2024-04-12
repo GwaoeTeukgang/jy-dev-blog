@@ -47,7 +47,7 @@ export default function ProjectItem({
             {githubLink && (
               <Link href={githubLink}>
                 <Image
-                  src={'/icon/github_icon.png'}
+                  src={'/icon/github-icon.png'}
                   alt={githubLink}
                   width={25}
                   height={25}
@@ -67,15 +67,14 @@ export default function ProjectItem({
           </div>
         </div>
         <div className={'right'}>
-          {skills
-              &&
-              <ul className={style.skillTag()}>
-                {skills
-                    .slice(0, 5)
-                    ?.map((it) => <TagItem key={it.id} label={it.tagLabel}/>)}
-                {skills.length > 5 && <TagItem label={'...'}/>}
-              </ul>
-          }
+          {skills && (
+            <ul className={style.skillTag()}>
+              {skills
+                .slice(0, 5)
+                ?.map((it) => <TagItem key={it.id} label={it.tagLabel} />)}
+              {skills.length > 5 && <TagItem label={'...'} />}
+            </ul>
+          )}
         </div>
       </div>
     </div>
