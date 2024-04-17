@@ -1,8 +1,8 @@
 <p align='center'>
-<img src='https://github.com/jiyoon0605/jy-dev-blog/assets/49777530/7f2c1c04-e60c-4f43-ab15-3553e587ec53'/>
+<img src='https://github.com/jiyoon0605/jy-dev-blog/assets/49777530/7f2c1c04-e60c-4f43-ab15-3553e587ec53' width='100'/>
 </p>
 <h1 align='center'>
-Juniverse Dev Blog
+Juniverse Dev
 </h1>
 <div align='center'>
 <div>
@@ -15,7 +15,8 @@ Juniverse Dev Blog
 </div>
 
 ## About Project
-
+Juniverse Dev는 포트폴리오 및 블로그 프로젝트입니다.<br/>
+Next.js 로 클라이언트를, Headless CMS인 Strapi로 서버를 구현했습니다
 ## Demo
 <table>
   <tr>
