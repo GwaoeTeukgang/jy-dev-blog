@@ -38,13 +38,10 @@ export default function RootLayout({
           name="naver-site-verification"
           content={'8484587bdb7e5659bc4d4a9feec7e3c9553a789d'}
         />
-        <meta
-          name="google-site-verification"
-          content={'52_A2iC1h1k6lBb10MF7BgxbB2hb15KWvdqHwL1qDbA'}
-        />
+        <meta name="google-site-verification" content={'0LqmTBJx15i_Rr7rI4iN0Z3V6EXaNrZYPQFjTqyU8-A'}/>
       </head>
       <body className={homeLayoutContainer()}>
-        <Header />
+        <Header/>
         {children}
         <Footer />
         <div id={'portal-container'}></div>
