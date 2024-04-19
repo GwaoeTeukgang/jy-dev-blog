@@ -19,7 +19,7 @@ export default function Comment({slug, title}: CommentProps) {
     }, []);
 
     return (
-        <div className={'dark:text-white my-14'}>
+        <div className={'dark:text-white my-14 m-2'}>
             <DiscussionEmbed
                 shortname={process.env.NEXT_PUBLIC_DISQUS_NAME ?? ''}
                 config={{
