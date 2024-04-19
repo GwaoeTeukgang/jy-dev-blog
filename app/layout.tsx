@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ImageResponse } from 'next/og'
 import './globals.css';
 import Header from '@/app/_component/header/Header';
 import { homeLayoutContainer } from '@/app/home.style';
@@ -9,6 +10,18 @@ export const metadata: Metadata = {
   description: 'Juniverse Dev | dev blog & portfolio',
   icons: {
     icon: '/jy-logo.png',
+  },
+  openGraph: {
+    title: 'Juniverse Dev',
+    description: 'Juniverse Dev | dev blog & portfolio',
+    images: [
+      {
+        url: '/jy-logo.png',
+        width: 500,
+        height: 500,
+        alt: 'Juniverse Dev',
+      },
+    ],
   },
 };
 

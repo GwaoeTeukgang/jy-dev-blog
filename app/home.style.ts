@@ -11,6 +11,7 @@ export const homeLayoutContainer = tv({
     'dark:text-white',
     'lg:[&_main]:px-[20%]',
     'lg:[&_header]:px-[20%]',
+    'overflow-x-hidden',
   ],
 });
 export const homeContainer = tv({

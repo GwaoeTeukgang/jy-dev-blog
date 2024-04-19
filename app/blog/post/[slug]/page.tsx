@@ -1,9 +1,7 @@
 import { getPostDetail } from '@/lib/api/blog';
 import { PostDetail } from '@/model/blog';
 import TagItem from '@/app/blog/_component/TagItem';
-import Image from 'next/image';
 import postItemStyle from '@/app/blog/_component/postItem.style';
-import sanitizeHtml from 'sanitize-html';
 import postStyle from '@/app/blog/post/[slug]/post.style';
 import type { Metadata } from 'next';
 import { PostIndex } from '@/app/blog/post/[slug]/_model';
@@ -11,7 +9,7 @@ import IndexNav from '@/app/blog/post/[slug]/_component/IndexNav';
 import { Props } from '@/model';
 import PostThumbnail from '@/app/_component/PostThumbnail';
 import Comment from "@/app/blog/post/[slug]/_component/Comment";
-
+import PostContent from "@/app/blog/post/[slug]/_component/PostContent";
 const getPost = async (slug: string): Promise<PostDetail> => {
   try {
     const { data } = await getPostDetail(slug);
@@ -74,16 +72,7 @@ export default async function Post({ params }: Props) {
           <TagItem label={tag.tagLabel} key={tag.id} />
         ))}
       </div>
-      <div
-        id={'content-container'}
-        className={postStyle().content()}
-        dangerouslySetInnerHTML={{
-          __html: sanitizeHtml(postData.content, {
-            allowedTags: false,
-            allowedAttributes: false,
-          }),
-        }}
-      />
+        <PostContent content={postData.content}/>
       <Comment slug={postData.slug} title={postData.title}/>
       <IndexNav indexList={getIndex()} />
     </main>
