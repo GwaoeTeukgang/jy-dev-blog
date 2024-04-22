@@ -1,22 +1,23 @@
 'use client';
 
-import PostItem from '@/app/blog/_component/PostItem';
-import { tv } from 'tailwind-variants';
-import { PostItemInfo } from '@/model/blog';
-import { useEffect, useRef, useState } from 'react';
-import useBookmarkStore from '@/store/useBookmarkStore';
-import { AnimatePresence, motion } from 'framer-motion';
-import { MetaPagination } from '@/model';
-import usePaginationInfo from '@/hooks/usePaginationInfo';
-import { getPaginatedPost } from '@/lib/api/blog';
+import {tv} from 'tailwind-variants';
+import {PostItemInfo} from '@/model/blog';
+import {Fragment, useEffect, useState} from 'react';
+import {getPaginatedPost} from '@/lib/api/blog';
+import {InfiniteData, useInfiniteQuery} from "@tanstack/react-query";
+import {useInView} from "react-intersection-observer";
+import PostItem from "@/app/blog/_component/PostItem";
+import {AnimatePresence, motion} from "framer-motion";
+import blogStyle from "@/app/blog/blog.style";
+import {Pagination} from "@/model";
 
-const callMorePost = async (
-  setPagination: (data: PostItemInfo[], meta: MetaPagination) => void,
-  page: number,
-) => {
+
+type Props = { pageParam?: number };
+const getPostList = async ({pageParam = 1}: Props) => {
   try {
-    const { data } = await getPaginatedPost(page, 10);
-    return setPagination(data.data, data.meta);
+      const {data} = await getPaginatedPost(pageParam, 10);
+      const isLastPage = data.meta.pagination.page >= data.meta.pagination.pageCount;
+      return data.data.map(it => ({...it, nextPage: isLastPage ? null : data.meta.pagination.page + 1}));
   } catch (e) {
     console.error(e);
   }
@@ -36,80 +37,90 @@ const postListContainer = tv({
   ],
 });
 
-export default function PostList({
-  postList,
-  meta,
-}: {
-  postList: PostItemInfo[];
-  meta: MetaPagination;
-}) {
-  const { initBookmarks } = useBookmarkStore();
-  const targetElement = useRef<HTMLDivElement>(null);
-  const { list, pageInfo, setPagination, hasMorePost } =
-    usePaginationInfo<PostItemInfo>(postList, meta);
-
-  useEffect(() => {
-    const bookmarks = (localStorage.getItem('bookmarks') ?? '').split(',');
-    initBookmarks(bookmarks ?? []);
-  }, [initBookmarks]);
-
-  useEffect(() => {
-    const observeCallBack = (
-      entries: IntersectionObserverEntry[],
-      observer: IntersectionObserver,
-    ) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          callMorePost(setPagination, pageInfo.page + 1);
-        }
-      });
-    };
-    const observer = new IntersectionObserver(observeCallBack, {
-      root: null,
-      threshold: 0.1,
+export default function PostList() {
+    const { blogInfo, blogInfoItem } = blogStyle();
+    const [loading, setLoading] = useState(false);
+    const [pageInfo, setPageInfo] = useState<Pagination>({
+        page: 1,
+        total: 0,
+        pageCount: 0,
+        pageSize: 0
+    });
+    const {
+        data,
+        fetchNextPage,
+        hasNextPage,
+        isFetching,
+        isFetchingNextPage,
+    } = useInfiniteQuery<PostItemInfo[], Object, InfiniteData<PostItemInfo[]>>({
+        queryKey: ['posts'],
+        initialPageParam: 1, //@ts-ignore
+        queryFn: getPostList,
+        getNextPageParam: (lastPage) =>lastPage.at(0)?.nextPage,
     });
 
-    const target = targetElement.current;
+  const { ref, inView } = useInView({
+    threshold: 0,
+    delay: 0,
+  });
 
-    if (target) {
-      observer.observe(target);
+    useEffect(() => {
+        (async function () {
+            const {data} = await getPaginatedPost(1, 1);
+            setPageInfo(data.meta.pagination);
+        })();
+    }, []);
+
+  useEffect(() => {
+    if (inView) {
+      !isFetching && hasNextPage && !isFetchingNextPage && fetchNextPage();
     }
+  }, [inView, isFetching, hasNextPage, fetchNextPage, isFetchingNextPage]);
 
-    return () => {
-      if (target) {
-        observer.unobserve(target);
-      }
-    };
-  }, [list, pageInfo, setPagination, hasMorePost]);
 
   return (
-    <>
-      <ul className={postListContainer()}>
-        {list.map((item, index) => (
-          <AnimatePresence mode={'wait'} key={item.id}>
-            <motion.li
-              initial={{ ...animate(index).initial }}
-              animate={animate(index).animate}
-            >
-              <PostItem {...item} />
-            </motion.li>
-          </AnimatePresence>
-        ))}
-      </ul>
-      <div className={'w-full h-2 bg-transparent'} ref={targetElement} />
-    </>
+      <>
+          <div className={blogInfo()}>
+              <div className={blogInfoItem()}>
+                  <p>Since</p>
+                  <p>2024.03~</p>
+              </div>
+              <div className={blogInfoItem()}>
+                  <p>Post</p>
+                  <p>{pageInfo.total ?? 0}</p>
+              </div>
+          </div>
+          <ul className={postListContainer()}>
+              {data?.pages?.map((list, i) => (
+                  <Fragment key={i}>
+                      {list.map((item, index) =>
+                          <AnimatePresence mode={'wait'} key={item.id}>
+                              <motion.li
+                                  initial={{...animate(index).initial}}
+                                  animate={animate(index).animate}
+                              >
+                                  <PostItem {...item} />
+                              </motion.li>
+                          </AnimatePresence>
+                      )}
+                  </Fragment>
+
+              ))}
+          </ul>
+          <div className={'w-full h-2 bg-transparent'} ref={ref}/>
+      </>
   );
 }
 
 const animate = (delay: number) => ({
-  initial: {
-    translateY: 50,
-    opacity: 0,
-    transition: { duration: 0.3 },
-  },
-  animate: {
-    translateY: 0,
-    opacity: 1,
-    transition: { duration: 0.3, delay: (0.2 * delay) % 10 },
-  },
+    initial: {
+        translateY: 50,
+        opacity: 0,
+        transition: {duration: 0.3},
+    },
+    animate: {
+        translateY: 0,
+        opacity: 1,
+        transition: {duration: 0.3, delay: (0.2 * delay) % 10},
+    },
 });

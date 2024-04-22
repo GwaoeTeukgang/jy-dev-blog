@@ -9,7 +9,7 @@ export const getPaginatedPost = (
   sort: string = 'createdAt',
 ): Promise<PaginationResponse<PostItemInfo[]>> => {
   return client.get(
-    `/api/posts?sort[0]=${sort}:desc&populate[0]=thumbnail&populate[1]=tags&pagination[1]=${page}&pagination[0]=${pageSize}`,
+    `/api/posts?sort[0]=${sort}:desc&populate[0]=thumbnail&populate[1]=tags&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
   );
 };
 

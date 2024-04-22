@@ -14,6 +14,7 @@ export interface PostItemInfo {
   slug: string;
   tags: Tag[];
   updatedAt?: string;
+  nextPage?: number | null;
 }
 
 export interface PostItemRequest {
