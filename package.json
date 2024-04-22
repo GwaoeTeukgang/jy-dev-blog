@@ -13,6 +13,7 @@
   "dependencies": {
     "@react-three/drei": "^9.105.1",
     "@react-three/fiber": "^8.16.1",
+    "@tanstack/react-query": "^5.29.2",
     "@tinymce/tinymce-react": "^4.3.2",
     "@types/three": "^0.163.0",
     "axios": "^1.6.8",
@@ -28,6 +29,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
     "react-hook-form": "^7.51.2",
+    "react-intersection-observer": "^9.8.2",
     "react-native": "^0.73.6",
     "sanitize-html": "^2.13.0",
     "sharp": "^0.33.3",

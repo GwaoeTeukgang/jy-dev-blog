@@ -13,6 +13,7 @@ export interface PostItemInfo {
   thumbnail: ImageInfo | null;
   slug: string;
   tags: Tag[];
+  nextPage?: number | null;
 }
 
 export interface PostItemRequest {
