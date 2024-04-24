@@ -31,30 +31,26 @@ export default function TagInputField({
     if (selectedTags) {
       setSelectedTag(selectedTags);
     }
-    requestTags();
   }, [selectedTags]);
 
-  useEffect(() => {
-    onChange(selectedTag);
-  }, [onChange, selectedTag]);
-
-  const requestTags = async () => {
-    const { data } = await getTags();
-    setTags(data.data.map((it) => ({ ...it, selected: false })));
-    tagSeqNo.current = Math.max(...data.data.map((it) => it.id)) + 1;
-  };
 
   const onBlur = async () => {
     if (value.length <= 0) return;
     try {
       const { data } = await createTag({ data: { tagLabel: value.trim() } });
-      setSelectedTag([...selectedTag, data.data]);
+      setSelectedTag([...selectedTag, data]);
+      onChange([...selectedTag, data])
       setValue('');
-      requestTags();
     } catch (e) {
       alert('태그 생성 실패! \n' + e);
     }
   };
+
+  const onFocus = async () => {
+    const { data } = await getTags();
+    setTags(data.map((it) => ({ ...it, selected: false })));
+    tagSeqNo.current = Math.max(...data.map((it) => it.id)) + 1;
+  }
 
   const isSelected = (id: number) => {
     return selectedTag.some((it) => it.id === id);
@@ -78,6 +74,7 @@ export default function TagInputField({
         onClick={() => setIsOpen(!isOpen)}
         onChange={(e) => setValue(e.target.value)}
         onBlur={onBlur}
+        onFocus={onFocus}
         disabled={disabled}
         className={`border-2 rounded-lg text-sm p-1 w-full bg-transparent`}
       />

@@ -1,4 +1,4 @@
-import { PaginationResponse, Response } from '@/model';
+import { PaginationResponse, BaseResponse } from '@/model';
 import client from '@/lib/client';
 import { ProjectItemInfo } from '@/model/project';
 
@@ -12,7 +12,7 @@ export const getProjects = (): Promise<
 
 export const getProject = (
   slug: string,
-): Promise<Response<ProjectItemInfo>> => {
+): Promise<BaseResponse<ProjectItemInfo>> => {
   return client.get(
     `/api/projects/${slug}?populate[0]=image&populate[1]=skills&populate[2]=projectIcon&populate[3]=features`,
   );

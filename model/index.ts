@@ -38,7 +38,11 @@ export type ErrorResponse = AxiosError<ErrorMap>;
 
 export type PaginationResponse<T> = AxiosResponse<PaginationReturnMap<T>>;
 
-export type Response<T> = AxiosResponse<ReturnMap<T>>;
+export type BaseResponse<T> =  {
+  status: number;
+  statusText: string;
+  data: T;
+};
 
 export interface Pagination {
   page: number;

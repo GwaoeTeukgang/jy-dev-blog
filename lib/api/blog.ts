@@ -1,58 +1,112 @@
-import { ImageInfo, PaginationResponse, Response, ReturnMap } from '@/model';
-import { PostDetail, PostItemInfo, PostItemRequest, Tag } from '@/model/blog';
-import client, { adminClient } from '@/lib/client';
-import { AxiosResponse } from 'axios';
+import {ImageInfo, PaginationReturnMap, ReturnMap} from '@/model';
+import {PostDetail, PostItemInfo, PostItemRequest, Tag} from '@/model/blog';
+import client, {adminClient} from '@/lib/client';
 
-export const getPaginatedPost = (
-  page: number,
-  pageSize: number,
-  sort: string = 'createdAt',
-): Promise<PaginationResponse<PostItemInfo[]>> => {
-  return client.get(
-    `/api/posts?sort[0]=${sort}:desc&populate[0]=thumbnail&populate[1]=tags&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
-  );
+export const getPaginatedPost = async (
+    page: number,
+    pageSize: number,
+    sort: string = 'createdAt',
+): Promise<PaginationReturnMap<PostItemInfo[]>> => {
+    try {
+        const response = await client(
+            `/api/posts?sort[0]=${sort}:desc&populate[0]=thumbnail&populate[1]=tags&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
+            {
+                method: 'GET',
+                cache: 'no-cache'
+            }
+        );
+
+        return response as unknown as PaginationReturnMap<PostItemInfo[]>;
+    } catch (e) {
+        return Promise.reject(e);
+    }
 };
 
-export const getPostDetail = (slug: string): Promise<Response<PostDetail>> => {
-  return client.get(
-    `/api/posts/${slug}?populate[0]=thumbnail&populate[1]=tags`,
-  );
+export const getPostDetail = async (slug: string): Promise<ReturnMap<PostDetail>> => {
+    try {
+        const response = await client(
+            `/api/posts/${slug}?populate[0]=thumbnail&populate[1]=tags`,
+            {
+                method: 'GET',
+                next: {
+                    revalidate: 3600 * 24
+                }
+            }
+        );
+
+        return response as unknown as ReturnMap<PostDetail>;
+    } catch (e) {
+        return Promise.reject(e);
+    }
 };
 
-export const getTags = (): Promise<PaginationResponse<Tag[]>> => {
-  return client.get('/api/tags');
+export const getTags = async (): Promise<PaginationReturnMap<Tag[]>> => {
+    try {
+        const response = await client(
+            '/api/tags',
+            {
+                method: 'GET',
+            }
+        );
+
+        return response as unknown as PaginationReturnMap<Tag[]>;
+    } catch (e) {
+        return Promise.reject(e);
+    }
 };
 
-export const createTag = (
-  data: ReturnMap<{ tagLabel: string }>,
-): Promise<PaginationResponse<Tag>> => {
-  return adminClient.post('/api/tags', data, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+export const createTag = async (
+    data: ReturnMap<{ tagLabel: string }>,
+): Promise<PaginationReturnMap<Tag>> => {
+    try {
+        const response = await adminClient(
+            '/api/tags',
+            {
+                method: 'POST',
+                body: JSON.stringify(data)
+            }
+        );
+
+        return response as unknown as PaginationReturnMap<Tag>;
+    } catch (e) {
+        return Promise.reject(e);
+    }
 };
 
-export const uploadImage = (
-  formData: FormData,
-): Promise<AxiosResponse<ImageInfo[]>> => {
-  return adminClient.post('/api/upload/', formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
+export const uploadImage = async (
+    formData: FormData,
+): Promise<ImageInfo[]> => {
+    try {
+        const response = await adminClient(
+            '/api/upload/',
+            {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            }
+        );
+
+        return response as unknown as ImageInfo[];
+    } catch (e) {
+        return Promise.reject(e);
+    }
 };
 
-export const createNewPost = (
-  data: ReturnMap<PostItemRequest>,
+export const createNewPost = async (
+    data: ReturnMap<PostItemRequest>,
 ): Promise<PostDetail> => {
-  return adminClient.post(
-    '/api/posts?populate[0]=thumbnail&populate[1]=tags',
-    data,
-    {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
-  );
+    try {
+        const response = await adminClient(
+            '/api/posts?populate[0]=thumbnail&populate[1]=tags',
+            {
+                method: 'POST',
+                body: JSON.stringify(data)
+            }
+        );
+        return response as unknown as PostDetail;
+    } catch (e) {
+        return Promise.reject(e);
+    }
 };

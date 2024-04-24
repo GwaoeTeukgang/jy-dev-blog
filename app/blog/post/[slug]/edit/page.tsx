@@ -5,8 +5,8 @@ import { Props } from '@/model';
 
 const getPost = async (slug: string): Promise<PostDetail> => {
   try {
-    const { data } = await getPostDetail(slug);
-    return data.data;
+    const {data} = await getPostDetail(slug);
+    return data;
   } catch (e) {
     throw new Error('포스트 정보를 불러오는데 실패했습니다.\n' + e);
   }
@@ -15,5 +15,5 @@ const getPost = async (slug: string): Promise<PostDetail> => {
 export default async function EditPage({ params }: Props) {
   const postData = await getPost(params.slug);
 
-  return <BlogPostEditor />;
+  return <BlogPostEditor postData={postData}/>;
 }

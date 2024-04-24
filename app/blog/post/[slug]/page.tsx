@@ -12,8 +12,8 @@ import Comment from "@/app/blog/post/[slug]/_component/Comment";
 import PostContent from "@/app/blog/post/[slug]/_component/PostContent";
 const getPost = async (slug: string): Promise<PostDetail> => {
   try {
-    const { data } = await getPostDetail(slug);
-    return data.data;
+      const {data} = await getPostDetail(slug);
+      return data;
   } catch (e) {
     throw new Error('포스트 정보를 불러오는데 실패했습니다.\n' + e);
   }
