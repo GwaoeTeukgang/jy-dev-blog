@@ -11,6 +11,12 @@ export const metadata: Metadata = {
   icons: {
     icon: '/jy-logo.png',
   },
+  verification: {
+    google: '52_A2iC1h1k6lBb10MF7BgxbB2hb15KWvdqHwL1qDbA',
+    other: {
+      ['naver-site-verification']: '8484587bdb7e5659bc4d4a9feec7e3c9553a789d',
+    }
+  },
   openGraph: {
     title: 'Juniverse Dev',
     description: 'Juniverse Dev | dev blog & portfolio',
@@ -32,14 +38,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <head>
-        <title>Juniverse Dev</title>
-        <meta
-          name="naver-site-verification"
-          content={'8484587bdb7e5659bc4d4a9feec7e3c9553a789d'}
-        />
-        <meta name="google-site-verification" content={'52_A2iC1h1k6lBb10MF7BgxbB2hb15KWvdqHwL1qDbA'}/>
-      </head>
       <body className={homeLayoutContainer()}>
         <Header/>
         {children}
