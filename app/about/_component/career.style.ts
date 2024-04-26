@@ -16,5 +16,6 @@ export const itemContainer = tv({
     'shadow-lg',
     'flex',
     'dark:shadow-gray-700',
+    'max-sm:flex-col'
   ],
 });
