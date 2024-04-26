@@ -14,6 +14,7 @@ export const itemContainer = tv({
     'snap-y',
     'max-sm:overflow-scroll',
     'w-full',
-    'h-[calc(100vh-6rem)]',
+    'max-sm:h-[calc(100vh-6rem)]',
+    'my-4'
   ],
 });
