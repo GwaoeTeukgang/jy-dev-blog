@@ -54,7 +54,7 @@ export default async function ProjectModal({
             >
               <p> {data.detail}</p>
               <div className={'mt-4'}>
-                <strong>주요 </strong>
+                <strong>주요 경험</strong>
                 <ul className={'mt-2 pl-4'}>
                   {data.features &&
                     data.features.map(({ id, featuresLabel }) => (
