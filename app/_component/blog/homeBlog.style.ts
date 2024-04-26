@@ -12,7 +12,6 @@ export const container = tv({
     'mb-20',
     'max-sm:flex-col',
     'dark:border',
-    'h-80',
   ],
 });
 

@@ -17,7 +17,7 @@ export default async function Home() {
         </div>
         <div>
           <div className={'text-2xl font-bold'}>{'</> Popular Post'}</div>
-          <HomeBlog />
+          <HomeBlog type={'popular'}/>
         </div>
       </div>
     </main>

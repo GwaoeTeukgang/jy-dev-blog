@@ -28,7 +28,7 @@ export default async function ProjectModal({
     <div className={style.overlay()}>
       <div className={style.container()}>
         <CloseButton isInterceptor={isInterceptor} />
-        <div className={'flex max-sm:flex-col'}>
+        <div className={'flex-1 flex lg:flex-row flex-col overflow-y-scroll'}>
           <ImageSlider images={data.image} />
           <div className={style.detailInfoContainer()}>
             <ProjectModalTitle
@@ -54,7 +54,7 @@ export default async function ProjectModal({
             >
               <p> {data.detail}</p>
               <div className={'mt-4'}>
-                <strong>주요 기능</strong>
+                <strong>주요 </strong>
                 <ul className={'mt-2 pl-4'}>
                   {data.features &&
                     data.features.map(({ id, featuresLabel }) => (

@@ -6,7 +6,7 @@ import TagItem from '@/app/blog/_component/TagItem';
 import React from 'react';
 import Link from 'next/link';
 
-const getMostRecentPost = async (): Promise<PostItemInfo> => {
+export const getMostRecentPost = async (): Promise<PostItemInfo> => {
   try {
     const { data } = await getPaginatedPost(1, 1);
     return data.data[0];
@@ -14,8 +14,22 @@ const getMostRecentPost = async (): Promise<PostItemInfo> => {
     throw new Error('');
   }
 };
-export default async function HomeBlog() {
-  const data = await getMostRecentPost();
+
+export const getMostPopularPost = async (): Promise<PostItemInfo> => {
+  try {
+    const { data } = await getPaginatedPost(1, 1, 'views');
+    return data.data[0];
+  } catch (e) {
+    throw new Error('');
+  }
+};
+
+interface Props {
+  type?: 'recent' | 'popular'
+}
+
+export default async function HomeBlog({type = 'recent'}: Props) {
+  const data = await (type === 'recent' ? getMostRecentPost() : getMostPopularPost());
 
   return (
     <>
@@ -24,7 +38,7 @@ export default async function HomeBlog() {
           <PostThumbnail
             img={data.thumbnail}
             title={data.title}
-            className={'max-sm:w-full w-3/5  h-full object-cover'}
+            className={'max-sm:w-full flex w-3/5 object-cover'}
           />
           <div className={style.postInfo()}>
             <div>
@@ -32,7 +46,7 @@ export default async function HomeBlog() {
               <p className={'text-gray-400 mb-2'}>{data.createdAt}</p>
               <p>{data.summary}</p>
             </div>
-            <div className={'flex flex-wrap p-2 gap-1'}>
+            <div className={'flex flex-wrap gap-1 mt-2'}>
               {data.tags &&
                 data.tags
                   .slice(0, 5)

@@ -48,7 +48,7 @@ export default function ImageSlider({ images }: { images: ImageInfo[] }) {
       `#img-${targetPos}`,
     );
     if (targetImg) {
-      targetImg?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      targetImg?.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
     }
 
     setPos(targetPos);
@@ -59,7 +59,7 @@ export default function ImageSlider({ images }: { images: ImageInfo[] }) {
       variants={imageSlider}
       initial="hidden"
       animate="visible"
-      className={'flex items-center lg:py-14'}
+      className={'flex items-center'}
     >
       <div className={style.moveButton()} onClick={() => onMove(-1)}>
         {' '}
@@ -68,30 +68,32 @@ export default function ImageSlider({ images }: { images: ImageInfo[] }) {
       <div className={style.container()}>
         <div className={'flex'} ref={sliderContainer}>
           {slideImages.map((it) =>
-            it.mime.startsWith('video') ? (
-              <video
-                className={style.imageFrame()}
-                key={it.id}
-                id={`img-${it.id}`}
-                width={1080}
-                height={560}
-                controls
-                preload={'none'}
-              >
-                <source src={it.url} type="video/mp4" />
-              </video>
-            ) : (
-              <Image
-                className={style.imageFrame()}
-                key={it.id}
-                id={`img-${it.id}`}
-                src={it.url}
-                alt={it.name}
-                width={1080}
-                height={560}
-              />
-            ),
-          )}
+          <div key={it.id} className={style.imageFrame()}>
+            {
+              it.mime.startsWith('video') ? (
+                <video
+                  className={'w-full'}
+                  id={`img-${it.id}`}
+                  width={800}
+                  height={560}
+                  controls
+                  preload={'none'}
+                >
+                  <source src={it.url} type="video/mp4" />
+                </video>
+              ) : (
+                <Image
+                  className={'w-full'}
+                  id={`img-${it.id}`}
+                  src={it.url}
+                  alt={it.name}
+                  width={800}
+                  height={560}
+                />
+              )
+            }
+          </div>)
+          }
         </div>
       </div>
       <div className={style.moveButton()} onClick={() => onMove(1)}>

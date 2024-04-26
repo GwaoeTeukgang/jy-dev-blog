@@ -21,7 +21,10 @@ export const container = tv({
     'p-4',
     'overflow-y-scroll',
     'relative',
-    'max-h-dvh',
+    'flex',
+    'flex-col',
+    'h-[80dvh]',
+    'max-sm:min-h-dvh',
     'rounded-lg',
     'dark:bg-black',
     'dark:border',
@@ -57,7 +60,7 @@ export const titleIcon = tv({
 });
 
 export const detailInfoContainer = tv({
-  base: ['text-gray-300', 'flex-1', 'flex', 'flex-col'],
+  base: ['text-gray-300', 'flex-1', 'flex', 'flex-col',],
 });
 
 export const skillTags = tv({
@@ -65,7 +68,7 @@ export const skillTags = tv({
 });
 
 export const footer = tv({
-  base: ['flex', 'justify-end', 'gap-3'],
+  base: ['flex', 'justify-end', 'gap-3', 'p-2'],
 });
 
 export const footerButton = tv({
@@ -81,5 +84,6 @@ export const footerButton = tv({
     'p-3',
     'hover:shadow-lg',
     'dark:shadow-gray-500',
+    'max-sm:text-sm'
   ],
 });

@@ -2,7 +2,8 @@ import { tv } from 'tailwind-variants';
 
 export const container = tv({
   base: [
-    'w-[54rem]',
+    'w-[40rem]', 
+    'max-sm:w-[60dvw]',
     'overflow-scroll',
     'mx-auto',
     'gap-10',
@@ -12,7 +13,7 @@ export const container = tv({
 });
 
 export const imageFrame = tv({
-  base: ['w-[54rem]', 'max-sm:w-full', 'h-full'],
+  base: ['w-[40rem]', 'max-sm:w-[60dvw]', 'h-full', 'flex', 'jusfity-center', 'items-center'],
 });
 
 export const moveButton = tv({

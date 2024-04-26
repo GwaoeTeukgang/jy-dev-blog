@@ -98,7 +98,7 @@ const Scene = () => {
         {/*  </>*/}
         {/*)}*/}
       </Canvas>
-      <div className={'absolute top-9 left-10'}>
+      <div className={'absolute top-9 left-10 mr-4'}>
         <strong className={'text-4xl font-bold'}>Hello World!</strong>
         <p className={'text-xl'}>
           Welcome to my developer blog and portfolio,

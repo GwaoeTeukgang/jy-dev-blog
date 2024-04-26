@@ -14,7 +14,7 @@ export default function CloseButton({
   };
 
   return (
-    <div className={'size-6 ml-auto sticky top-0 right-0'} onClick={onClose}>
+    <div className={'h-4 size-6 ml-auto sticky top-0 right-0'} onClick={onClose}>
       <svg
         viewBox="0 0 24 24"
         aria-hidden="true"
