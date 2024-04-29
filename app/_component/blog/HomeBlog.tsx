@@ -18,7 +18,7 @@ export const getMostRecentPost = async (): Promise<PostItemInfo> => {
 export const getMostPopularPost = async (): Promise<PostItemInfo> => {
   try {
     const { data } = await getPaginatedPost(1, 1, 'views');
-    return data.data[0];
+    return data[0];
   } catch (e) {
     throw new Error('');
   }

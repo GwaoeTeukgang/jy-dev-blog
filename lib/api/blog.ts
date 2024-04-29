@@ -1,5 +1,5 @@
 import {ImageInfo, PaginationReturnMap, ReturnMap} from '@/model';
-import {PostDetail, PostItemInfo, PostItemRequest, Tag} from '@/model/blog';
+import {ImageResponse, PostDetail, PostItemInfo, PostItemRequest, Tag} from '@/model/blog';
 import client, {adminClient} from '@/lib/client';
 
 export const getPaginatedPost = async (
@@ -106,6 +106,23 @@ export const createNewPost = async (
             }
         );
         return response as unknown as PostDetail;
+    } catch (e) {
+        return Promise.reject(e);
+    }
+};
+
+export const uploadCloudImage = async (
+    formData: FormData
+): Promise<ImageResponse> => {
+    try {
+        const response = await fetch(
+            `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload`,
+            {
+                method: 'POST',
+                body: formData
+            }
+        );
+        return await response.json() as unknown as ImageResponse;
     } catch (e) {
         return Promise.reject(e);
     }

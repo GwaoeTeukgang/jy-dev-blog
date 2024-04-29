@@ -7,7 +7,7 @@ import TagInputField from '@/app/blog/post/_component/editor/TagInputField';
 import { useEffect, useState } from 'react';
 import PostEditor from '@/app/blog/post/_component/editor/PostEditor';
 import AdminPopup from '@/app/blog/post/_component/editor/AdminPopup';
-import {createNewPost, getTags, uploadImage} from '@/lib/api/blog';
+import {createNewPost, uploadImage} from '@/lib/api/blog';
 import ImageInput from '@/app/blog/post/_component/editor/ImageInput';
 
 export default function BlogPostEditor({

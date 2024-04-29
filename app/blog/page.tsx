@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: "Jiyoon's Blog",
 };
 
-export const getPageInfo = async (): Promise<Pagination> => {
+const getPageInfo = async (): Promise<Pagination> => {
     const {meta} = await getPaginatedPost(1,1);
     return meta.pagination;
 }

@@ -1,5 +1,3 @@
-import { AxiosError, AxiosResponse } from 'axios';
-
 export interface ImageFormat {
   ext: string;
   url: string;
@@ -32,11 +30,6 @@ export interface PaginationReturnMap<T> {
   meta: MetaPagination;
 }
 
-export interface ErrorMap {}
-
-export type ErrorResponse = AxiosError<ErrorMap>;
-
-export type PaginationResponse<T> = AxiosResponse<PaginationReturnMap<T>>;
 
 export type BaseResponse<T> =  {
   status: number;

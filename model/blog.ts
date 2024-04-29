@@ -31,3 +31,8 @@ export interface PostItemRequest {
 export interface PostDetail extends PostItemInfo {
   content: string;
 }
+
+export interface ImageResponse {
+  secure_url: string,
+  url: string
+}

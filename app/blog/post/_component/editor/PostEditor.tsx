@@ -4,7 +4,7 @@ import React from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { FieldErrors } from 'react-hook-form';
 import { PostDetail } from '@/model/blog';
-import axios from 'axios';
+import {uploadCloudImage} from "@/lib/api/blog";
 
 interface PostEditorProps {
   onChange: (e: string) => void;
@@ -32,10 +32,7 @@ export default function PostEditor({
     );
 
     try {
-      const { data } = await axios.post(
-        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload`,
-        formData,
-      );
+      const data = await uploadCloudImage(formData);
       return data.secure_url ?? data.url;
     } catch (e) {
       return 'Image upload failed: ' + e;
@@ -50,6 +47,7 @@ export default function PostEditor({
           toolbar,
           plugins,
           images_upload_handler: imageUpload,
+          height: 800
         }}
         initialValue={content}
         disabled={disabled}
