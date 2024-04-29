@@ -1,19 +1,36 @@
-import { PaginationResponse, BaseResponse } from '@/model';
+import {PaginationResponse, BaseResponse, PaginationReturnMap} from '@/model';
 import client from '@/lib/client';
 import { ProjectItemInfo } from '@/model/project';
+import {PostItemInfo} from "@/model/blog";
 
-export const getProjects = (): Promise<
-  PaginationResponse<ProjectItemInfo[]>
-> => {
-  return client.get(
-    `/api/projects?sort[0]=createdAt:desc&populate[0]=image&populate[1]=skills&populate[2]=projectIcon`,
-  );
+export const getProjects = async (): Promise<PaginationReturnMap<ProjectItemInfo[]>> => {
+  try {
+    const response = await client(
+        `/api/projects?sort[0]=createdAt:desc&populate[0]=image&populate[1]=skills&populate[2]=projectIcon`,
+        {
+          method: 'GET',
+        }
+    );
+
+    return response as unknown as PaginationReturnMap<ProjectItemInfo[]>;
+  } catch (e) {
+    return Promise.reject(e);
+  }
 };
 
-export const getProject = (
+export const getProject = async (
   slug: string,
 ): Promise<BaseResponse<ProjectItemInfo>> => {
-  return client.get(
-    `/api/projects/${slug}?populate[0]=image&populate[1]=skills&populate[2]=projectIcon&populate[3]=features`,
-  );
+  try {
+    const response = await client(
+        `/api/projects/${slug}?populate[0]=image&populate[1]=skills&populate[2]=projectIcon&populate[3]=features`,
+        {
+          method: 'GET',
+        }
+    );
+
+    return response as unknown as BaseResponse<ProjectItemInfo>;
+  } catch (e) {
+    return Promise.reject(e);
+  }
 };
