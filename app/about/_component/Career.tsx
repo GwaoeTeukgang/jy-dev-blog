@@ -5,7 +5,7 @@ import { getCareers } from '@/lib/api/career';
 const getCareerList = async () => {
   try {
     const { data } = await getCareers();
-    return data.data;
+    return data;
   } catch (e) {
     throw new Error('경력 정보를 불러오는데 실패했습니다.\n' + e);
   }

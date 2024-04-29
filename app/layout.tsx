@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/app/_component/header/Header';
 import { homeLayoutContainer } from '@/app/home.style';
 import Footer from '@/app/_component/Footer';
+import {HOST_URL} from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: 'Juniverse Dev',
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Juniverse Dev',
     description: 'Juniverse Dev | dev blog & portfolio',
+    url: HOST_URL,
     images: [
       {
         url: '/jy-logo.png',
@@ -28,6 +30,8 @@ export const metadata: Metadata = {
         alt: 'Juniverse Dev',
       },
     ],
+    locale: 'ko_KR',
+    type: 'website',
   },
 };
 

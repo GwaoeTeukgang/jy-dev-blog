@@ -10,12 +10,14 @@ interface PostEditorProps {
   onChange: (e: string) => void;
   disabled: boolean;
   errors: FieldErrors<PostDetail>;
+  content?: string;
 }
 
 export default function PostEditor({
   onChange,
   disabled,
   errors,
+  content
 }: PostEditorProps) {
   const plugins = 'code image lists';
   const toolbar =
@@ -49,7 +51,7 @@ export default function PostEditor({
           plugins,
           images_upload_handler: imageUpload,
         }}
-        initialValue=""
+        initialValue={content}
         disabled={disabled}
         onEditorChange={(e) => onChange(e)}
       />

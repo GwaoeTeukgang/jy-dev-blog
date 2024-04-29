@@ -7,7 +7,7 @@ import TagInputField from '@/app/blog/post/_component/editor/TagInputField';
 import { useEffect, useState } from 'react';
 import PostEditor from '@/app/blog/post/_component/editor/PostEditor';
 import AdminPopup from '@/app/blog/post/_component/editor/AdminPopup';
-import { createNewPost, uploadImage } from '@/lib/api/blog';
+import {createNewPost, getTags, uploadImage} from '@/lib/api/blog';
 import ImageInput from '@/app/blog/post/_component/editor/ImageInput';
 
 export default function BlogPostEditor({
@@ -34,7 +34,7 @@ export default function BlogPostEditor({
     try {
       const request: PostItemRequest = { ...postData, thumbnail: null };
       if (image) {
-        const { data } = await uploadImage(image);
+        const  data = await uploadImage(image);
         request.thumbnail = { id: data[0].id };
       }
 
@@ -54,6 +54,7 @@ export default function BlogPostEditor({
       >
         <form onSubmit={handleSubmit((data) => onSubmit(data))}>
           <ImageInput
+              src={postData?.thumbnail?.url}
             fieldName={'thumbnail'}
             disabled={disabled}
             onChange={(content) => setImage(content)}
@@ -86,6 +87,7 @@ export default function BlogPostEditor({
             control={control}
             render={({ field }) => (
               <TagInputField
+                selectedTags={postData?.tags}
                 disabled={disabled}
                 onChange={(content) => field.onChange(content)}
               />
@@ -98,7 +100,7 @@ export default function BlogPostEditor({
               required: true,
             }}
             render={({ field }) => (
-              <PostEditor
+              <PostEditor content={postData?.content}
                 onChange={(content) => field.onChange(content)}
                 errors={errors}
                 disabled={disabled}

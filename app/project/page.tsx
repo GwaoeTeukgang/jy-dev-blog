@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const getProjectList = async () => {
   try {
     const { data } = await getProjects();
-    return data.data;
+    return data;
   } catch (e) {
     throw new Error('프로젝트 리스트를 불러오는데 실패했습니다.\n' + e);
   }

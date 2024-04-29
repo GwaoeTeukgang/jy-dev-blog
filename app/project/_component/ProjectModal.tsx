@@ -10,7 +10,7 @@ import Image from 'next/image';
 const getProjectDetail = async (slug: string) => {
   try {
     const { data } = await getProject(slug);
-    return data.data;
+    return data;
   } catch (e) {
     throw new Error('프로젝트 정보를 불러오는데 실패했습니다.\n' + e);
   }

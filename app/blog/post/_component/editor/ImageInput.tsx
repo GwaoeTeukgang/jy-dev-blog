@@ -5,6 +5,7 @@ interface ImageInputProps {
   fieldName: keyof PostDetail;
   disabled: boolean;
   onChange: (e: FormData) => void;
+  src?: string;
 }
 export default function ImageInput(props: ImageInputProps) {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -24,8 +25,10 @@ export default function ImageInput(props: ImageInputProps) {
     <>
       <label htmlFor="imageInput" className={''}>
         <Image
-          src={imageUrl ?? ''}
+          src={imageUrl ?? props.src ?? ''}
           alt={''}
+          width={'1000'}
+          height={'300'}
           className={'w-full h-60 object-cover bg-gray-400'}
         />
       </label>

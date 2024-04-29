@@ -2,20 +2,28 @@
 import { PostIndex } from '@/app/blog/post/[slug]/_model';
 import * as style from '@/app/blog/post/[slug]/_component/indexNav.style';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { useLayoutEffect, useState } from 'react';
+import {useEffect, useLayoutEffect, useState} from 'react';
 
 export default function IndexNav({ indexList }: { indexList: PostIndex[] }) {
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [selected, setSelected] = useState<string>('');
+  const [element, setElement] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    setElement(document.getElementById('content-container'));
+  }, []);
+
+  if (!element) {
+    return <></>;
+  }
 
   const onMove = (indexInfo: PostIndex) => {
-    const container = document.getElementById('content-container');
     const { level, id } = indexInfo;
-    if (!container) {
+    if (!element) {
       return;
     }
 
-    const target = container.querySelectorAll(`h${level}`)[id];
+    const target = element.querySelectorAll(`h${level}`)[id];
     target.scrollIntoView({ behavior: 'smooth' });
     setSelected(getId(id, level));
   };
