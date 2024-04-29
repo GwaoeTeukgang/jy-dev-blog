@@ -1,6 +1,18 @@
-import { PaginationResponse } from '@/model';
+import {PaginationReturnMap} from '@/model';
 import client from '@/lib/client';
 
-export const getCareers = (): Promise<PaginationResponse<CareerInfo[]>> => {
-  return client.get('/api/careers');
+export const getCareers = async (): Promise<PaginationReturnMap<CareerInfo[]>> => {
+    try {
+        const response = await client(
+            `/api/careers`,
+            {
+                method: 'GET',
+            }
+        );
+
+        return response as unknown as PaginationReturnMap<CareerInfo[]>;
+
+    } catch (e) {
+        return Promise.reject(e);
+    }
 };
