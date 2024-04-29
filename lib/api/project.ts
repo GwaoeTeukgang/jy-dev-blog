@@ -1,7 +1,6 @@
-import {PaginationResponse, BaseResponse, PaginationReturnMap} from '@/model';
+import {BaseResponse, PaginationReturnMap} from '@/model';
 import client from '@/lib/client';
-import { ProjectItemInfo } from '@/model/project';
-import {PostItemInfo} from "@/model/blog";
+import {ProjectItemInfo} from '@/model/project';
 
 export const getProjects = async (): Promise<PaginationReturnMap<ProjectItemInfo[]>> => {
   try {
