@@ -3,7 +3,7 @@ import { tv } from 'tailwind-variants';
 export const indexNavBox = tv({
   base: [
     'fixed',
-    'max-h-dvh',
+    'max-h-[40dvh]',
     'w-60',
     'right-11',
     'max-xl:right-0',
@@ -27,8 +27,8 @@ export const indexItem = tv({
   variants: {
     level: {
       1: ['font-black', 'text-2xl'],
-      2: ['font-extrabold', 'text-lg'],
-      3: ['font-bold'],
+      2: ['font-extrabold', 'text-lg', 'pl-3'],
+      3: ['font-bold', 'pl-6'],
     },
     selected: {
       true: [
