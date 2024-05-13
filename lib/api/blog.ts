@@ -29,7 +29,7 @@ export const getPostDetail = async (slug: string): Promise<ReturnMap<PostDetail>
             {
                 method: 'GET',
                 next: {
-                    revalidate: 3600 * 24
+                    revalidate: 3600
                 }
             }
         );
