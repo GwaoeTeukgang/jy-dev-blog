@@ -15,6 +15,7 @@ export interface PostItemInfo {
   tags: Tag[];
   updatedAt?: string;
   nextPage?: number | null;
+  views: number;
 }
 
 export interface PostItemRequest {

@@ -72,6 +72,9 @@ export default async function Post({ params }: Props) {
           <TagItem label={tag.tagLabel} key={tag.id} />
         ))}
       </div>
+        <div className={'w-full text-center text-gray-400'}>
+           {postData.views} views
+        </div>
         <PostContent content={postData.content}/>
       <Comment slug={postData.slug} title={postData.title}/>
       <IndexNav indexList={getIndex()} />
