@@ -50,3 +50,19 @@ pnpm dev
 bun install
 bun dev
 ```
+
+---
+## Resource
+### Font
+* LeferiPoint: http://leferitype.com/
+* SUIT: https://sun.fo/suit/
+
+
+### Icons
+* SVG Repo: https://www.svgrepo.com/svg/354113/nextjs-icon
+* Iconduct: https://www.iconduck.com/
+* FlatIcon: https://www.flaticon.com/
+
+### Model
+* Desktop Table: https://free3d.com/3d-model/--147007.html
+
