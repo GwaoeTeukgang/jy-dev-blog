@@ -12,6 +12,8 @@ export default tv({
       'hover:scale-105',
       'hover:-translate-y-4',
       'transition-all',
+      'flex',
+      'flex-col'
     ],
     thumbnail: [
       'w-full',
@@ -27,7 +29,7 @@ export default tv({
     ],
     title: ['text-lg', 'font-bold'],
     summary: ['truncate', 'my-2', 'pr-2'],
-    footer: ['flex', 'mt-4', 'text-sm', 'justify-between'],
+    footer: ['flex', 'mt-4', 'text-sm', 'justify-between', 'mt-auto'],
     bookmark: ['dark:invert'],
     date: ['text-xs'],
   },

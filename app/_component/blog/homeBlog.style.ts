@@ -2,7 +2,7 @@ import { tv } from 'tailwind-variants';
 
 export const container = tv({
   base: [
-    'min-h-64',
+    'h-full',
     'flex',
     'rounded-lg',
     'overflow-hidden',
