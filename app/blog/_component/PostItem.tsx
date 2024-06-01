@@ -38,7 +38,7 @@ export default function PostItem(item: PostItemInfo) {
         title={item.title}
         className={thumbnail()}
       />
-      <div style={{ padding: '12px' }}>
+      <div className={'p-[12px] flex-1 flex flex-col'}>
         <p className={title()}>{item.title}</p>
         <p className={summary()}>{item.summary}</p>
         <div className={'flex flex-wrap p-2 gap-1'}>
@@ -47,24 +47,28 @@ export default function PostItem(item: PostItemInfo) {
           ))}
         </div>
         <div className={footer()}>
-          <p className={date()}>{item.createdAt}</p>
-          <button onClick={toggleBookmark} className={bookmark()}>
-            {isMarked ? (
-              <Image
-                src={BookmarkOn}
-                alt={'Bookmark On'}
-                width={20}
-                height={20}
-              />
-            ) : (
-              <Image
-                src={BookmarkOff}
-                alt={'Bookmark Off'}
-                width={20}
-                height={20}
-              />
-            )}
-          </button>
+            <p className={date()}>{item.createdAt}</p>
+            <div className={'flex gap-1'}>
+                <p>{item.views} views</p>
+                <button onClick={toggleBookmark} className={bookmark()}>
+                    {isMarked ? (
+                        <Image
+                            src={BookmarkOn}
+                            alt={'Bookmark On'}
+                            width={20}
+                            height={20}
+                        />
+                    ) : (
+                        <Image
+                            src={BookmarkOff}
+                            alt={'Bookmark Off'}
+                            width={20}
+                            height={20}
+                        />
+                    )}
+                </button>
+            </div>
+
         </div>
       </div>
     </div>
