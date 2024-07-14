@@ -19,9 +19,9 @@ export default function PostEditor({
   errors,
   content
 }: PostEditorProps) {
-  const plugins = 'code image lists';
+  const plugins = 'code image lists table codesample';
   const toolbar =
-    'undo redo | styles | bold italic | numlist bullist | alignleft aligncenter alignright alignjustify | outdent indent | code | image';
+    'undo redo | styles | bold italic | numlist bullist | alignleft aligncenter alignright alignjustify | outdent indent | code | image | table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol codesample';
 
   const imageUpload = async (blobInfo: any, progress: any) => {
     const formData = new FormData();

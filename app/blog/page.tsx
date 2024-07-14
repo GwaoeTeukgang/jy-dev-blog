@@ -6,7 +6,7 @@ import RQProvider from "@/app/_provider/RQProvider";
 import {getPaginatedPost} from "@/lib/api/blog";
 import {Pagination} from "@/model";
 export const metadata: Metadata = {
-    title: 'Juniverse Dev - Blog',
+    title: 'Blog',
     description: "Jiyoon's Blog",
 };
 

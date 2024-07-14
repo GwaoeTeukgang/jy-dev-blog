@@ -5,7 +5,7 @@ import * as style from '@/app/project/project.style';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Juniverse Dev - Project',
+  title: 'Project',
   description: "Jiyoon's Project",
 };
 const getProjectList = async () => {
@@ -16,6 +16,7 @@ const getProjectList = async () => {
     throw new Error('프로젝트 리스트를 불러오는데 실패했습니다.\n' + e);
   }
 };
+
 export default async function Project() {
   const projectList = await getProjectList();
 

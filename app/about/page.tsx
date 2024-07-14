@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 import Career from '@/app/about/_component/Career';
 
 export const metadata: Metadata = {
-  title: 'Juniverse Dev - About',
+  title: 'About',
   description: "Jiyoon's Profile",
 };
 

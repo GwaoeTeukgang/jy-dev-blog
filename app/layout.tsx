@@ -7,7 +7,10 @@ import Footer from '@/app/_component/Footer';
 import {HOST_URL} from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: 'Juniverse Dev',
+  title: {
+    default: 'Juniverse Dev',
+    template: `Juniverse Dev - %s`,
+  },
   description: 'Juniverse Dev | dev blog & portfolio',
   icons: {
     icon: '/jy-logo.png',
