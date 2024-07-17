@@ -7,6 +7,9 @@ export const getCareers = async (): Promise<PaginationReturnMap<CareerInfo[]>> =
             `/api/careers`,
             {
                 method: 'GET',
+                next: {
+                    revalidate: 3600 * 24
+                }
             }
         );
 

@@ -29,7 +29,7 @@ export const getPostDetail = async (slug: string): Promise<ReturnMap<PostDetail>
             {
                 method: 'GET',
                 next: {
-                    revalidate: 3600
+                    revalidate: 60
                 }
             }
         );
@@ -46,6 +46,7 @@ export const getTags = async (): Promise<PaginationReturnMap<Tag[]>> => {
             '/api/tags',
             {
                 method: 'GET',
+                cache: 'no-cache'
             }
         );
 

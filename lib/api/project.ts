@@ -9,7 +9,7 @@ export const getProjects = async (): Promise<PaginationReturnMap<ProjectItemInfo
             {
                 method: 'GET',
                 next: {
-                    revalidate: 3600 * 24
+                    revalidate: 3600
                 }
             }
         );
@@ -29,7 +29,7 @@ export const getProject = async (
             {
                 method: 'GET',
                 next: {
-                    revalidate: 3600 * 24
+                    revalidate: 3600
                 }
             }
         );
