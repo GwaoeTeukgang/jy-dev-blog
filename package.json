@@ -11,6 +11,7 @@
     "formatting": "prettier --write ."
   },
   "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.8",
     "@react-three/drei": "^9.106.0",
     "@react-three/fiber": "^8.16.7",
     "@tanstack/react-query": "^5.40.0",

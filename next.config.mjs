@@ -1,3 +1,4 @@
+import withPWAInit from '@ducanh2912/next-pwa';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -13,4 +14,8 @@ const nextConfig = {
   reactStrictMode: false,
 };
 
-export default nextConfig;
+const withPwa = withPWAInit({
+  dest: 'public',
+})
+
+export default withPwa(nextConfig);

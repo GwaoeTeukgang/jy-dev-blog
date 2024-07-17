@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
-import { ImageResponse } from 'next/og'
 import './globals.css';
 import Header from '@/app/_component/header/Header';
 import { homeLayoutContainer } from '@/app/home.style';
 import Footer from '@/app/_component/Footer';
-import {HOST_URL} from "@/lib/constants";
+import { HOST_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: {
@@ -36,6 +35,10 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     type: 'website',
   },
+};
+
+export const viewport = {
+  themeColor: 'white'
 };
 
 export default function RootLayout({
