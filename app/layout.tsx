@@ -4,6 +4,7 @@ import Header from '@/app/_component/header/Header';
 import { homeLayoutContainer } from '@/app/home.style';
 import Footer from '@/app/_component/Footer';
 import { HOST_URL } from '@/lib/constants';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: {
@@ -53,6 +54,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <div id={'portal-container'}></div>
+        <Analytics/>
       </body>
     </html>
   );
