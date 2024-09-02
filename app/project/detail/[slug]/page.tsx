@@ -1,7 +1,15 @@
 import ProjectModal from '@/app/project/_component/ProjectModal';
 import { Props } from '@/model';
 import type { Metadata } from 'next';
-import { getProject } from '@/lib/api/project';
+import { getProject, getProjects } from '@/lib/api/project';
+
+export async function generateStaticParams() {
+  const {data} = await getProjects();
+  
+  return data.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { data } = await getProject(params.slug);

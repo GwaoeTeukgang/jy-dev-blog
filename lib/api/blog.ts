@@ -12,7 +12,6 @@ export const getPaginatedPost = async (
             `/api/posts?sort[0]=${sort}:desc&populate[0]=thumbnail&populate[1]=tags&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
             {
                 method: 'GET',
-                cache: 'no-cache'
             }
         );
 
@@ -28,9 +27,6 @@ export const getPostDetail = async (slug: string): Promise<ReturnMap<PostDetail>
             `/api/posts/${slug}?populate[0]=thumbnail&populate[1]=tags`,
             {
                 method: 'GET',
-                next: {
-                    revalidate: 60
-                }
             }
         );
 
