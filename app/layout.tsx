@@ -48,11 +48,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" >
       <body className={homeLayoutContainer()}>
-        <Header/>
+        {/*<Header/>*/}
         {children}
-        <Footer />
+        {/*<Footer />*/}
         <div id={'portal-container'}></div>
         <Analytics/>
       </body>

@@ -47,6 +47,7 @@ const config: Config = {
       },
       fontFamily: {
         bold: ['SUIT-Regular', 'sans-serif'],
+        SBAggroB: ['SBAggroB', 'sans-serif']
       },
     },
   },
