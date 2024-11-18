@@ -29,7 +29,7 @@ export default function AboutMe() {
         };
     }, []);
 
-    return <section className={'flex flex-col gap-4 p-40'}>
+    return <section className={'flex flex-col gap-4 p-40 snap-start'}>
         <div className={'threshold-100 w-full h-48 bg-red-100 opacity-0'}>
 
         </div>

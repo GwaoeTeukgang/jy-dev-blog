@@ -53,8 +53,10 @@ const Model = () => {
             mixer.current.update(delta);
         }
 
-        const windowH = window.innerHeight;
-        const targetPos = Math.round(window.scrollY / windowH);
+        const v2Main = document.getElementById('v2-main') as HTMLElement;
+        const scrollHeight = v2Main.scrollHeight;
+        const scrollTop = v2Main.scrollTop;
+        const targetPos = Math.round(scrollTop / scrollHeight);
         if (group.current) {
             state.camera.lookAt(group.current?.position)
             state.camera.position.lerp(CAMERA_POS[targetPos], 0.02);

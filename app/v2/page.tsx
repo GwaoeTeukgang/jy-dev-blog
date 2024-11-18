@@ -1,14 +1,14 @@
 import ModelCanvas from "@/app/_component/scene/SceneV2";
 import Title from "@/app/_component/Title";
 import AboutMe from "@/app/v2/_component/AboutMe";
-import SkillChart from "@/app/v2/_component/SkillChart";
 import React from "react";
+import StackCanvas from "@/app/v2/_component/_stack/StackCanvas";
 
 export default function PageV2() {
-    return <main className={'relative w-[100dvw] h-[500dvh] overflow-scroll scroll-smooth'}>
+    return <main id={'v2-main'} className={'relative w-dvw h-dvh overflow-scroll snap-y snap-mandatory'}>
         <ModelCanvas/>
         <Title/>
-        <SkillChart />
+        <StackCanvas/>
         <AboutMe/>
     </main>
 }
