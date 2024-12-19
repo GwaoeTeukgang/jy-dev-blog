@@ -24,10 +24,10 @@ const HEADER_NAVIGATION: Navigation[] = [
     path: 'project',
     name: 'Project',
   },
-  // {
-  //   path: 'blog',
-  //   name: 'Blog',
-  // },
+  {
+    path: 'blog',
+    name: 'Blog',
+  },
 ];
 
 export default function Header() {
